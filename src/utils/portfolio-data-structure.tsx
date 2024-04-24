@@ -1,0 +1,71 @@
+export const getDataStructure = (cloudinaryResponse: { resources: [] }) => {
+  const allCloudinaryData = cloudinaryResponse.resources;
+  const portfolioData = {};
+
+  // Typescript interface
+
+  interface DataObject {
+    public_id: string;
+    context: {
+      custom: {
+        alt: string;
+        caption: string;
+      };
+    };
+    url: string;
+    folder: string;
+  }
+
+  allCloudinaryData.forEach((item: DataObject) => {
+    // Destructur object and create variables from some data
+
+    const { public_id, context, url, folder } = item;
+    // Extract the file name from public_id
+
+    const fileName = public_id.split("/").pop();
+
+    // Extract metadata if available
+
+    let description = "";
+    let heading = "";
+
+    if (item.context) {
+      const metadata = item.context.custom;
+      const { alt, caption } = metadata;
+      description = alt;
+      heading = caption;
+    }
+
+    // Extract the folders hierarchy
+
+    let folders = folder.split("/");
+
+    // Lowercase folders name
+    folders = folders.map((item) => item.toLowerCase());
+
+    // Remove immagina and portfolio
+    folders.splice(0, 2);
+
+    // Push all the data inside "portfolioData"
+
+    let currentLevel: any = portfolioData;
+
+    folders.forEach((folderName: string, index: number) => {
+      currentLevel[folderName] = currentLevel[folderName] || {};
+
+      if (index === folders.length - 1) {
+        currentLevel[folderName].pictures = currentLevel[folderName].pictures || [];
+        currentLevel[folderName].pictures.push({
+          fileName,
+          url,
+          heading,
+          description,
+          public_id,
+        });
+      }
+      currentLevel = currentLevel[folderName];
+    });
+  });
+
+  return portfolioData;
+};

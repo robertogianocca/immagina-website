@@ -1,0 +1,82 @@
+"use client";
+import Image from "next/image";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
+import { useEffect } from "react";
+import { useWillChange } from "framer-motion";
+// import { CldImage } from "next-cloudinary";
+// import { buildUrl } from "cloudinary-build-url";
+
+function PortfolioGallery({ portfolioData }: any) {
+  const [currentIndex, setIndex] = useState(0);
+  const pictures = portfolioData.pictures;
+  // const arrayBlurred = [];
+
+  // pictures.forEach((item, index) => {
+  //   arrayBlurred.push(
+  //     buildUrl(item.public_id, {
+  //       cloud: {
+  //         cloudName: "immagina",
+  //       },
+  //       transformations: {
+  //         quality: 1,
+  //         effect: "blur:2000",
+  //         width: 100,
+  //         height: 100,
+  //       },
+  //     })
+  //   );
+  // });
+  // console.log(arrayBlurred[0]);
+
+  function nextImage() {
+    setIndex(currentIndex + 1);
+  }
+  const mappedImages = pictures.map((item, index) => {
+    const myClass = {
+      backgroundColor: "red",
+      // backgroundImage: "url()"
+      // backgroundImage: `url(${arrayBlurred[0]})`,
+      backgroundSize: "cover",
+      // backgroundRepeat: "no-repeat",
+      // backgroundPosition: "center",
+    };
+    const isActive = index === currentIndex;
+    function testFunction() {
+      return <h1>TEST 2222</h1>;
+    }
+    return (
+      <motion.div
+        key={"dsdw" + index}
+        className={`h-screen flex border-green-600 border-4 absolute top-0 p-20 ${
+          isActive ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <Image
+          // placeholder="blur"
+          style={myClass}
+          // blurDataURL={arrayBlurred[index]}
+          priority={true}
+          className="border-4 border-red-800"
+          width={1000}
+          height={700}
+          src={item.url}
+          alt=""
+          onLoad={testFunction}
+        />
+      </motion.div>
+    );
+  });
+
+  return (
+    <div>
+      <button className="bg-green-700 ml-[1400px]" onClick={nextImage}>
+        <h1 className="text-xl">NEXT</h1>
+      </button>
+      {mappedImages}
+    </div>
+  );
+}
+
+export default PortfolioGallery;

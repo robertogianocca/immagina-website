@@ -1,23 +1,38 @@
+// HOMEPAGE
+
 import NavigationBar from "@/components/NavigationBar/NavigationBar";
-import Image from "next/image";
-import img1 from "/public/images/samples/01.jpg";
-import img2 from "/public/images/samples/02.jpg";
-import img3 from "/public/images/samples/03.jpg";
-import img4 from "/public/images/samples/04.jpg";
-import img5 from "/public/images/samples/05.jpg";
-import img6 from "/public/images/samples/06.jpg";
-const Home = () => {
+import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/PortfolioCategoryCard";
+import { revalidatePath } from "next/cache";
+import { getDataStructure } from "@/utils/portfolio-data-structure";
+
+const Home = async () => {
+  const response = await fetch(
+    `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_ID}/resources/image/?max_results=500&metadata=true&context=true`,
+    {
+      headers: {
+        Authorization: `Basic ${Buffer.from(
+          `${process.env.CLOUDINARY_API_KEY}:${process.env.CLOUDINARY_API_SECRET}`
+        ).toString("base64")}`,
+      },
+    }
+  );
+
+  const cloudinaryResponse = await response.json();
+  // revalidatePath("/");
+
+  console.log(cloudinaryResponse);
+  // const portfolioData = getDataStructure(cloudinaryResponse);
+
+  // const categoryList = Object.keys(portfolioData);
+
+  // let mappedCategories = categoryList.map((item, index) => (
+  //   <PortfolioCategoryCard key={index} item={item} portfolioData={portfolioData} />
+  // ));
+  // console.log(portfolioData.drone.pictures);
   return (
     <main className="">
       <NavigationBar />
-      <div className="grid grid-cols-2 lg:grid-cols-4">
-        <Image src={img1} width={3000} height={2000} alt="portfolio images" />
-        <Image src={img2} width={3000} height={2000} alt="portfolio images" />
-        <Image src={img3} width={3000} height={2000} alt="portfolio images" />
-        <Image src={img4} width={3000} height={2000} alt="portfolio images" />
-        <Image src={img5} width={3000} height={2000} alt="portfolio images" />
-        <Image src={img6} width={3000} height={2000} alt="portfolio images" />
-      </div>
+      {/* <div className="grid grid-cols-2 lg:grid-cols-3">{mappedCategories}</div> */}
     </main>
   );
 };
