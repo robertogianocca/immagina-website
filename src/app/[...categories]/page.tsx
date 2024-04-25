@@ -19,15 +19,11 @@ const CategoriesPages = async () => {
 
   const cloudinaryResponse = await response.json();
   // revalidatePath("/");
-  // const portfolioData = getDataStructure(cloudinaryResponse);
-
-  // console.log(portfolioData);
-  // console.log(portfolioData);
+  const portfolioData = getDataStructure(cloudinaryResponse);
 
   return (
     <>
-      {/* <PortfolioContainer portfolioData={portfolioData} /> */}
-      <h1>portfolio categories page</h1>
+      <PortfolioContainer portfolioData={portfolioData} />
     </>
   );
 };

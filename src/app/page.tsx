@@ -20,19 +20,18 @@ const Home = async () => {
   const cloudinaryResponse = await response.json();
   // revalidatePath("/");
 
-  console.log(cloudinaryResponse);
-  // const portfolioData = getDataStructure(cloudinaryResponse);
+  const portfolioData = getDataStructure(cloudinaryResponse);
 
-  // const categoryList = Object.keys(portfolioData);
+  const categoryList = Object.keys(portfolioData);
 
-  // let mappedCategories = categoryList.map((item, index) => (
-  //   <PortfolioCategoryCard key={index} item={item} portfolioData={portfolioData} />
-  // ));
+  let mappedCategories = categoryList.map((item, index) => (
+    <PortfolioCategoryCard key={index} item={item} portfolioData={portfolioData} />
+  ));
   // console.log(portfolioData.drone.pictures);
   return (
     <main className="">
       <NavigationBar />
-      {/* <div className="grid grid-cols-2 lg:grid-cols-3">{mappedCategories}</div> */}
+      <div className="grid grid-cols-2 lg:grid-cols-3">{mappedCategories}</div>
     </main>
   );
 };
