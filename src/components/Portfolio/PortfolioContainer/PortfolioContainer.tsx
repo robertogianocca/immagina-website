@@ -38,11 +38,13 @@ const PortfolioContainer = ({ portfolioData }: any) => {
     />
   ));
 
+  console.log(currentItem);
+
   return (
     <>
       {categoryList[0] == "pictures" && categoryList.length == 1 ? (
         <>
-          <PortfolioGallery picturesList={currentItem.pictures} />
+          <PortfolioGallery title={categoryList} picturesList={currentItem.pictures} />
         </>
       ) : (
         <>
