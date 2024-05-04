@@ -4,6 +4,7 @@
 import Link from "next/link";
 import NavigationBar from "@/components/NavigationBar/NavigationBar";
 import PortfolioGallery from "../PortfolioGallery/PortfolioGallery";
+import PortfolioGalleryMobile from "../PortfolioGalleryMobile/PortfolioGalleryMobile";
 import PortfolioSubCategoryCard from "@/components/Portfolio/PortfolioSubCategoryCard/PortfolioSubCategoryCard";
 import { useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
@@ -38,11 +39,39 @@ const PortfolioContainer = ({ portfolioData }: any) => {
     />
   ));
 
-  console.log(currentItem);
+  // console.log(currentItem);
 
+  const displayGallery = () => {
+    if (window.innerWidth < 1024) {
+      return <PortfolioGalleryMobile title={categoryList} picturesList={currentItem.pictures} />;
+    }
+    if (categoryList[0] === "pictures" && categoryList.length === 1) {
+      return <PortfolioGallery title={categoryList} picturesList={currentItem.pictures} />;
+    } else {
+      return (
+        <>
+          <NavigationBar />
+          {mappedItem}
+        </>
+      );
+    }
+  };
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <>
-      {categoryList[0] == "pictures" && categoryList.length == 1 ? (
+      {/* {categoryList[0] == "pictures" && categoryList.length == 1 ? (
         <>
           <PortfolioGallery title={categoryList} picturesList={currentItem.pictures} />
         </>
@@ -51,7 +80,8 @@ const PortfolioContainer = ({ portfolioData }: any) => {
           <NavigationBar />
           {mappedItem}
         </>
-      )}
+      )} */}
+      {displayGallery()}
     </>
   );
 };
