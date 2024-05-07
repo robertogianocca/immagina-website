@@ -115,9 +115,9 @@ const PortfolioGallerySideBar = ({ picturesList, setIndex, currentIndex }) => {
       <div className="bg-orange-500 h-[200px]">
         <h1 className="text-xl">Slava snowshow</h1>
         <p className="text-xs">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+          {`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
           been the industry's standard dummy text ever since the 1500s, when an unknown printer took
-          a galley of type and scrambled it to make a type specimen book.
+          a galley of type and scrambled it to make a type specimen book.`}
         </p>
       </div>
       {/* ------ ARROWS AND INDEX ------ */}
