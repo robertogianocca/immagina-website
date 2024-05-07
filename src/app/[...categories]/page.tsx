@@ -4,6 +4,7 @@ import { getDataStructure } from "@/utils/portfolio-data-structure";
 import PortfolioContainer from "@/components/Portfolio/PortfolioContainer/PortfolioContainer";
 import { revalidatePath } from "next/cache";
 export const revalidate = 1;
+import { notFound } from "next/navigation";
 
 const CategoriesPages = async ({ params }) => {
   const response = await fetch(
@@ -21,7 +22,6 @@ const CategoriesPages = async ({ params }) => {
   // revalidatePath("/");
   const portfolioData = getDataStructure(cloudinaryResponse);
   const categoriesFromPath = params.categories;
-  // console.log(test);
 
   return (
     <>
