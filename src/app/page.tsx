@@ -24,6 +24,8 @@ const Home = async () => {
 
   const categoryList = Object.keys(portfolioData);
 
+  console.log(categoryList);
+
   let mappedCategories = categoryList.map((item, index) => (
     <PortfolioCategoryCard key={index} item={item} portfolioData={portfolioData} />
   ));
@@ -31,7 +33,7 @@ const Home = async () => {
   return (
     <main className="">
       <NavigationBar />
-      <div className="grid grid-cols-2 lg:grid-cols-3">{mappedCategories}</div>
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 h-space p-20">{mappedCategories}</div>
     </main>
   );
 };

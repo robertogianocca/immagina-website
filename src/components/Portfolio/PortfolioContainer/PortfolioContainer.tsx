@@ -6,17 +6,18 @@ import NavigationBar from "@/components/NavigationBar/NavigationBar";
 import PortfolioGallery from "../PortfolioGallery/PortfolioGallery";
 import PortfolioGalleryMobile from "../PortfolioGalleryMobile/PortfolioGalleryMobile";
 import PortfolioSubCategoryCard from "@/components/Portfolio/PortfolioSubCategoryCard/PortfolioSubCategoryCard";
+import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/PortfolioCategoryCard";
 import { useState } from "react";
-import { useRouter, usePathname } from "next/navigation";
 import { useEffect } from "react";
 
-const PortfolioContainer = ({ portfolioData }: any) => {
-  const path = usePathname();
+const PortfolioContainer = ({ portfolioData, categoriesFromPath }: any) => {
+  // console.log(test);
+  // const path = usePathname();
   // When we have categories like "finzi-pasca"
-  const pathClean = path.replace("-", " ");
-  const categoriesFromPath = pathClean.split("/");
+  // const pathClean = path.replace("-", " ");
+  // const categoriesFromPath = pathClean.split("/");
   // Remove the empty string
-  categoriesFromPath.shift();
+  // categoriesFromPath.shift();
 
   // Function for pass through the portfolioObject
   const updatePortfolioData = (objPortfolio: any) => {
@@ -30,16 +31,39 @@ const PortfolioContainer = ({ portfolioData }: any) => {
 
   const categoryList = Object.keys(currentItem);
 
-  let mappedItem = categoryList.map((item, index) => (
-    <PortfolioSubCategoryCard
-      key={index}
-      item={item}
-      categoriesFromPath={categoriesFromPath}
-      currentItem={currentItem}
-    />
-  ));
-
-  // console.log(currentItem);
+  // let mappedItem = categoryList.map((item, index) => (
+  //   <PortfolioSubCategoryCard
+  //     key={index}
+  //     item={item}
+  //     categoriesFromPath={categoriesFromPath}
+  //     currentItem={currentItem}
+  //   />
+  // ));
+  let mappedItem;
+  if (categoryList.includes("pictures") == true && categoryList.length !== 1) {
+    let index = categoryList.indexOf("pictures");
+    if (index !== -1) {
+      categoryList.splice(index, 1);
+    }
+    // categoryList.pop();
+    mappedItem = categoryList.map((item, index) => (
+      <PortfolioSubCategoryCard
+        key={index}
+        item={item}
+        categoriesFromPath={categoriesFromPath}
+        currentItem={currentItem}
+      />
+    ));
+  } else {
+    mappedItem = categoryList.map((item, index) => (
+      <PortfolioSubCategoryCard
+        key={index}
+        item={item}
+        categoriesFromPath={categoriesFromPath}
+        currentItem={currentItem}
+      />
+    ));
+  }
 
   const displayGallery = () => {
     if (window.innerWidth < 1024) {
@@ -51,7 +75,9 @@ const PortfolioContainer = ({ portfolioData }: any) => {
       return (
         <>
           <NavigationBar />
-          {mappedItem}
+          <div className="grid grid-cols-2 lg:grid-cols-3 grid-rows-2 gap-4 h-space p-20">
+            {mappedItem}
+          </div>
         </>
       );
     }
@@ -69,21 +95,7 @@ const PortfolioContainer = ({ portfolioData }: any) => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  return (
-    <>
-      {/* {categoryList[0] == "pictures" && categoryList.length == 1 ? (
-        <>
-          <PortfolioGallery title={categoryList} picturesList={currentItem.pictures} />
-        </>
-      ) : (
-        <>
-          <NavigationBar />
-          {mappedItem}
-        </>
-      )} */}
-      {displayGallery()}
-    </>
-  );
+  return <>{displayGallery()}</>;
 };
 
 export default PortfolioContainer;

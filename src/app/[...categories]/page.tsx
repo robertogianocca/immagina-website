@@ -5,7 +5,7 @@ import PortfolioContainer from "@/components/Portfolio/PortfolioContainer/Portfo
 import { revalidatePath } from "next/cache";
 export const revalidate = 1;
 
-const CategoriesPages = async () => {
+const CategoriesPages = async ({ params }) => {
   const response = await fetch(
     `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_ID}/resources/image/?max_results=500&metadata=true&context=true`,
     {
@@ -20,10 +20,12 @@ const CategoriesPages = async () => {
   const cloudinaryResponse = await response.json();
   // revalidatePath("/");
   const portfolioData = getDataStructure(cloudinaryResponse);
+  const categoriesFromPath = params.categories;
+  // console.log(test);
 
   return (
     <>
-      <PortfolioContainer portfolioData={portfolioData} />
+      <PortfolioContainer portfolioData={portfolioData} categoriesFromPath={categoriesFromPath} />
     </>
   );
 };
