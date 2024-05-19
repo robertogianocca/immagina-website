@@ -12,6 +12,17 @@ import { useState } from "react";
 function PortfolioGallery({ picturesList }: any) {
   // pictureList type
 
+  function sortByFileNamePrefix(array) {
+    return array.sort((a, b) => {
+      const numA = parseInt(a.fileName.substring(0, 2), 10);
+      const numB = parseInt(b.fileName.substring(0, 2), 10);
+      return numA - numB;
+    });
+  }
+
+  picturesList = sortByFileNamePrefix(picturesList);
+  // console.log(sortedItems);
+
   interface Picture {
     description: string;
     fileName: string;
@@ -20,7 +31,7 @@ function PortfolioGallery({ picturesList }: any) {
     url: string;
   }
 
-  console.log(picturesList);
+  console.log(picturesList.sort());
   const [currentIndex, setIndex] = useState(0);
 
   const mappedImages = picturesList.map((item: Picture, index: number) => {

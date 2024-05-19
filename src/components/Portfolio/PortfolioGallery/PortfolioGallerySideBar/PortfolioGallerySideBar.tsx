@@ -68,27 +68,27 @@ const PortfolioGallerySideBar = ({ picturesList, setIndex, currentIndex }) => {
     // console.log(index);
   }
 
+  // <div
+  //   className={`${
+  //     currentIndex === index
+  //       ? "aspect-square  bg-white border-solid border-4"
+  //       : "aspect-square  bg-white"
+  //   }`}
+  //   key={index}
+  // >
   const mappedImagestwo = picturesList.map((item, index) => {
     return (
-      <div
-        className={`${
-          currentIndex === index
-            ? "aspect-square relative bg-white border-solid border-4"
-            : "aspect-square relative bg-white"
-        }`}
-        key={index}
-      >
+      <div className="relative aspect-square bg-blue-200" key={index}>
         <button onClick={() => selectThumbnail(index)}>
           <Image
             // key="index"
             src={item.url}
             alt=""
-            // width={20}
-            // height={20}
+            quality={1}
+            // className="aspect-square"
             fill
             // onLoad={onImageLoad}
             className="object-cover"
-            quality={80}
           />
         </button>
       </div>
@@ -136,7 +136,8 @@ const PortfolioGallerySideBar = ({ picturesList, setIndex, currentIndex }) => {
         <p className="text-sm">{picturesList[currentIndex].heading}</p>
         <p className="text-xs">{picturesList[currentIndex].description}</p>
       </div>
-      <div className="relative bg-red-500 w-full  grid grid-cols-4 gap-1">{mappedImagestwo}</div>
+      {/* ------ THUMBNAIL ------ */}
+      <div className=" bg-red-200   grid grid-cols-4 gap-1">{mappedImagestwo}</div>
       {/* ------ FULL SCREEN BUTTON ------ */}
       <div>
         <button onClick={handleFullscreen}>
