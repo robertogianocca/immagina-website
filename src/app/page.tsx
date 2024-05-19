@@ -5,7 +5,7 @@ import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/
 import { revalidatePath } from "next/cache";
 import { getDataStructure } from "@/utils/portfolio-data-structure";
 
-const Home = async () => {
+export default async function Home() {
   const response = await fetch(
     `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_ID}/resources/image/?max_results=500&metadata=true&context=true`,
     {
@@ -36,6 +36,4 @@ const Home = async () => {
       <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 h-space p-20">{mappedCategories}</div>
     </main>
   );
-};
-
-export default Home;
+}
