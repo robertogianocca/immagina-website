@@ -1,9 +1,9 @@
 // HOMEPAGE
 
-import NavigationBar from "@/components/NavigationBar/NavigationBar";
-import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/PortfolioCategoryCard";
 import { revalidatePath } from "next/cache";
 import { getDataStructure } from "@/utils/portfolio-data-structure";
+import NavigationBar from "@/components/NavigationBar/NavigationBar";
+import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/PortfolioCategoryCard";
 
 export default async function Home() {
   const response = await fetch(
@@ -24,12 +24,15 @@ export default async function Home() {
 
   const categoryList = Object.keys(portfolioData);
 
-  console.log(categoryList);
-
   let mappedCategories = categoryList.map((item, index) => (
-    <PortfolioCategoryCard key={index} item={item} portfolioData={portfolioData} />
+    <PortfolioCategoryCard
+      key={index}
+      title={item}
+      description={portfolioData[item].pictures[0].description}
+      cover={portfolioData[item].pictures[0].url}
+    />
   ));
-  // console.log(portfolioData.drone.pictures);
+
   return (
     <main className="">
       <NavigationBar />

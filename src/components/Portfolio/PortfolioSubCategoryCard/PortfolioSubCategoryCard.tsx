@@ -1,27 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
 interface PortfolioCategoryCardProps {
-  item: any;
+  title: string;
+  description: string;
   categoriesFromPath: any;
 }
 const PortfolioSubCategoryCard = ({
-  item,
+  title,
   // portfolioData
-  // currentItem,
+  // currenttitle,
   categoriesFromPath,
 }: // updatePortfolioData,
 PortfolioCategoryCardProps) => {
-  // const imageCover = currentItem.pictures[0].url;
+  // const imageCover = currenttitle.pictures[0].url;
   // When we have categories like "finzi pasca"
   return (
     <div className="bg-gray-400">
-      {/* <Link href={`/portfolio/${categoriesFromPath.join("/")}/${item.replace(" ", "-")}`}> */}
+      {/* <Link href={`/portfolio/${categoriesFromPath.join("/")}/${title.replace(" ", "-")}`}> */}
       <Link
-        href={`/${categoriesFromPath.join("/")}/${item.replace(" ", "-")}`}
-        // onClick={updatePortfolioData(currentItem)}
+        href={`/${categoriesFromPath.join("/")}/${title.replace(" ", "-")}`}
+        // onClick={updatePortfolioData(currenttitle)}
       >
         <div className="w-full h-full relative flex flex-col p-8 bg-zinc-600 hover:bg-red-900 text-slate-200">
-          <h1 className="text-4xl pb-4">{item}</h1>
+          <h1 className="text-4xl pb-4">{title}</h1>
           <p>
             {`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
           been the industry's standard dummy text ever since the 1500s, when an unknown printer took

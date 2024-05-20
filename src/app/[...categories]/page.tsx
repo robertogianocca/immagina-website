@@ -1,10 +1,9 @@
 // CATEGORIES PAGES
 
+import { revalidatePath } from "next/cache";
+import { notFound } from "next/navigation";
 import { getDataStructure } from "@/utils/portfolio-data-structure";
 import PortfolioContainer from "@/components/Portfolio/PortfolioContainer/PortfolioContainer";
-import { revalidatePath } from "next/cache";
-export const revalidate = 1;
-import { notFound } from "next/navigation";
 
 const CategoriesPages = async ({ params }) => {
   const response = await fetch(
