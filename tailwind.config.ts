@@ -8,13 +8,21 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      fontSize: {
+        xs: ["15px", "20px"],
+        sm: ["15px", "20px"],
+        base: ["20px", "25px"],
+        xl: ["10px", "20px"],
+        "2xl": ["30px", "40px"],
+        "3xl": ["40px", "10px"],
       },
-      height: ({ theme }) => ({
-        space: "calc(100vh - 60px)",
-      }),
+      colors: {
+        // custom-One: "red"
+      },
+      height: {
+        // space: "calc(100vh - 90px)",
+        space: "200px",
+      },
     },
   },
   plugins: [],

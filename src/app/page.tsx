@@ -2,8 +2,11 @@
 
 import { revalidatePath } from "next/cache";
 import { getDataStructure } from "@/utils/portfolio-data-structure";
+import Wrapper from "@/components/Wrapper/Wrapper";
 import NavigationBar from "@/components/NavigationBar/NavigationBar";
 import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/PortfolioCategoryCard";
+import H1 from "@/components/Fonts/H1";
+import P from "@/components/Fonts/p";
 
 export default async function Home() {
   const response = await fetch(
@@ -34,9 +37,25 @@ export default async function Home() {
   ));
 
   return (
-    <main className="">
+    <>
       <NavigationBar />
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 h-space p-20">{mappedCategories}</div>
-    </main>
+      <Wrapper>
+        <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8 h-space">
+          <div>
+            <H1>Portfolio</H1>
+          </div>
+          <div className="col-span-2 pb-16">
+            <P>
+              {`It is a long established fact that a reader will be distracted by the readable content of
+          a page when looking at its layout. The point of using Lorem Ipsum is that it has a
+          more-or-less normal distribution of letters, as opposed to using 'Content here, content
+          here', making it look like readable English. Many desktop publishing packages and web page
+          editors now use Lorem Ipsum as their default model text.`}
+            </P>
+          </div>
+          {mappedCategories}
+        </div>
+      </Wrapper>
+    </>
   );
 }

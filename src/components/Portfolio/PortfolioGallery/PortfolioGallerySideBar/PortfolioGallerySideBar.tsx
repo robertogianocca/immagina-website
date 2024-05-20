@@ -97,7 +97,7 @@ const PortfolioGallerySideBar = ({ picturesList, setIndex, currentIndex }) => {
   //   -------------------------------------------------------------------------
 
   return (
-    <div className="col-span-1 row-span-2 flex flex-col p-3 bg-green-200 ">
+    <div className="col-span-1 row-span-2 w-[20%] flex flex-col p-3 bg-green-200 ">
       {/* ------ PATH LINKS ------ */}
       <div className="bg-red-200">
         <div>
@@ -137,7 +137,7 @@ const PortfolioGallerySideBar = ({ picturesList, setIndex, currentIndex }) => {
         <p className="text-xs">{picturesList[currentIndex].description}</p>
       </div>
       {/* ------ THUMBNAIL ------ */}
-      <div className=" bg-red-200   grid grid-cols-4 gap-1">{mappedImagestwo}</div>
+      {/* <div className=" bg-red-200   grid grid-cols-4 gap-1">{mappedImagestwo}</div> */}
       {/* ------ FULL SCREEN BUTTON ------ */}
       <div>
         <button onClick={handleFullscreen}>

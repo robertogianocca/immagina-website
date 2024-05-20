@@ -3,7 +3,7 @@ import HamburgerIcon from "@/components/HamburgerIcon/HamburgerIcon";
 
 const NavigationBar = () => {
   return (
-    <nav className="w-full h-[60px] bg-white p-4 flex items-center justify-between">
+    <nav className="w-full h-[60px] bg-white p-4 flex items-center justify-between shadow-xl shadow-zinc-200">
       <Logo />
       <HamburgerIcon />
     </nav>
