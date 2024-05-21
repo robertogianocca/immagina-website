@@ -6,7 +6,7 @@ import Wrapper from "@/components/Wrapper/Wrapper";
 import NavigationBar from "@/components/NavigationBar/NavigationBar";
 import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/PortfolioCategoryCard";
 import H1 from "@/components/Fonts/H1";
-import P from "@/components/Fonts/p";
+import P from "@/components/Fonts/P";
 
 export default async function Home() {
   const response = await fetch(
@@ -40,7 +40,7 @@ export default async function Home() {
     <>
       <NavigationBar />
       <Wrapper>
-        <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8 h-space">
+        <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8 h-space pt-10 pb-20">
           <div>
             <H1>Portfolio</H1>
           </div>

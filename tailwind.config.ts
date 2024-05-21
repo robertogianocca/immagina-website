@@ -14,14 +14,14 @@ const config: Config = {
         base: ["20px", "25px"],
         xl: ["10px", "20px"],
         "2xl": ["30px", "40px"],
-        "3xl": ["40px", "10px"],
+        "3xl": ["40px", "50px"],
       },
       colors: {
         // custom-One: "red"
       },
       height: {
-        // space: "calc(100vh - 90px)",
-        space: "200px",
+        space: "calc(100vh - 60px)",
+        // space: "200px",
       },
     },
   },
