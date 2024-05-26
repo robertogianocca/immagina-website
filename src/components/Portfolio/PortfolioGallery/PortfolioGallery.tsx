@@ -25,20 +25,20 @@ function PortfolioGallery({ picturesList }: any) {
   const [currentIndex, setIndex] = useState(0);
 
   //----------------
-  console.log(picturesList[currentIndex].url);
-  function addTransformationParams(url) {
-    const transformationParams = "q_1,f_auto,e_blur:1000";
-    const parts = url.split("/");
-    const filename = parts.pop(); // Extracting the filename from the URL
-    const newUrl = parts.join("/") + "/" + transformationParams + "/" + filename;
-    return newUrl;
-  }
+  // console.log(picturesList[currentIndex].url);
+  // function addTransformationParams(url) {
+  //   const transformationParams = "q_1,f_auto,e_blur:1000";
+  //   const parts = url.split("/");
+  //   const filename = parts.pop(); // Extracting the filename from the URL
+  //   const newUrl = parts.join("/") + "/" + transformationParams + "/" + filename;
+  //   return newUrl;
+  // }
 
-  // Example usage:
-  const imageUrl =
-    "http://res.cloudinary.com/immagina/image/upload/v1716139844/IMMAGINA/Portfolio/Fotografia/Slava%27s%20Snowshow/01_lpvd5s.jpg";
-  const modifiedUrl = addTransformationParams(imageUrl);
-  console.log(modifiedUrl);
+  // // Example usage:
+  // const imageUrl =
+  //   "http://res.cloudinary.com/immagina/image/upload/v1716139844/IMMAGINA/Portfolio/Fotografia/Slava%27s%20Snowshow/01_lpvd5s.jpg";
+  // const modifiedUrl = addTransformationParams(imageUrl);
+  // console.log(modifiedUrl);
 
   //----------------
   return (
@@ -65,8 +65,6 @@ function PortfolioGallery({ picturesList }: any) {
                 height={2000} // This ensures the image maintains its aspect ratio
                 className="object-contain max-w-full max-h-full"
                 quality={80}
-                placeholder="blur"
-                blurDataURL={modifiedUrl}
               />
             </div>
           </div>

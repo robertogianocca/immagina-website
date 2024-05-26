@@ -42,13 +42,20 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
   }
 
   const mappedItem = categoryList.map((item, index) => (
-    <PortfolioSubCategoryCard
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -50 }}
+      transition={{ duration: 0.5 }}
       key={index}
-      title={item}
-      categoriesFromPath={transformedCategoriesFromPath}
-      description={portfolioData[item].pictures[0].description}
-      cover={portfolioData[item].pictures[0].url}
-    />
+    >
+      <PortfolioSubCategoryCard
+        title={item}
+        categoriesFromPath={transformedCategoriesFromPath}
+        description={portfolioData[item].pictures[0].description}
+        cover={portfolioData[item].pictures[0].url}
+      />
+    </motion.div>
   ));
 
   console.log(portfolioData);

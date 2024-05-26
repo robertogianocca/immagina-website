@@ -1,9 +1,13 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import NavigationBar from "@/components/NavigationBar/NavigationBar";
+import type { Metadata } from "next";
+import { Courier_Prime } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const courier = Courier_Prime({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  fallback: ["system-ui", "arial"],
+  variable: "--customCourier",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${courier.variable}`}>
         {/* <NavigationBar /> */}
         {children}
       </body>

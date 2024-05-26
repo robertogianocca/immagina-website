@@ -16,12 +16,28 @@ const config: Config = {
         "2xl": ["30px", "40px"],
         "3xl": ["40px", "50px"],
       },
+      fontFamily: {
+        courier: ["var(--customCourier)"],
+        // sans: [
+        //   "Inter",
+        //   "-apple-system",
+        //   "BlinkMacSystemFont",
+        //   "Segoe UI",
+        //   "Roboto",
+        //   "Helvetica Neue",
+        //   "Ubuntu",
+        //   "sans-serif",
+        // ],
+      },
       colors: {
         // custom-One: "red"
       },
       height: {
         space: "calc(100vh - 60px)",
         // space: "200px",
+      },
+      cursor: {
+        redPoint: "url(/images/cursore.png), auto",
       },
     },
   },
