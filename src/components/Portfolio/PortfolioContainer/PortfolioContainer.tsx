@@ -1,4 +1,5 @@
 // PORTFOLIO CONTAINER
+
 "use client";
 import Wrapper from "@/components/Wrapper/Wrapper";
 import NavigationBar from "@/components/NavigationBar/NavigationBar";
@@ -12,8 +13,10 @@ import { motion } from "framer-motion";
 export default function PortfolioContainer({ portfolioData, categoriesFromPath }: any) {
   // Transform categoriesFromPath
   const transformedCategoriesFromPath = categoriesFromPath.map((item) => {
+    // Exception of "Slava's Snowshow"
     item = item.replace("a-s", "a's-s");
-    return item.replace("-", " ");
+    item = item.replace("-", " ");
+    return item;
   });
 
   let parentCategory = [];
@@ -23,12 +26,15 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
     parentCategory = transformedCategoriesFromPath[transformedCategoriesFromPath.length - 2];
   }
 
-  const parentDescription = portfolioData[parentCategory].pictures[0].description;
-
   transformedCategoriesFromPath.forEach((element) => {
     portfolioData = element === undefined ? portfolioData : portfolioData[element];
   });
 
+  const parentDescription = portfolioData.pictures[0].description;
+
+  console.log(portfolioData);
+
+  // Not Found Page
   if (!portfolioData) {
     notFound();
   }
@@ -41,6 +47,8 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
     }
   }
 
+  console.log(categoryList);
+
   const mappedItem = categoryList.map((item, index) => (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -51,15 +59,15 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
     >
       <PortfolioSubCategoryCard
         title={item}
-        categoriesFromPath={transformedCategoriesFromPath}
         description={portfolioData[item].pictures[0].description}
         cover={portfolioData[item].pictures[0].url}
+        categoriesFromPath={transformedCategoriesFromPath}
       />
     </motion.div>
   ));
 
-  console.log(portfolioData);
-  console.log(categoryList[0] === "images");
+  // console.log(portfolioData);
+  // console.log(categoryList[0] === "images");
 
   return (
     <>
@@ -72,6 +80,9 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
         >
           <PortfolioGallery
             title={categoryList}
+            parentCategory={parentCategory}
+            portfolioData={portfolioData}
+            transformedCategoriesFromPath={transformedCategoriesFromPath}
             // description={description}
             picturesList={portfolioData.images.pictures}
           />

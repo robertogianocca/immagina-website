@@ -3,7 +3,13 @@ import PortfolioGallerySideBar from "@/components/Portfolio/PortfolioGallery/Por
 import Image from "next/image";
 import { useState } from "react";
 
-function PortfolioGallery({ picturesList }: any) {
+function PortfolioGallery({
+  picturesList,
+  title,
+  parentCategory,
+  portfolioData,
+  transformedCategoriesFromPath,
+}: any) {
   function sortByFileNamePrefix(array) {
     return array.sort((a, b) => {
       const numA = parseInt(a.fileName.substring(0, 2), 10);
@@ -41,17 +47,20 @@ function PortfolioGallery({ picturesList }: any) {
   // console.log(modifiedUrl);
 
   //----------------
+  // console.log(title);
+  // console.log(transformedCategoriesFromPath);
   return (
     <div className="flex flex-row h-screen w-full">
       <PortfolioGallerySideBar
         picturesList={picturesList}
         currentIndex={currentIndex}
         setIndex={setIndex}
+        transformedCategoriesFromPath={transformedCategoriesFromPath}
       />
       <div className="w-[80%] relative border-white border-[15px] flex items-center justify-center">
         <div className="relative w-full h-full flex items-center justify-center bg-red-400">
           <div className="relative w-full h-full">
-            <div className="absolute left-0 right-0 top-0 m-auto bg-black bg-opacity-50 text-white p-2 aspect-square h-full">
+            <div className="absolute left-0 right-0 top-0 m-auto bg-black bg-opacity-50 text-white p-2 aspect-cover h-full">
               {/* <div className="absolute top-0  bg-black bg-opacity-50 text-white p-2 aspect-square h-full"> */}
               {picturesList[currentIndex].heading}
             </div>

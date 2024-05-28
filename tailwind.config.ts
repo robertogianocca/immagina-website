@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      aspectRatio: {
+        cover: "1920 / 2150",
+      },
       fontSize: {
         xs: ["15px", "20px"],
         sm: ["15px", "20px"],

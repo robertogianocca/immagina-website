@@ -1,11 +1,10 @@
 // CATEGORIES PAGES
 
 import { revalidatePath } from "next/cache";
-import { notFound } from "next/navigation";
 import { getDataStructure } from "@/utils/portfolio-data-structure";
 import PortfolioContainer from "@/components/Portfolio/PortfolioContainer/PortfolioContainer";
 
-const CategoriesPages = async ({ params }) => {
+export default async function CategoriesPages({ params }: any) {
   const response = await fetch(
     `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_ID}/resources/image/?max_results=500&metadata=true&context=true`,
     {
@@ -27,6 +26,4 @@ const CategoriesPages = async ({ params }) => {
       <PortfolioContainer portfolioData={portfolioData} categoriesFromPath={categoriesFromPath} />
     </>
   );
-};
-
-export default CategoriesPages;
+}

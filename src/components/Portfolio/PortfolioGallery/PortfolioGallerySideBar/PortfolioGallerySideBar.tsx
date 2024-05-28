@@ -1,9 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
+import Thumbnails from "./Thumbnails/Thumbnails";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
-const PortfolioGallerySideBar = ({ picturesList, setIndex, currentIndex }) => {
+const PortfolioGallerySideBar = ({
+  picturesList,
+  setIndex,
+  currentIndex,
+  transformedCategoriesFromPath,
+}) => {
   document.onkeydown = function (event) {
     switch (event.keyCode) {
       case 37:
@@ -113,7 +119,7 @@ const PortfolioGallerySideBar = ({ picturesList, setIndex, currentIndex }) => {
       </div>
       {/* ------ TITLE AND DESCRIPTION ------ */}
       <div className="bg-orange-500 h-[200px]">
-        <h1 className="text-xl">Slava snowshow</h1>
+        <h1 className="text-xl">{transformedCategoriesFromPath[1]}</h1>
         <p className="text-xs">
           {`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
           been the industry's standard dummy text ever since the 1500s, when an unknown printer took
@@ -137,7 +143,8 @@ const PortfolioGallerySideBar = ({ picturesList, setIndex, currentIndex }) => {
         <p className="text-xs">{picturesList[currentIndex].description}</p>
       </div>
       {/* ------ THUMBNAIL ------ */}
-      {/* <div className=" bg-red-200   grid grid-cols-4 gap-1">{mappedImagestwo}</div> */}
+      <Thumbnails picturesList={picturesList} setIndex={setIndex} currentIndex={currentIndex} />
+
       {/* ------ FULL SCREEN BUTTON ------ */}
       <div>
         <button onClick={handleFullscreen}>
