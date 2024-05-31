@@ -10,14 +10,14 @@ interface PortfolioSubCategoryCardProps {
   title: any;
   description: string;
   cover: string;
-  categoriesFromPath: any;
+  transformedCategoriesFromPath: any;
 }
 
 export default function PortfolioSubCategoryCard({
   title,
   description,
   cover,
-  categoriesFromPath,
+  transformedCategoriesFromPath,
 }: PortfolioSubCategoryCardProps) {
   // Card title: Change the first letter and first letter after a space to upperCase
   title = title.split(" ");
@@ -32,7 +32,7 @@ export default function PortfolioSubCategoryCard({
   titleToLink = titleToLink.toLowerCase();
 
   return (
-    <Link href={`/${categoriesFromPath.join("/")}/${titleToLink}`}>
+    <Link href={`/${transformedCategoriesFromPath.join("/")}/${titleToLink}`}>
       <motion.div
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 1.1 }}

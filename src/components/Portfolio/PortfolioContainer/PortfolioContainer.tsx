@@ -11,7 +11,6 @@ import { notFound } from "next/navigation";
 import { motion } from "framer-motion";
 
 export default function PortfolioContainer({ portfolioData, categoriesFromPath }: any) {
-  console.log(categoriesFromPath);
   // Transform categoriesFromPath as the objects name, remove "-" (uppercasing after)
   const transformedCategoriesFromPath = categoriesFromPath.map((item: string) => {
     // Exception of "Slava's Snowshow"
@@ -21,43 +20,36 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
   });
 
   // Go through the portfolio object
-  transformedCategoriesFromPath.forEach((element) => {
+  transformedCategoriesFromPath.forEach((element: string) => {
     portfolioData = element === undefined ? portfolioData : portfolioData[element];
   });
 
-  // let parentCategory = [];
-  // if (transformedCategoriesFromPath.length == 1) {
-  //   parentCategory = transformedCategoriesFromPath;
-  // } else {
-  //   parentCategory = transformedCategoriesFromPath[transformedCategoriesFromPath.length - 1];
-  // }
-
-  let parentCategory = transformedCategoriesFromPath[transformedCategoriesFromPath.length - 1];
-  // parentCategory = parentCategory.toUpperCase();
-  parentCategory = parentCategory.split(" ");
-  parentCategory = parentCategory.map((item: string, index: number) => {
+  // Current Category formatted with space and uppercase
+  let currentCategory = transformedCategoriesFromPath[transformedCategoriesFromPath.length - 1];
+  currentCategory = currentCategory.split(" ");
+  currentCategory = currentCategory.map((item: string, index: number) => {
     return item[0].toUpperCase() + item.slice(1);
   });
-  parentCategory = parentCategory.join(" ");
+  currentCategory = currentCategory.join(" ");
 
-  // console.log(parentCategory);
-
-  const parentDescription = portfolioData.pictures[0].description;
+  // Current Catregory description
+  const currentCategoryDescription = portfolioData.pictures[0].description;
 
   // Not Found Page
   if (!portfolioData) {
     notFound();
   }
 
-  const categoryList = Object.keys(portfolioData);
-  if (categoryList.includes("pictures") && categoryList.length !== 1) {
-    let index = categoryList.indexOf("pictures");
+  // Set subCategories and remove "pictures"
+  const subCategoryList = Object.keys(portfolioData);
+  if (subCategoryList.includes("pictures") && subCategoryList.length !== 1) {
+    let index = subCategoryList.indexOf("pictures");
     if (index !== -1) {
-      categoryList.splice(index, 1);
+      subCategoryList.splice(index, 1);
     }
   }
 
-  const mappedItem = categoryList.map((item, index) => (
+  const mappedSubCategory = subCategoryList.map((item, index) => (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
@@ -69,20 +61,14 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
         title={item}
         description={portfolioData[item].pictures[0].description}
         cover={portfolioData[item].pictures[0].url}
-        categoriesFromPath={transformedCategoriesFromPath}
+        transformedCategoriesFromPath={transformedCategoriesFromPath}
       />
     </motion.div>
   ));
 
-  // console.log(categoryList);
-  // console.log(transformedCategoriesFromPath);
-  // console.log(portfolioData);
-  // console.log("CATEGORYLIST " + categoryList);
-  // console.log(categoryList[0] === "images");
-
   return (
     <>
-      {categoryList[0] === "images" && categoryList.length === 1 ? (
+      {subCategoryList[0] === "images" && subCategoryList.length === 1 ? (
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -90,11 +76,9 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
           transition={{ duration: 0.5 }}
         >
           <PortfolioGallery
-            parentCategory={parentCategory}
-            title={categoryList}
-            portfolioData={portfolioData}
+            currentCategory={currentCategory}
             transformedCategoriesFromPath={transformedCategoriesFromPath}
-            // description={description}
+            categoryDescription={portfolioData.pictures[0].description}
             picturesList={portfolioData.images.pictures}
           />
         </motion.div>
@@ -104,12 +88,12 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
           <Wrapper>
             <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8 h-space pt-10 pb-20">
               <div>
-                <H1>{parentCategory}</H1>
+                <H1>{currentCategory}</H1>
               </div>
               <div className="col-span-2 pb-16">
-                <p>{parentDescription}</p>
+                <p>{currentCategoryDescription}</p>
               </div>
-              {mappedItem}
+              {mappedSubCategory}
             </div>
           </Wrapper>
         </>

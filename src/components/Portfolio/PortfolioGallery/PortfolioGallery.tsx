@@ -5,9 +5,10 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function PortfolioGallery({
-  parentCategory,
+  currentCategory,
   transformedCategoriesFromPath,
   picturesList,
+  categoryDescription,
 }: any) {
   const [currentIndex, setIndex] = useState(0);
 
@@ -29,7 +30,8 @@ export default function PortfolioGallery({
     <div className="flex flex-row h-screen w-full">
       <div className="w-[300px] fixed h-screen overflow-auto flex flex-col justify-between p-5 bg-stone-100 text-base inner-shadow ">
         <PortfolioGallerySideBar
-          parentCategory={parentCategory}
+          categoryDescription={categoryDescription}
+          currentCategory={currentCategory}
           picturesList={picturesList}
           transformedCategoriesFromPath={transformedCategoriesFromPath}
           currentIndex={currentIndex}
@@ -42,7 +44,7 @@ export default function PortfolioGallery({
           <div
             className={`absolute left-0 right-0 top-0 m-auto p-2 aspect-cover h-full ${hideTitle}`}
           >
-            <h1 className="font-courier font-bold text-4xl text-red-600">{parentCategory}</h1>
+            <h1 className="font-courier font-bold text-4xl text-red-600">{currentCategory}</h1>
           </div>
           {/* Gallery image */}
           <AnimatePresence mode="popLayout">

@@ -9,9 +9,11 @@ import { TiHome } from "react-icons/ti";
 import { FaArrowLeft } from "react-icons/fa";
 import { MdOutlineFullscreen } from "react-icons/md";
 import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 
 export default function PortfolioGallerySideBar({
-  parentCategory,
+  currentCategory,
+  categoryDescription,
   picturesList,
   setIndex,
   currentIndex,
@@ -74,15 +76,20 @@ export default function PortfolioGallerySideBar({
 
   const pathList = transformedCategoriesFromPath.slice(0, -1).map((item, index) => {
     return (
-      <Link
-        href={`/${transformedCategoriesFromPath
-          .slice(0, 1 + index)
-          .join("/")
-          .toLowerCase()}`}
-        key={index}
-      >
-        <H3>{item}</H3>
-      </Link>
+      <li key={index} className="mr-1">
+        <Link
+          href={`/${transformedCategoriesFromPath
+            .slice(0, 1 + index)
+            .join("/")
+            .toLowerCase()}`}
+        >
+          <H3>
+            {transformedCategoriesFromPath.slice(0, -1).length - 1 == index
+              ? item + ""
+              : item + " /"}
+          </H3>
+        </Link>
+      </li>
     );
   });
 
@@ -110,16 +117,19 @@ export default function PortfolioGallerySideBar({
     );
   });
 
-  const categoryBefore = transformedCategoriesFromPath.slice(0, -1);
+  const paramsObject = useParams();
+  const params = paramsObject.categories;
+  const categoryBefore = params.slice(0, -1);
+  console.log(categoryDescription);
 
   //   --------------------------------------------------------------------------------------------------------------------------------------------------
   return (
     <>
-      {/* ------ PATH LINKS ------ */}
+      {/* ------ HOME E BACK BUTTONS ------ */}
 
       <ul>
         <li className="flex gap-2">
-          <Link href={`/${categoryBefore[categoryBefore.length - 1].toLowerCase()}`}>
+          <Link href={`/${categoryBefore.join("/")}`}>
             <Button addClass="p-2 text-slate-400">
               <FaArrowLeft size={25} />
             </Button>
@@ -135,14 +145,10 @@ export default function PortfolioGallerySideBar({
       {/* ------ PATH, TITLE AND DESCRIPTION ------ */}
 
       <div>
-        {pathList}
+        <ul className="flex">{pathList}</ul>
         <div className="mt-1 mb-6 border-t-4 border-red-600">
-          <H2>{parentCategory}</H2>
-          <p className="text-xs">
-            {`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-          been the industry's standard dummy text ever since the 1500s, when an unknown printer took
-          a galley of type and scrambled it to make a type specimen book.`}
-          </p>
+          <H2>{currentCategory}</H2>
+          <p className="link text-sm" dangerouslySetInnerHTML={{ __html: categoryDescription }} />
         </div>
       </div>
 
@@ -179,7 +185,7 @@ export default function PortfolioGallerySideBar({
 
       {/* ------ IMAGE HEADING ------ */}
 
-      <div className="h-8">
+      <div className="h-auto">
         <p className="text-sm">{picturesList[currentIndex].heading}</p>
       </div>
 

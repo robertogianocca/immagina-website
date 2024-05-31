@@ -13,5 +13,10 @@ export default function PortfolioHome({ categoryList, portfolioData }) {
     />
     // </AnimatePresence>
   ));
-  return <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8">{mappedCategories}</div>;
+  return (
+    <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8">
+      {mappedCategories}
+      <iframe src="https://www.youtube.com/watch?v=gfU1iZnjRZM" />
+    </div>
+  );
 }

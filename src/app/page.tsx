@@ -6,6 +6,7 @@ import Wrapper from "@/components/Wrapper/Wrapper";
 import NavigationBar from "@/components/NavigationBar/NavigationBar";
 import PortfolioHome from "@/components/PortfolioHome/PortfolioHome";
 import H1 from "@/components/Fonts/H1";
+import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/PortfolioCategoryCard";
 
 export default async function Home() {
   const response = await fetch(
