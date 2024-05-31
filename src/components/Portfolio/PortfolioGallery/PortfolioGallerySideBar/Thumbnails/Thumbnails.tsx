@@ -1,3 +1,5 @@
+// THUMBNAILS
+
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
@@ -29,26 +31,26 @@ export default function Thumbnails({ picturesList, setIndex, currentIndex }) {
     setCurrentThumbPage(newPage);
   }, [currentIndex]);
 
-  const mappedThumbnails = currentData.map((item, index) => {
+  function selectThumbnail(index) {
+    setIndex(index);
+  }
+
+  // Mapped thumbnails
+  const mappedThumbnails = currentData.map((item: any, index: number) => {
     const globalIndex = (currentThumbPage - 1) * itemsPerPage + index;
     return (
       <div
-        className={`${
-          currentIndex === globalIndex
-            ? "w-20 h-20 bg-white border-solid border-4"
-            : "w-20 h-20 bg-white"
-        }`}
+        className={`${currentIndex === globalIndex ? "aspect-square" : "aspect-square opacity-60"}`}
         key={globalIndex}
       >
         <button onClick={() => selectThumbnail(globalIndex)} className="w-full h-full">
           <Image
+            className="object-cover object-bottom h-full w-full"
             src={item.url}
-            alt=""
-            priority
+            alt="gallery thumbnail"
             loading="eager"
-            width={80}
-            height={80}
-            className="object-cover w-full h-full"
+            width={30}
+            height={30}
             quality={2}
           />
         </button>
@@ -56,15 +58,11 @@ export default function Thumbnails({ picturesList, setIndex, currentIndex }) {
     );
   });
 
-  function selectThumbnail(index) {
-    setIndex(index);
-  }
-
   return (
-    <>
-      <div className="relative bg-red-500 w-full grid grid-cols-4 gap-1">{mappedThumbnails}</div>
+    <div className="mt-2">
+      <div className="w-full grid grid-cols-5 gap-2">{mappedThumbnails}</div>
       <button onClick={previousThumbPage}>{"<"}</button>
       <button onClick={nextThumbPage}>{">"}</button>
-    </>
+    </div>
   );
 }

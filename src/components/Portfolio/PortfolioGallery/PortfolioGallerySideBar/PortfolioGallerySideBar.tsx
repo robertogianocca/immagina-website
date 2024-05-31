@@ -1,15 +1,24 @@
 import Link from "next/link";
 import Image from "next/image";
 import Thumbnails from "./Thumbnails/Thumbnails";
+import Logo from "@/components/Logo/Logo";
+import Button from "@/components/Buttons/Button";
+import H2 from "@/components/Fonts/H2";
+import H3 from "@/components/Fonts/H3";
+import { TiHome } from "react-icons/ti";
+import { FaArrowLeft } from "react-icons/fa";
+import { MdOutlineFullscreen } from "react-icons/md";
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
 
-const PortfolioGallerySideBar = ({
+export default function PortfolioGallerySideBar({
+  parentCategory,
   picturesList,
   setIndex,
   currentIndex,
   transformedCategoriesFromPath,
-}) => {
+}) {
+  //   --------------------------------- KEYBOARD NAVIGATION ---------------------------------
+
   document.onkeydown = function (event) {
     switch (event.keyCode) {
       case 37:
@@ -20,6 +29,8 @@ const PortfolioGallerySideBar = ({
         break;
     }
   };
+
+  //   --------------------------------- FULL SCREEN ---------------------------------
 
   const [isFullscreen, setIsFullscreen] = useState(false);
   const handleFullscreen = () => {
@@ -49,39 +60,37 @@ const PortfolioGallerySideBar = ({
     currentIndex == 0 ? setIndex(picturesList.length - 1) : setIndex(currentIndex - 1);
   }
 
-  //   --------------------------------- PATH ---------------------------------
-  const path = usePathname();
+  //   --------------------------------- PATHS ---------------------------------
 
-  // When we have categories like "finzi-pasca"
-  const pathClean = path.replace("-", " ");
+  // First letter upper case
+  transformedCategoriesFromPath = transformedCategoriesFromPath.map((item, index) => {
+    item = item.split(" ");
+    item = item.map((itemTwo: string, index: number) => {
+      return itemTwo[0].toUpperCase() + itemTwo.slice(1);
+    });
 
-  const categoriesFromPath = pathClean.split("/");
+    return item.join(" ");
+  });
 
-  // Remove the empty string
-  categoriesFromPath.shift();
-
-  const mappedPath = categoriesFromPath.slice(0, -1).map((item, index) => {
+  const pathList = transformedCategoriesFromPath.slice(0, -1).map((item, index) => {
     return (
-      <li key="index">
-        <Link href={`/${categoriesFromPath.slice(0, 1 + index).join("/")}`}>{item}</Link>
-      </li>
+      <Link
+        href={`/${transformedCategoriesFromPath
+          .slice(0, 1 + index)
+          .join("/")
+          .toLowerCase()}`}
+        key={index}
+      >
+        <H3>{item}</H3>
+      </Link>
     );
   });
 
   //   --------------------------------- THUMBNAILS ---------------------------------
   function selectThumbnail(index) {
     setIndex(index);
-    // console.log(index);
   }
 
-  // <div
-  //   className={`${
-  //     currentIndex === index
-  //       ? "aspect-square  bg-white border-solid border-4"
-  //       : "aspect-square  bg-white"
-  //   }`}
-  //   key={index}
-  // >
   const mappedImagestwo = picturesList.map((item, index) => {
     return (
       <div className="relative aspect-square bg-blue-200" key={index}>
@@ -100,59 +109,93 @@ const PortfolioGallerySideBar = ({
       </div>
     );
   });
-  //   -------------------------------------------------------------------------
 
+  const categoryBefore = transformedCategoriesFromPath.slice(0, -1);
+
+  //   --------------------------------------------------------------------------------------------------------------------------------------------------
   return (
-    <div className="col-span-1 row-span-2 w-[20%] flex flex-col p-3 bg-green-200 ">
+    <>
       {/* ------ PATH LINKS ------ */}
-      <div className="bg-red-200">
-        <div>
-          <ul className="">
-            <li>
-              <Link href={"/"}>
-                <button>{"HOME"}</button>
-              </Link>
-            </li>
-            {mappedPath}
-          </ul>
-        </div>
-      </div>
-      {/* ------ TITLE AND DESCRIPTION ------ */}
-      <div className="bg-orange-500 h-[200px]">
-        <h1 className="text-xl">{transformedCategoriesFromPath[1]}</h1>
-        <p className="text-xs">
-          {`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+
+      <ul>
+        <li className="flex gap-2">
+          <Link href={`/${categoryBefore[categoryBefore.length - 1].toLowerCase()}`}>
+            <Button addClass="p-2 text-slate-400">
+              <FaArrowLeft size={25} />
+            </Button>
+          </Link>
+          <Link href={"/"}>
+            <Button addClass="p-2 text-slate-400">
+              <TiHome size={25} />
+            </Button>
+          </Link>
+        </li>
+      </ul>
+
+      {/* ------ PATH, TITLE AND DESCRIPTION ------ */}
+
+      <div>
+        {pathList}
+        <div className="mt-1 mb-6 border-t-4 border-red-600">
+          <H2>{parentCategory}</H2>
+          <p className="text-xs">
+            {`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
           been the industry's standard dummy text ever since the 1500s, when an unknown printer took
           a galley of type and scrambled it to make a type specimen book.`}
-        </p>
-      </div>
-      {/* ------ ARROWS AND INDEX ------ */}
-      <div className="bg-blue-200 flex items-center justify-between">
-        <div onClick={previousImage}>
-          <h1 className="bg-red-200 text-[50px] font-bold text-white">{"<"}</h1>
+          </p>
         </div>
+      </div>
 
-        <h1 className="bg-yellow-400 ">{`${currentIndex + 1} / ${picturesList.length}`}</h1>
-        <div onClick={nextImage}>
-          <h1 className="bg-blue-500 text-[50px] font-bold text-white">{">"}</h1>
-        </div>
+      {/* ------ ARROWS AND INDEX ------ */}
+
+      <div className="grid grid-cols-2 gap-4 font-courier font-bold mb-4">
+        {/* Left Arrow */}
+        <button
+          onClick={previousImage}
+          className="bg-zinc-150 text-stone-600 shadow-button flex items-center justify-center h-20 rounded-md"
+        >
+          <p className="font-courier font-bold text-4xl ">{"<"}</p>
+        </button>
+        {/* Right Arrow */}
+        <button
+          onClick={nextImage}
+          className="bg-zinc-150 text-stone-600 shadow-button flex items-center justify-center rounded-md"
+        >
+          <p className="text-4xl">{">"}</p>
+        </button>
+        {/* Index */}
+        <h1 className="bg-zinc-150 text-stone-600 h-20 flex items-center justify-center rounded-xl">{`${
+          currentIndex + 1
+        } / ${picturesList.length}`}</h1>
+        {/* Full Screen */}
+        <button
+          onClick={handleFullscreen}
+          className="bg-zinc-150 text-stone-600 shadow-button flex items-center justify-center rounded-md"
+        >
+          {/* {isFullscreen ? "Exit Fullscreen" : "Go Fullscreen"} */}
+          <MdOutlineFullscreen size={40} />
+        </button>
       </div>
-      {/* ------ IMAGE HEADING AND DESCRIPTION ------ */}
-      <div>
+
+      {/* ------ IMAGE HEADING ------ */}
+
+      <div className="h-8">
         <p className="text-sm">{picturesList[currentIndex].heading}</p>
-        <p className="text-xs">{picturesList[currentIndex].description}</p>
       </div>
+
       {/* ------ THUMBNAIL ------ */}
+
       <Thumbnails picturesList={picturesList} setIndex={setIndex} currentIndex={currentIndex} />
 
-      {/* ------ FULL SCREEN BUTTON ------ */}
-      <div>
-        <button onClick={handleFullscreen}>
-          {isFullscreen ? "Exit Fullscreen" : "Go Fullscreen"}
-        </button>{" "}
-      </div>
-    </div>
-  );
-};
+      {/* ------ LOGO ------ */}
 
-export default PortfolioGallerySideBar;
+      <div className="relative h-8 mt-8">
+        <div className="absolute bottom-0 left-0">
+          <div className="h-4 w-28 relative">
+            <Logo />
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}

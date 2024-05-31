@@ -1,15 +1,17 @@
 "use client";
-import PortfolioGallerySideBar from "@/components/Portfolio/PortfolioGallery/PortfolioGallerySideBar/PortfolioGallerySideBar";
 import Image from "next/image";
+import PortfolioGallerySideBar from "@/components/Portfolio/PortfolioGallery/PortfolioGallerySideBar/PortfolioGallerySideBar";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-function PortfolioGallery({
-  picturesList,
-  title,
+export default function PortfolioGallery({
   parentCategory,
-  portfolioData,
   transformedCategoriesFromPath,
+  picturesList,
 }: any) {
+  const [currentIndex, setIndex] = useState(0);
+
+  // Sort pictures by file name
   function sortByFileNamePrefix(array) {
     return array.sort((a, b) => {
       const numA = parseInt(a.fileName.substring(0, 2), 10);
@@ -20,67 +22,51 @@ function PortfolioGallery({
 
   picturesList = sortByFileNamePrefix(picturesList);
 
-  interface Picture {
-    description: string;
-    fileName: string;
-    heading: string;
-    public_id: string;
-    url: string;
-  }
+  // Title class
+  const hideTitle = currentIndex == 0 ? " " : "hidden";
 
-  const [currentIndex, setIndex] = useState(0);
-
-  //----------------
-  // console.log(picturesList[currentIndex].url);
-  // function addTransformationParams(url) {
-  //   const transformationParams = "q_1,f_auto,e_blur:1000";
-  //   const parts = url.split("/");
-  //   const filename = parts.pop(); // Extracting the filename from the URL
-  //   const newUrl = parts.join("/") + "/" + transformationParams + "/" + filename;
-  //   return newUrl;
-  // }
-
-  // // Example usage:
-  // const imageUrl =
-  //   "http://res.cloudinary.com/immagina/image/upload/v1716139844/IMMAGINA/Portfolio/Fotografia/Slava%27s%20Snowshow/01_lpvd5s.jpg";
-  // const modifiedUrl = addTransformationParams(imageUrl);
-  // console.log(modifiedUrl);
-
-  //----------------
-  // console.log(title);
-  // console.log(transformedCategoriesFromPath);
   return (
     <div className="flex flex-row h-screen w-full">
-      <PortfolioGallerySideBar
-        picturesList={picturesList}
-        currentIndex={currentIndex}
-        setIndex={setIndex}
-        transformedCategoriesFromPath={transformedCategoriesFromPath}
-      />
-      <div className="w-[80%] relative border-white border-[15px] flex items-center justify-center">
-        <div className="relative w-full h-full flex items-center justify-center bg-red-400">
-          <div className="relative w-full h-full">
-            <div className="absolute left-0 right-0 top-0 m-auto bg-black bg-opacity-50 text-white p-2 aspect-cover h-full">
-              {/* <div className="absolute top-0  bg-black bg-opacity-50 text-white p-2 aspect-square h-full"> */}
-              {picturesList[currentIndex].heading}
-            </div>
-            <div className="flex items-center justify-center w-full h-full">
+      <div className="w-[300px] fixed h-screen overflow-auto flex flex-col justify-between p-5 bg-stone-100 text-base inner-shadow ">
+        <PortfolioGallerySideBar
+          parentCategory={parentCategory}
+          picturesList={picturesList}
+          transformedCategoriesFromPath={transformedCategoriesFromPath}
+          currentIndex={currentIndex}
+          setIndex={setIndex}
+        />
+      </div>
+      <div className="ml-[300px] flex-grow p-4 pl-10 pb-10 bg-white">
+        <div className="relative w-full h-full">
+          {/* Gallery title */}
+          <div
+            className={`absolute left-0 right-0 top-0 m-auto p-2 aspect-cover h-full ${hideTitle}`}
+          >
+            <h1 className="font-courier font-bold text-4xl text-red-600">{parentCategory}</h1>
+          </div>
+          {/* Gallery image */}
+          <AnimatePresence mode="popLayout">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2, delay: 0.2 }}
+              className="flex items-center justify-center w-full h-full"
+            >
               <Image
                 loading="eager"
-                key={currentIndex}
                 src={picturesList[currentIndex].url}
                 alt={picturesList[currentIndex].description}
-                width={2000} // Use an appropriate width and height for the image
-                height={2000} // This ensures the image maintains its aspect ratio
+                width={2000}
+                height={2000}
                 className="object-contain max-w-full max-h-full"
                 quality={80}
               />
-            </div>
-          </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </div>
   );
 }
-
-export default PortfolioGallery;

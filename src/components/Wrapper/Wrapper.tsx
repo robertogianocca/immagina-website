@@ -17,6 +17,7 @@ export default function Wrapper({ children }) {
       window.removeEventListener("mousemove", updatePosition);
     };
   }, []);
+
   return (
     <motion.main
       className="mt-[60px] lg:pl-10 lg:pr-60"

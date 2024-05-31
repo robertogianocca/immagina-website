@@ -22,7 +22,7 @@ const PortfolioCategoryCard = ({ title, description, cover }: PortfolioCategoryC
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 1.1 }}
         transition={{ duration: 0.5 }}
-        className="w-full h-full relative flex flex-col  bg-stone-50 text-slate-600 p-6 shadow-xl hover:shadow-slate-400 "
+        className="w-full h-full relative flex flex-col p-6 bg-zinc-50 shadow-2xl hover:shadow-slate-400 "
       >
         <H2>{titleUp}</H2>
         <p className="text-sm text-slate-500 pb-4">{description}</p>

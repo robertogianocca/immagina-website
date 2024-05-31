@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Courier_Prime } from "next/font/google";
 
+// Globals font
 const courier = Courier_Prime({
   weight: ["400", "700"],
   subsets: ["latin"],
@@ -21,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${courier.variable}`}>
+      <body className={`${courier.variable} bg-slate-50`}>
         {/* <NavigationBar /> */}
         {children}
       </body>

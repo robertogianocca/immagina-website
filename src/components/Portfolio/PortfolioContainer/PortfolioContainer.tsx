@@ -11,28 +11,38 @@ import { notFound } from "next/navigation";
 import { motion } from "framer-motion";
 
 export default function PortfolioContainer({ portfolioData, categoriesFromPath }: any) {
-  // Transform categoriesFromPath
-  const transformedCategoriesFromPath = categoriesFromPath.map((item) => {
+  console.log(categoriesFromPath);
+  // Transform categoriesFromPath as the objects name, remove "-" (uppercasing after)
+  const transformedCategoriesFromPath = categoriesFromPath.map((item: string) => {
     // Exception of "Slava's Snowshow"
     item = item.replace("a-s", "a's-s");
     item = item.replace("-", " ");
     return item;
   });
 
-  let parentCategory = [];
-  if (transformedCategoriesFromPath.length == 1) {
-    parentCategory = transformedCategoriesFromPath;
-  } else {
-    parentCategory = transformedCategoriesFromPath[transformedCategoriesFromPath.length - 2];
-  }
-
+  // Go through the portfolio object
   transformedCategoriesFromPath.forEach((element) => {
     portfolioData = element === undefined ? portfolioData : portfolioData[element];
   });
 
-  const parentDescription = portfolioData.pictures[0].description;
+  // let parentCategory = [];
+  // if (transformedCategoriesFromPath.length == 1) {
+  //   parentCategory = transformedCategoriesFromPath;
+  // } else {
+  //   parentCategory = transformedCategoriesFromPath[transformedCategoriesFromPath.length - 1];
+  // }
 
-  console.log(portfolioData);
+  let parentCategory = transformedCategoriesFromPath[transformedCategoriesFromPath.length - 1];
+  // parentCategory = parentCategory.toUpperCase();
+  parentCategory = parentCategory.split(" ");
+  parentCategory = parentCategory.map((item: string, index: number) => {
+    return item[0].toUpperCase() + item.slice(1);
+  });
+  parentCategory = parentCategory.join(" ");
+
+  // console.log(parentCategory);
+
+  const parentDescription = portfolioData.pictures[0].description;
 
   // Not Found Page
   if (!portfolioData) {
@@ -46,8 +56,6 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
       categoryList.splice(index, 1);
     }
   }
-
-  console.log(categoryList);
 
   const mappedItem = categoryList.map((item, index) => (
     <motion.div
@@ -66,7 +74,10 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
     </motion.div>
   ));
 
+  // console.log(categoryList);
+  // console.log(transformedCategoriesFromPath);
   // console.log(portfolioData);
+  // console.log("CATEGORYLIST " + categoryList);
   // console.log(categoryList[0] === "images");
 
   return (
@@ -79,8 +90,8 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
           transition={{ duration: 0.5 }}
         >
           <PortfolioGallery
-            title={categoryList}
             parentCategory={parentCategory}
+            title={categoryList}
             portfolioData={portfolioData}
             transformedCategoriesFromPath={transformedCategoriesFromPath}
             // description={description}
