@@ -82,7 +82,7 @@ export default function PortfolioGallery({
               className="flex items-center justify-center w-full h-full"
             >
               <Image
-                loading="eager"
+                priority={true}
                 src={picturesList[currentIndex].url}
                 alt={picturesList[currentIndex].description}
                 width={2000}
