@@ -17,14 +17,6 @@ export default function Thumbnails({ picturesList, setIndex, currentIndex }) {
     setCurrentThumbPage(pageNumber);
   };
 
-  const nextThumbPage = () => {
-    setCurrentThumbPage((prev) => (prev === totalPages ? 1 : prev + 1));
-  };
-
-  const previousThumbPage = () => {
-    setCurrentThumbPage((prev) => (prev === 1 ? totalPages : prev - 1));
-  };
-
   // Adjust the current page when currentIndex changes
   useEffect(() => {
     const newPage = Math.floor(currentIndex / itemsPerPage) + 1;
@@ -36,7 +28,7 @@ export default function Thumbnails({ picturesList, setIndex, currentIndex }) {
   }
 
   // Mapped thumbnails
-  const mappedThumbnails = currentData.map((item: any, index: number) => {
+  const mappedThumbnails = currentData.map((item, index) => {
     const globalIndex = (currentThumbPage - 1) * itemsPerPage + index;
     return (
       <div
@@ -58,11 +50,21 @@ export default function Thumbnails({ picturesList, setIndex, currentIndex }) {
     );
   });
 
+  // Mapped dots for page navigation
+  const mappedDots = [...Array(totalPages)].map((_, pageIndex) => (
+    <button
+      key={pageIndex}
+      onClick={() => handlePageChange(pageIndex + 1)}
+      className={`mx-1 w-3 h-3 rounded-full ${
+        currentThumbPage === pageIndex + 1 ? "bg-black" : "bg-gray-300"
+      }`}
+    />
+  ));
+
   return (
     <div className="mt-2">
       <div className="w-full grid grid-cols-5 gap-2">{mappedThumbnails}</div>
-      <button onClick={previousThumbPage}>{"<"}</button>
-      <button onClick={nextThumbPage}>{">"}</button>
+      {totalPages > 1 && <div className="flex justify-center mt-2">{mappedDots}</div>}
     </div>
   );
 }

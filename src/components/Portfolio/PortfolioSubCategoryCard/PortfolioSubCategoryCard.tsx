@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 
 interface PortfolioSubCategoryCardProps {
   title: any;
+  littleDescription: any;
   description: string;
   cover: string;
   transformedCategoriesFromPath: any;
@@ -15,6 +16,7 @@ interface PortfolioSubCategoryCardProps {
 
 export default function PortfolioSubCategoryCard({
   title,
+  littleDescription,
   description,
   cover,
   transformedCategoriesFromPath,

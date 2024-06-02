@@ -21,7 +21,7 @@ export default async function Home() {
   );
 
   const cloudinaryResponse = await response.json();
-  // revalidatePath("/");
+  revalidatePath("/");
 
   const portfolioData = getDataStructure(cloudinaryResponse);
 
@@ -33,11 +33,9 @@ export default async function Home() {
       <Wrapper>
         <section id="portfolio" className="h-space">
           <div className="flex flex-col md:main-grid pt-20">
-            <div>
-              <H1>Portfolio</H1>
-            </div>
-            <div className="col-span-2">
-              <p className="text-base text-slate-700">
+            {/* <div><H1>Immagina</H1></div> */}
+            <div className="col-span-2 pl-6">
+              <p className="text-base text-sky-800 font-semibold">
                 {`It is a long established fact that a reader will be distracted by the readable content of
           a page when looking at its layout. The point of using Lorem Ipsum is that it has a
           more-or-less normal distribution of letters, as opposed to using 'Content here, content

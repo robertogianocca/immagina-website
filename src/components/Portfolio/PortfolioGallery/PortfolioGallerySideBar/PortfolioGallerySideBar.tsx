@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
+import Header from "./Header/Header";
 import Thumbnails from "./Thumbnails/Thumbnails";
 import Logo from "@/components/Logo/Logo";
 import Button from "@/components/Buttons/Button";
-import H2 from "@/components/Fonts/H2";
 import H3 from "@/components/Fonts/H3";
 import { TiHome } from "react-icons/ti";
 import { FaArrowLeft } from "react-icons/fa";
@@ -13,11 +13,13 @@ import { useParams } from "next/navigation";
 
 export default function PortfolioGallerySideBar({
   currentCategory,
+  littleCategoryDescription,
   categoryDescription,
   picturesList,
   setIndex,
   currentIndex,
   transformedCategoriesFromPath,
+  setIsVisible,
 }) {
   //   --------------------------------- KEYBOARD NAVIGATION ---------------------------------
 
@@ -62,37 +64,6 @@ export default function PortfolioGallerySideBar({
     currentIndex == 0 ? setIndex(picturesList.length - 1) : setIndex(currentIndex - 1);
   }
 
-  //   --------------------------------- PATHS ---------------------------------
-
-  // First letter upper case
-  transformedCategoriesFromPath = transformedCategoriesFromPath.map((item, index) => {
-    item = item.split(" ");
-    item = item.map((itemTwo: string, index: number) => {
-      return itemTwo[0].toUpperCase() + itemTwo.slice(1);
-    });
-
-    return item.join(" ");
-  });
-
-  const pathList = transformedCategoriesFromPath.slice(0, -1).map((item, index) => {
-    return (
-      <li key={index} className="mr-1">
-        <Link
-          href={`/${transformedCategoriesFromPath
-            .slice(0, 1 + index)
-            .join("/")
-            .toLowerCase()}`}
-        >
-          <H3>
-            {transformedCategoriesFromPath.slice(0, -1).length - 1 == index
-              ? item + ""
-              : item + " /"}
-          </H3>
-        </Link>
-      </li>
-    );
-  });
-
   //   --------------------------------- THUMBNAILS ---------------------------------
   function selectThumbnail(index) {
     setIndex(index);
@@ -120,8 +91,6 @@ export default function PortfolioGallerySideBar({
   const paramsObject = useParams();
   const params = paramsObject.categories;
   const categoryBefore = params.slice(0, -1);
-  console.log(categoryDescription);
-
   //   --------------------------------------------------------------------------------------------------------------------------------------------------
   return (
     <>
@@ -142,15 +111,14 @@ export default function PortfolioGallerySideBar({
         </li>
       </ul>
 
-      {/* ------ PATH, TITLE AND DESCRIPTION ------ */}
-
-      <div>
-        <ul className="flex">{pathList}</ul>
-        <div className="mt-1 mb-6 border-t-4 border-red-600">
-          <H2>{currentCategory}</H2>
-          <p className="link text-sm" dangerouslySetInnerHTML={{ __html: categoryDescription }} />
-        </div>
-      </div>
+      {/* ------ HEADER: PATH, TITLE AND DESCRIPTION ------ */}
+      <Header
+        setIsVisible={setIsVisible}
+        transformedCategoriesFromPath={transformedCategoriesFromPath}
+        currentCategory={currentCategory}
+        littleCategoryDescription={littleCategoryDescription}
+        categoryDescription={categoryDescription}
+      />
 
       {/* ------ ARROWS AND INDEX ------ */}
 

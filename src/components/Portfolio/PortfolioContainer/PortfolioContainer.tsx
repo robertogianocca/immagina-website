@@ -59,6 +59,7 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
     >
       <PortfolioSubCategoryCard
         title={item}
+        littleDescription={portfolioData[item].pictures[0].heading}
         description={portfolioData[item].pictures[0].description}
         cover={portfolioData[item].pictures[0].url}
         transformedCategoriesFromPath={transformedCategoriesFromPath}
@@ -78,6 +79,7 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
           <PortfolioGallery
             currentCategory={currentCategory}
             transformedCategoriesFromPath={transformedCategoriesFromPath}
+            littleCategoryDescription={portfolioData.pictures[0].heading}
             categoryDescription={portfolioData.pictures[0].description}
             picturesList={portfolioData.images.pictures}
           />

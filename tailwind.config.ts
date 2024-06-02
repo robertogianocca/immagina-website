@@ -14,7 +14,7 @@ const config: Config = {
       fontSize: {
         xs: ["15px", "20px"],
         sm: ["15px", "20px"],
-        base: ["20px", "25px"],
+        base: ["20px", "27px"],
         xl: ["20px", "30px"],
         "2xl": ["30px", "40px"],
         "3xl": ["40px", "50px"],
@@ -22,6 +22,7 @@ const config: Config = {
       },
       fontFamily: {
         courier: ["var(--customCourier)"],
+        main: ["var(--customMain)"],
         // sans: [
         //   "Inter",
         //   "-apple-system",

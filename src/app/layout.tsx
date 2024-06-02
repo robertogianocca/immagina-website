@@ -1,8 +1,19 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Courier_Prime } from "next/font/google";
+import { Manrope } from "next/font/google";
+import { Karla } from "next/font/google";
+import { Open_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 
 // Globals font
+const main = Inter({
+  weight: ["300", "400", "600", "700"],
+  subsets: ["latin"],
+  fallback: ["system-ui", "arial"],
+  variable: "--customMain",
+});
+
 const courier = Courier_Prime({
   weight: ["400", "700"],
   subsets: ["latin"],
@@ -21,8 +32,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${courier.variable} bg-slate-50`}>
+    <html lang="en" className={`${courier.variable} ${main.variable}`}>
+      <body className="font-main bg-slate-50">
         {/* <NavigationBar /> */}
         {children}
       </body>

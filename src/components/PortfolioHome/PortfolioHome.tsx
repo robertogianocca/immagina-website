@@ -16,7 +16,15 @@ export default function PortfolioHome({ categoryList, portfolioData }) {
   return (
     <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8">
       {mappedCategories}
-      <iframe src="https://www.youtube.com/watch?v=gfU1iZnjRZM" />
+      <PortfolioCategoryCard title="Video" description="Descrizione lavori video" />
+      {/* <iframe
+        src="https://player.vimeo.com/video/917201659?&loop=1&autoplay=1"
+        width="640"
+        height="564"
+        frameborder="0"
+        allow="autoplay; fullscreen"
+        allowfullscreen
+      ></iframe> */}
     </div>
   );
 }
