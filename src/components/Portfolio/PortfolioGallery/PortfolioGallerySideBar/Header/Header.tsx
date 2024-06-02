@@ -1,7 +1,4 @@
 import Link from "next/link";
-import H2 from "@/components/Fonts/H2";
-import H3 from "@/components/Fonts/H3";
-import ReadMoreReact from "read-more-react";
 
 export default function Header({
   transformedCategoriesFromPath,
@@ -31,11 +28,11 @@ export default function Header({
             .join("/")
             .toLowerCase()}`}
         >
-          <H3>
+          <h3 className="text-base">
             {transformedCategoriesFromPath.slice(0, -1).length - 1 == index
               ? item + ""
               : item + " /"}
-          </H3>
+          </h3>
         </Link>
       </li>
     );
@@ -51,7 +48,7 @@ export default function Header({
     <div>
       <ul className="flex">{pathList}</ul>
       <div className="mt-1 mb-6 border-t-4 border-red-600">
-        <H2>{currentCategory}</H2>
+        <h2 className="text-lg">{currentCategory}</h2>
         <p
           className="link text-sm"
           dangerouslySetInnerHTML={{ __html: littleCategoryDescription }}

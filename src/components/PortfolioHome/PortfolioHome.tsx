@@ -3,7 +3,7 @@ import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function PortfolioHome({ categoryList, portfolioData }) {
-  let mappedCategories = categoryList.map((item, index) => (
+  let mappedCategories = categoryList.map((item: string, index: number) => (
     // <AnimatePresence key={index}>
     <PortfolioCategoryCard
       key={index}

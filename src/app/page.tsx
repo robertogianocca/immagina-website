@@ -5,8 +5,6 @@ import { getDataStructure } from "@/utils/portfolio-data-structure";
 import Wrapper from "@/components/Wrapper/Wrapper";
 import NavigationBar from "@/components/NavigationBar/NavigationBar";
 import PortfolioHome from "@/components/PortfolioHome/PortfolioHome";
-import H1 from "@/components/Fonts/H1";
-import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/PortfolioCategoryCard";
 
 export default async function Home() {
   const response = await fetch(
@@ -21,7 +19,7 @@ export default async function Home() {
   );
 
   const cloudinaryResponse = await response.json();
-  revalidatePath("/");
+  // revalidatePath("/");
 
   const portfolioData = getDataStructure(cloudinaryResponse);
 
@@ -33,7 +31,9 @@ export default async function Home() {
       <Wrapper>
         <section id="portfolio" className="h-space">
           <div className="flex flex-col md:main-grid pt-20">
-            {/* <div><H1>Immagina</H1></div> */}
+            {/* <div>
+              <h2 className="text-3xl">Immagina</h2>
+            </div> */}
             <div className="col-span-2 pl-6">
               <p className="text-base text-sky-800 font-semibold">
                 {`It is a long established fact that a reader will be distracted by the readable content of
@@ -51,7 +51,7 @@ export default async function Home() {
         <section id="about" className="h-space">
           <div className="flex flex-col md:main-grid pt-20">
             <div>
-              <H1>About</H1>
+              <h2 className="text-3xl">About</h2>
             </div>
             <div className="col-span-2">
               <p className="text-base text-slate-700">
@@ -76,7 +76,7 @@ export default async function Home() {
         <section id="contact" className="h-space">
           <div className="flex flex-col md:main-grid pt-20">
             <div>
-              <H1>Contact</H1>
+              <h2 className="text-3xl">Contact</h2>
             </div>
             <div className="col-span-2 bg-red-200 w-full h-[500px]">
               <div className="text-base text-slate-700"></div>
