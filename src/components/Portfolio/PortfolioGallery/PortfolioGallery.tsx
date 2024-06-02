@@ -85,10 +85,10 @@ export default function PortfolioGallery({
                 priority={true}
                 src={picturesList[currentIndex].url}
                 alt={picturesList[currentIndex].description}
-                width={2000}
-                height={2000}
+                width={1920}
+                height={1920}
                 className="object-contain max-w-full max-h-full"
-                quality={80}
+                quality={70}
               />
             </motion.div>
           </AnimatePresence>
