@@ -16,7 +16,6 @@ export default function PortfolioHome({ categoryList, portfolioData }) {
   return (
     <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8">
       {mappedCategories}
-      <PortfolioCategoryCard title="Video" description="Descrizione lavori video" />
       {/* <iframe
         src="https://player.vimeo.com/video/917201659?&loop=1&autoplay=1"
         width="640"
