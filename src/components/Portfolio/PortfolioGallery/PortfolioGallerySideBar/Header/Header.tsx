@@ -1,37 +1,33 @@
 import Link from "next/link";
 
+interface GalleryHeaderProps {
+  title: string;
+  path: string[];
+  shortDescription: string;
+  longDescription: string;
+  setIsVisible: (prevState: boolean) => boolean;
+}
+
 export default function Header({
-  transformedCategoriesFromPath,
-  currentCategory,
-  categoryDescription,
-  littleCategoryDescription,
+  title,
+  path,
+  shortDescription,
+  longDescription,
   setIsVisible,
-}) {
+}: GalleryHeaderProps) {
   // --------------------------------- PATHS ---------------------------------
 
-  //   First letter upper case
-  transformedCategoriesFromPath = transformedCategoriesFromPath.map((item, index) => {
-    item = item.split(" ");
-    item = item.map((itemTwo: string, index: number) => {
-      return itemTwo[0].toUpperCase() + itemTwo.slice(1);
-    });
-
-    return item.join(" ");
-  });
-
-  const pathList = transformedCategoriesFromPath.slice(0, -1).map((item, index) => {
+  const pathList = path.slice(0, -1).map((item, index) => {
     return (
       <li key={index} className="mr-1">
         <Link
-          href={`/${transformedCategoriesFromPath
+          href={`/${path
             .slice(0, 1 + index)
             .join("/")
             .toLowerCase()}`}
         >
           <h3 className="text-base">
-            {transformedCategoriesFromPath.slice(0, -1).length - 1 == index
-              ? item + ""
-              : item + " /"}
+            {path.slice(0, -1).length - 1 == index ? item + "" : item + " /"}
           </h3>
         </Link>
       </li>
@@ -48,11 +44,8 @@ export default function Header({
     <div>
       <ul className="flex">{pathList}</ul>
       <div className="mt-1 mb-6 border-t-4 border-red-600">
-        <h2 className="text-lg">{currentCategory}</h2>
-        <p
-          className="link text-sm"
-          dangerouslySetInnerHTML={{ __html: littleCategoryDescription }}
-        />
+        <h2 className="text-lg">{title}</h2>
+        <p className="link text-sm" dangerouslySetInnerHTML={{ __html: shortDescription }} />
         <button onClick={openTextBox}>readmore</button>
       </div>
     </div>

@@ -96,7 +96,7 @@ export default function PortfolioGallery({
                 className="object-contain max-w-full max-h-full"
                 quality={imageQuality}
                 onLoad={handleImageLoad}
-                sizes="(max-width: 1200px) 100vw, 75vw"
+                sizes="(max-width: 1200px) 100vw, 70vw"
               />
             </motion.div>
           </AnimatePresence>

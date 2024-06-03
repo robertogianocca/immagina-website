@@ -90,6 +90,16 @@ export default function PortfolioGallerySideBar({
   const params = paramsObject.categories;
   const categoryBefore = params.slice(0, -1);
 
+  //   First letter upper case
+  transformedCategoriesFromPath = transformedCategoriesFromPath.map((item, index) => {
+    item = item.split(" ");
+    item = item.map((itemTwo: string, index: number) => {
+      return itemTwo[0].toUpperCase() + itemTwo.slice(1);
+    });
+
+    return item.join(" ");
+  });
+
   return (
     <>
       {/* ------ HOME E BACK BUTTONS ------ */}
@@ -110,11 +120,11 @@ export default function PortfolioGallerySideBar({
 
       {/* ------ HEADER: PATH, TITLE AND DESCRIPTION ------ */}
       <Header
+        title={currentCategory}
+        path={transformedCategoriesFromPath}
+        shortDescription={littleCategoryDescription}
+        longDescription={categoryDescription}
         setIsVisible={setIsVisible}
-        transformedCategoriesFromPath={transformedCategoriesFromPath}
-        currentCategory={currentCategory}
-        littleCategoryDescription={littleCategoryDescription}
-        categoryDescription={categoryDescription}
       />
 
       {/* ------ ARROWS AND INDEX ------ */}
