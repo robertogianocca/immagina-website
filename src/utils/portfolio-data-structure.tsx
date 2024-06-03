@@ -14,12 +14,14 @@ export const getDataStructure = (cloudinaryResponse: { resources: [] }) => {
     };
     url: string;
     folder: string;
+    width: number;
+    height: number;
   }
 
   allCloudinaryData.forEach((item: DataObject) => {
     // Destructur object and create variables from some data
 
-    const { public_id, context, url, folder } = item;
+    const { public_id, context, url, folder, width, height } = item;
     // Extract the file name from public_id
 
     const fileName = public_id.split("/").pop();
@@ -61,6 +63,8 @@ export const getDataStructure = (cloudinaryResponse: { resources: [] }) => {
           heading,
           description,
           public_id,
+          width,
+          height,
         });
       }
       currentLevel = currentLevel[folderName];

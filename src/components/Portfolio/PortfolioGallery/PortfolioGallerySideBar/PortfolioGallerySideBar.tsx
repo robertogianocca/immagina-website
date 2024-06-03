@@ -4,7 +4,6 @@ import Header from "./Header/Header";
 import Thumbnails from "./Thumbnails/Thumbnails";
 import Logo from "@/components/Logo/Logo";
 import Button from "@/components/Buttons/Button";
-import H3 from "@/components/Fonts/H3";
 import { TiHome } from "react-icons/ti";
 import { FaArrowLeft } from "react-icons/fa";
 import { MdOutlineFullscreen } from "react-icons/md";
@@ -22,17 +21,24 @@ export default function PortfolioGallerySideBar({
   setIsVisible,
 }) {
   //   --------------------------------- KEYBOARD NAVIGATION ---------------------------------
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      switch (event.keyCode) {
+        case 37:
+          currentIndex == 0 ? setIndex(picturesList.length - 1) : setIndex(currentIndex - 1);
+          break;
+        case 39:
+          currentIndex == picturesList.length - 1 ? setIndex(0) : setIndex(currentIndex + 1);
+          break;
+      }
+    };
 
-  document.onkeydown = function (event) {
-    switch (event.keyCode) {
-      case 37:
-        currentIndex == 0 ? setIndex(picturesList.length - 1) : setIndex(currentIndex - 1);
-        break;
-      case 39:
-        currentIndex == picturesList.length - 1 ? setIndex(0) : setIndex(currentIndex + 1);
-        break;
-    }
-  };
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [currentIndex, picturesList.length, setIndex]);
 
   //   --------------------------------- FULL SCREEN ---------------------------------
 
@@ -44,6 +50,7 @@ export default function PortfolioGallerySideBar({
       document.exitFullscreen();
     }
   };
+
   useEffect(() => {
     const fullscreenChange = () => {
       setIsFullscreen(!!document.fullscreenElement);
@@ -73,16 +80,7 @@ export default function PortfolioGallerySideBar({
     return (
       <div className="relative aspect-square bg-blue-200" key={index}>
         <button onClick={() => selectThumbnail(index)}>
-          <Image
-            // key="index"
-            src={item.url}
-            alt=""
-            quality={1}
-            // className="aspect-square"
-            fill
-            // onLoad={onImageLoad}
-            className="object-cover"
-          />
+          <Image src={item.url} alt="" quality={1} fill className="object-cover" />
         </button>
       </div>
     );
@@ -91,11 +89,10 @@ export default function PortfolioGallerySideBar({
   const paramsObject = useParams();
   const params = paramsObject.categories;
   const categoryBefore = params.slice(0, -1);
-  //   --------------------------------------------------------------------------------------------------------------------------------------------------
+
   return (
     <>
       {/* ------ HOME E BACK BUTTONS ------ */}
-
       <ul>
         <li className="flex gap-2">
           <Link href={`/${categoryBefore.join("/")}`}>
@@ -121,7 +118,6 @@ export default function PortfolioGallerySideBar({
       />
 
       {/* ------ ARROWS AND INDEX ------ */}
-
       <div className="grid grid-cols-2 gap-4 font-courier font-bold mb-4">
         {/* Left Arrow */}
         <button
@@ -146,23 +142,19 @@ export default function PortfolioGallerySideBar({
           onClick={handleFullscreen}
           className="bg-zinc-150 text-stone-600 shadow-button flex items-center justify-center rounded-md"
         >
-          {/* {isFullscreen ? "Exit Fullscreen" : "Go Fullscreen"} */}
           <MdOutlineFullscreen size={40} />
         </button>
       </div>
 
       {/* ------ IMAGE HEADING ------ */}
-
       <div className="h-auto">
         <p className="text-sm">{picturesList[currentIndex].heading}</p>
       </div>
 
       {/* ------ THUMBNAIL ------ */}
-
       <Thumbnails picturesList={picturesList} setIndex={setIndex} currentIndex={currentIndex} />
 
       {/* ------ LOGO ------ */}
-
       <div className="relative h-8 mt-8">
         <div className="absolute bottom-0 left-0">
           <div className="h-4 w-28 relative">

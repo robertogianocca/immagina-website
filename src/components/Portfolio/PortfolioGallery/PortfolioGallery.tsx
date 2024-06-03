@@ -33,6 +33,12 @@ export default function PortfolioGallery({
     setIsVisible((prevState) => !prevState);
   }
 
+  const [imageQuality, setImageQuality] = useState(2);
+
+  const handleImageLoad = () => {
+    setImageQuality(70);
+  };
+
   return (
     <div className="flex flex-row h-screen w-full">
       <div className="w-[300px] fixed h-screen overflow-auto flex flex-col justify-between p-5 bg-stone-100 text-base inner-shadow ">
@@ -85,10 +91,12 @@ export default function PortfolioGallery({
                 priority={true}
                 src={picturesList[currentIndex].url}
                 alt={picturesList[currentIndex].description}
-                width={1920}
-                height={1920}
+                width={picturesList[currentIndex].width}
+                height={picturesList[currentIndex].height}
                 className="object-contain max-w-full max-h-full"
-                quality={70}
+                quality={imageQuality}
+                onLoad={handleImageLoad}
+                sizes="(max-width: 1200px) 100vw, 75vw"
               />
             </motion.div>
           </AnimatePresence>
