@@ -17,9 +17,8 @@ export default async function CategoriesPages({ params }: any) {
   );
 
   const cloudinaryResponse = await response.json();
-  // revalidatePath("/");
+  revalidatePath("/");
 
-  console.log(typeof cloudinaryResponse);
   const portfolioData = getDataStructure(cloudinaryResponse);
   const categoriesFromPath = params.categories;
 

@@ -37,6 +37,7 @@ const config: Config = {
       },
       colors: {
         // custom-One: "red"
+        customWhite: "#F8F8F8",
       },
       height: {
         space: "calc(100vh - 60px)",

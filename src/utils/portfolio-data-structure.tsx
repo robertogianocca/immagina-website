@@ -19,9 +19,10 @@ export const getDataStructure = (cloudinaryResponse: { resources: [] }) => {
   }
 
   allCloudinaryData.forEach((item: DataObject) => {
-    // Destructur object and create variables from some data
+    // Destructur object and create variables from cloudinary data
 
     const { public_id, context, url, folder, width, height } = item;
+
     // Extract the file name from public_id
 
     const fileName = public_id.split("/").pop();

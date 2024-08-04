@@ -56,13 +56,13 @@ export default function Thumbnails({ picturesList, setIndex, currentIndex }) {
       key={pageIndex}
       onClick={() => handlePageChange(pageIndex + 1)}
       className={`mx-1 w-3 h-3 rounded-full ${
-        currentThumbPage === pageIndex + 1 ? "bg-black" : "bg-gray-300"
+        currentThumbPage === pageIndex + 1 ? "bg-stone-600" : "bg-stone-300"
       }`}
     />
   ));
 
   return (
-    <div className="mt-2">
+    <div className="mb-3">
       <div className="w-full grid grid-cols-5 gap-2">{mappedThumbnails}</div>
       {totalPages > 1 && <div className="flex justify-center mt-2">{mappedDots}</div>}
     </div>

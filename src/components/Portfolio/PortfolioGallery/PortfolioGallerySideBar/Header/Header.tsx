@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Button from "@/components/Buttons/Button";
 
 interface GalleryHeaderProps {
   title: string;
@@ -41,12 +42,14 @@ export default function Header({
   }
 
   return (
-    <div>
+    <div className="text-stone-600 mb-4">
       <ul className="flex">{pathList}</ul>
-      <div className="mt-1 mb-6 border-t-4 border-red-600">
-        <h2 className="text-lg">{title}</h2>
-        <p className="link text-sm" dangerouslySetInnerHTML={{ __html: shortDescription }} />
-        <button onClick={openTextBox}>readmore</button>
+      <div className="mt-1 mb-46 border-t-4 border-red-600">
+        <h2 className="text-lg pb-2 pt-1 font-[600]">{title}</h2>
+        <p className="link text-xs pb-2" dangerouslySetInnerHTML={{ __html: shortDescription }} />
+        <Button onClick={openTextBox} addClass="p-1 px-2 text-stone-600 text-xs">
+          {"Read more >"}
+        </Button>
       </div>
     </div>
   );

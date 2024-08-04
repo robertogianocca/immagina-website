@@ -42,7 +42,7 @@ export default function PortfolioSubCategoryCard({
         className="w-full h-full relative flex flex-col  bg-zinc-50 text-slate-600 p-6 shadow-xl hover:shadow-slate-400"
       >
         <H2>{title}</H2>
-        <p className="text-sm pb-4">{description}</p>
+        <p className="text-sm pb-4" dangerouslySetInnerHTML={{ __html: littleDescription }} />
         <div className="">
           <Image src={cover} width={3000} height={2000} alt="Category Cover" />
         </div>

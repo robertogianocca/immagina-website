@@ -3,6 +3,7 @@ import Image from "next/image";
 import PortfolioGallerySideBar from "@/components/Portfolio/PortfolioGallery/PortfolioGallerySideBar/PortfolioGallerySideBar";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Button from "@/components/Buttons/Button";
 
 export default function PortfolioGallery({
   currentCategory,
@@ -41,7 +42,7 @@ export default function PortfolioGallery({
 
   return (
     <div className="flex flex-row h-screen w-full">
-      <div className="w-[300px] fixed h-screen overflow-auto flex flex-col justify-between p-5 bg-stone-100 text-base inner-shadow ">
+      <div className="w-[300px] fixed h-screen overflow-auto flex flex-col justify-between p-5 bg-stone-200 bg-opacity-35 text-base inner-shadow ">
         <PortfolioGallerySideBar
           littleCategoryDescription={littleCategoryDescription}
           categoryDescription={categoryDescription}
@@ -55,21 +56,24 @@ export default function PortfolioGallery({
       </div>
       {/* Text Description Overlay */}
       <div
-        className={`px-40 py-40 fixed top-0 left-[300px] right-0 bottom-0 bg-white z-50 opacity-95 ${
+        className={`fixed top-0 left-[300px] right-0 bottom-0 bg-white z-50 bg-opacity-95 flex items-center justify-center p-10 ${
           isVisible ? "hidden" : "block"
         }`}
       >
-        <div className="w-[600px] m-auto">
-          <button className=" bg-red-200 m-auto p-3  mb-4" onClick={closeTextBox}>
+        <div className="w-[800px] max-h-full px-10 overflow-auto">
+          <p
+            className="link text-base text-sky-800 font-semibold"
+            dangerouslySetInnerHTML={{ __html: categoryDescription }}
+          />
+        </div>
+        {/* <div className="w-[620px] mt-2 m-auto ">
+          <Button addClass="p-3 mb-4 shadow-stone-300" onClick={closeTextBox}>
             close
-          </button>
-        </div>
-        <div className="w-[600px] h-[600px] m-auto overflow-auto">
-          <p className="link text-xl" dangerouslySetInnerHTML={{ __html: categoryDescription }} />
-        </div>
+          </Button>
+        </div> */}
       </div>
       {/* Image Container */}
-      <div className="ml-[300px] flex-grow p-4 pl-10 pb-10 bg-white">
+      <div className="ml-[300px] flex-grow p-4 pl-10 pb-10 bg-customWhite">
         <div className="relative w-full h-full">
           {/* Gallery title */}
           <div

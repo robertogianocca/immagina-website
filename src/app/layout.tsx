@@ -30,10 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${courier.variable} ${main.variable}`}>
-      <body className="font-main bg-slate-50">
-        {/* <NavigationBar /> */}
-        {children}
-      </body>
+      <body className="font-main bg-slate-50">{children}</body>
     </html>
   );
 }

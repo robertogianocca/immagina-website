@@ -103,20 +103,21 @@ export default function PortfolioGallerySideBar({
   return (
     <>
       {/* ------ HOME E BACK BUTTONS ------ */}
-      <ul>
-        <li className="flex gap-2">
-          <Link href={`/${categoryBefore.join("/")}`}>
-            <Button addClass="p-2 text-slate-400">
-              <FaArrowLeft size={25} />
-            </Button>
-          </Link>
-          <Link href={"/"}>
-            <Button addClass="p-2 text-slate-400">
-              <TiHome size={25} />
-            </Button>
-          </Link>
-        </li>
-      </ul>
+      <div className="flex gap-2 mb-2">
+        <Link href={`/${categoryBefore.join("/")}`}>
+          <Button addClass="p-2 text-slate-400">
+            <FaArrowLeft size={25} />
+          </Button>
+        </Link>
+        <Link href={"/"}>
+          <Button addClass="p-2 text-slate-400">
+            <TiHome size={25} />
+          </Button>
+        </Link>
+        <div className="w-28 h-auto relative left-12">
+          <Logo />
+        </div>
+      </div>
 
       {/* ------ HEADER: PATH, TITLE AND DESCRIPTION ------ */}
       <Header
@@ -128,11 +129,11 @@ export default function PortfolioGallerySideBar({
       />
 
       {/* ------ ARROWS AND INDEX ------ */}
-      <div className="grid grid-cols-2 gap-4 font-courier font-bold mb-4">
+      <div className="grid grid-cols-2 gap-4 font-courier font-bold">
         {/* Left Arrow */}
         <button
           onClick={previousImage}
-          className="bg-zinc-150 text-stone-600 shadow-button flex items-center justify-center h-20 rounded-md"
+          className="bg-zinc-150 text-stone-600 shadow-button flex items-center justify-center h-[65px] rounded-md"
         >
           <p className="font-courier font-bold text-4xl ">{"<"}</p>
         </button>
@@ -144,7 +145,7 @@ export default function PortfolioGallerySideBar({
           <p className="text-4xl">{">"}</p>
         </button>
         {/* Index */}
-        <h1 className="bg-zinc-150 text-stone-600 h-20 flex items-center justify-center rounded-xl">{`${
+        <h1 className="bg-zinc-150 text-stone-600 h-[65px] flex items-center justify-center rounded-xl">{`${
           currentIndex + 1
         } / ${picturesList.length}`}</h1>
         {/* Full Screen */}
@@ -157,21 +158,21 @@ export default function PortfolioGallerySideBar({
       </div>
 
       {/* ------ IMAGE HEADING ------ */}
-      <div className="h-auto">
-        <p className="text-sm">{picturesList[currentIndex].heading}</p>
+      <div className="h-[40px] my-6">
+        <p className="text-xs">{picturesList[currentIndex].heading}</p>
       </div>
 
       {/* ------ THUMBNAIL ------ */}
       <Thumbnails picturesList={picturesList} setIndex={setIndex} currentIndex={currentIndex} />
 
       {/* ------ LOGO ------ */}
-      <div className="relative h-8 mt-8">
+      {/* <div className="relative h-8 mt-8">
         <div className="absolute bottom-0 left-0">
           <div className="h-4 w-28 relative">
             <Logo />
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
