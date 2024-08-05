@@ -56,22 +56,28 @@ export default function PortfolioGallery({
       </div>
       {/* Text Description Overlay */}
       <div
-        className={`fixed top-0 left-[300px] right-0 bottom-0 bg-white z-50 bg-opacity-95 flex items-center justify-center p-10 ${
+        className={`fixed top-0 left-[300px] right-0 bottom-0 bg-white z-50 bg-opacity-100 flex items-center justify-center p-10 ${
           isVisible ? "hidden" : "block"
         }`}
       >
-        <div className="w-[800px] max-h-full px-10 overflow-auto">
-          <p
-            className="link text-base text-sky-800 font-semibold"
-            dangerouslySetInnerHTML={{ __html: categoryDescription }}
-          />
+        <div className="flex flex-col items-center w-full max-w-[800px] h-full">
+          <div className="w-full px-10 mb-3">
+            <Button
+              addClass="px-4 py-2 mb-4 shadow-stone-300 text-stone-600 font-bold text-md"
+              onClick={closeTextBox}
+            >
+              X
+            </Button>
+          </div>
+          <div className="w-full flex-grow px-10 overflow-auto ">
+            <p
+              className="link text-base text-sky-800 font-semibold"
+              dangerouslySetInnerHTML={{ __html: categoryDescription }}
+            />
+          </div>
         </div>
-        {/* <div className="w-[620px] mt-2 m-auto ">
-          <Button addClass="p-3 mb-4 shadow-stone-300" onClick={closeTextBox}>
-            close
-          </Button>
-        </div> */}
       </div>
+
       {/* Image Container */}
       <div className="ml-[300px] flex-grow p-4 pl-10 pb-10 bg-customWhite">
         <div className="relative w-full h-full">
