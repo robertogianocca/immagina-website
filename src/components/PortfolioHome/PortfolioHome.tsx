@@ -16,6 +16,12 @@ export default function PortfolioHome({ categoryList, portfolioData }) {
   return (
     <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8">
       {mappedCategories}
+      <PortfolioCategoryCard
+        key="£!ä"
+        title="video"
+        description="Descrizione video"
+        cover="https://res.cloudinary.com/immagina/image/upload/v1716928095/IMMAGINA/Portfolio/Fotografia/Slava%27s%20Snowshow/images/20_ckiexj.jpg"
+      />
       {/* <iframe
         src="https://player.vimeo.com/video/917201659?&loop=1&autoplay=1"
         width="640"
