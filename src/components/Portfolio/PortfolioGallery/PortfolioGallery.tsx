@@ -10,7 +10,7 @@ export default function PortfolioGallery({
   transformedCategoriesFromPath,
   picturesList,
   categoryDescription,
-  littleCategoryDescription,
+  shortCategoryDescription,
 }: any) {
   const [currentIndex, setIndex] = useState(0);
 
@@ -44,9 +44,9 @@ export default function PortfolioGallery({
     <div className="flex flex-row h-screen w-full">
       <div className="w-[300px] fixed h-screen overflow-auto flex flex-col justify-between p-5 bg-stone-200 bg-opacity-35 text-base inner-shadow ">
         <PortfolioGallerySideBar
-          littleCategoryDescription={littleCategoryDescription}
+          title={currentCategory}
+          shortCategoryDescription={shortCategoryDescription}
           categoryDescription={categoryDescription}
-          currentCategory={currentCategory}
           picturesList={picturesList}
           transformedCategoriesFromPath={transformedCategoriesFromPath}
           currentIndex={currentIndex}

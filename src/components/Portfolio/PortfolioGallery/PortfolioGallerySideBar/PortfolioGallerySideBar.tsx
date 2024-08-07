@@ -10,19 +10,38 @@ import { MdOutlineFullscreen } from "react-icons/md";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 
+interface Picture {
+  fileName: string;
+  url: string;
+  heading: string;
+  description: string;
+  public_id: string;
+}
+
+interface PortfolioGallerySideBarProps {
+  title: string;
+  shortCategoryDescription: string;
+  categoryDescription: string;
+  picturesList: Picture[];
+  setIndex: (index: number) => void;
+  currentIndex: number;
+  transformedCategoriesFromPath: any[];
+  setIsVisible: (visible: boolean) => boolean;
+}
+
 export default function PortfolioGallerySideBar({
-  currentCategory,
-  littleCategoryDescription,
+  title,
+  shortCategoryDescription,
   categoryDescription,
   picturesList,
   setIndex,
   currentIndex,
   transformedCategoriesFromPath,
   setIsVisible,
-}) {
+}: PortfolioGallerySideBarProps) {
   //   --------------------------------- KEYBOARD NAVIGATION ---------------------------------
   useEffect(() => {
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       switch (event.keyCode) {
         case 37:
           currentIndex == 0 ? setIndex(picturesList.length - 1) : setIndex(currentIndex - 1);
@@ -72,7 +91,7 @@ export default function PortfolioGallerySideBar({
   }
 
   //   --------------------------------- THUMBNAILS ---------------------------------
-  function selectThumbnail(index) {
+  function selectThumbnail(index: number) {
     setIndex(index);
   }
 
@@ -87,8 +106,9 @@ export default function PortfolioGallerySideBar({
   });
 
   const paramsObject = useParams();
-  const params = paramsObject.categories;
-  const categoryBefore = params.slice(0, -1);
+  const params = paramsObject.categories || ""; // Ensure params is at least an empty string
+  const paramsArray = Array.isArray(params) ? params : params.split("/");
+  const categoryBefore = paramsArray.slice(0, -1);
 
   //   First letter upper case
   transformedCategoriesFromPath = transformedCategoriesFromPath.map((item, index) => {
@@ -102,7 +122,7 @@ export default function PortfolioGallerySideBar({
 
   return (
     <>
-      {/* ------ HOME E BACK BUTTONS ------ */}
+      {/* ------ HOME, BACK BUTTONS, LOGO ------ */}
       <div className="flex gap-2 mb-2">
         <Link href={`/${categoryBefore.join("/")}`}>
           <Button addClass="p-2 text-slate-400">
@@ -121,9 +141,9 @@ export default function PortfolioGallerySideBar({
 
       {/* ------ HEADER: PATH, TITLE AND DESCRIPTION ------ */}
       <Header
-        title={currentCategory}
+        title={title}
         path={transformedCategoriesFromPath}
-        shortDescription={littleCategoryDescription}
+        shortDescription={shortCategoryDescription}
         longDescription={categoryDescription}
         setIsVisible={setIsVisible}
       />

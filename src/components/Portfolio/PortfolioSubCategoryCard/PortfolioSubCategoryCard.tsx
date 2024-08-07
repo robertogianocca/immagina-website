@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 interface PortfolioSubCategoryCardProps {
   title: any;
-  littleDescription: any;
+  shortDescription: any;
   description: string;
   cover: string;
   transformedCategoriesFromPath: any;
@@ -16,7 +16,7 @@ interface PortfolioSubCategoryCardProps {
 
 export default function PortfolioSubCategoryCard({
   title,
-  littleDescription,
+  shortDescription,
   description,
   cover,
   transformedCategoriesFromPath,
@@ -42,7 +42,7 @@ export default function PortfolioSubCategoryCard({
         className="w-full h-full relative flex flex-col  bg-zinc-50 text-slate-600 p-6 shadow-xl hover:shadow-slate-400"
       >
         <H2>{title}</H2>
-        <p className="text-sm pb-4" dangerouslySetInnerHTML={{ __html: littleDescription }} />
+        <p className="text-sm pb-4" dangerouslySetInnerHTML={{ __html: shortDescription }} />
         <div className="">
           <Image src={cover} width={3000} height={2000} alt="Category Cover" />
         </div>
