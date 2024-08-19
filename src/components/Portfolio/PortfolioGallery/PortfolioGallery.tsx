@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
 import PortfolioGallerySideBar from "@/components/Portfolio/PortfolioGallery/PortfolioGallerySideBar/PortfolioGallerySideBar";
+import Button from "@/components/Buttons/Button";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Button from "@/components/Buttons/Button";
 
 export default function PortfolioGallery({
   currentCategory,

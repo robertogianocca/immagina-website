@@ -27,6 +27,7 @@ export default function VideoGallery({}: any) {
               width="100%"
               height="100%"
               title="CARIE"
+              className="bg-red-200"
             ></iframe>
           </div>
         </div>

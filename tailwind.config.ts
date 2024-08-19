@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       aspectRatio: {
         cover: "1920 / 2150",
+        home: "4 / 3",
       },
       fontSize: {
         xs: ["13.89px", "normal"],

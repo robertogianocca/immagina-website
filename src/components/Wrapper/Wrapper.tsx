@@ -3,7 +3,11 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { useState } from "react";
 
-export default function Wrapper({ children }) {
+export default function Wrapper({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   // Mouse circle
   const [position, setPosition] = useState({ x: 0, y: 0 });
   useEffect(() => {
@@ -20,7 +24,7 @@ export default function Wrapper({ children }) {
 
   return (
     <motion.main
-      className="mt-[60px] lg:pl-10 lg:pr-60"
+      className="mt-[60px] lg:pl-14 lg:pr-24"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
