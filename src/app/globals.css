@@ -24,6 +24,13 @@
   }
 }
 
+/* Custom Global CSS */
+
 .link a {
   @apply text-blue-500 font-bold;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 60px; /* Adjust this value to match the height of your fixed NavigationBar */
 }

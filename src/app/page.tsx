@@ -2,9 +2,12 @@
 
 import { revalidatePath } from "next/cache";
 import { getDataStructure } from "@/utils/portfolio-data-structure";
+import Link from "next/link";
 import Wrapper from "@/components/Wrapper/Wrapper";
 import NavigationBar from "@/components/NavigationBar/NavigationBar";
+import HomePage from "@/components/HomePage/HomePage";
 import PortfolioHome from "@/components/PortfolioHome/PortfolioHome";
+import Button from "@/components/Buttons/Button";
 
 export default async function Home() {
   const response = await fetch(
@@ -29,33 +32,14 @@ export default async function Home() {
     <>
       <NavigationBar />
       <Wrapper>
-        <section id="home" className="h-screen grid grid-cols-3 gap-8 pt-16">
-          <p className="text-base text-sky-800 font-semibold col-span-1">
-            {`It is a long established fact that a reader will be distracted by the readable content of
-    a page when looking at its layout. The point of using Lorem Ipsum is that it has a
-    more-or-less normal distribution of letters, as opposed to using 'Content here, content
-    here', making it look like readable English. Many desktop publishing packages and web page
-    editors now use Lorem Ipsum as their default model text.`}
-          </p>
-          <div className="col-span-2 relative w-full h-full">
-            <div className="h-full flex">
-              <iframe
-                src="https://player.vimeo.com/video/999094842?h=19a5c4fcfb&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&background=1"
-                className="bg-green-400 aspect-home self-start"
-                width="100%"
-                height="auto" // Change this to auto
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-                // style={{ alignSelf: "flex-start", aspectRatio: "4 / 3" }}
-              ></iframe>
-            </div>
-          </div>
+        <section id="home" className="h-space grid grid-cols-3 gap-8 pt-16 pb-16">
+          <HomePage />
         </section>
-
-        <section id="portfolio" className="h-space">
-          <div className="flex flex-col md:main-grid pt-20">
-            {/* <div>
-              <h2 className="text-3xl">Immagina</h2>
-            </div> */}
+        <section id="portfolio" className="h-space pt-16 pb-16">
+          <div className="flex flex-col md:main-grid">
+            <div>
+              <h2 className="text-3xl">Portfolio</h2>
+            </div>
             <div className="col-span-2 pl-6">
               <p className="text-base text-sky-800 font-semibold">
                 {`It is a long established fact that a reader will be distracted by the readable content of
@@ -70,27 +54,54 @@ export default async function Home() {
             </div>
           </div>
         </section>
-        <section id="about" className="h-space">
+        <section id="principi" className="h-space">
           <div className="flex flex-col md:main-grid pt-20">
             <div>
-              <h2 className="text-3xl">About</h2>
+              <h2 className="text-3xl">Principi</h2>
             </div>
             <div className="col-span-2">
               <p className="text-base text-slate-700">
-                {`It is a long established fact that a reader will be distracted by the readable content of
-          a page when looking at its layout. The point of using Lorem Ipsum is that it has a
-          more-or-less normal distribution of letters, as opposed to using 'Content here, content
-          here', making it look like readable English. Many desktop publishing packages and web page
-          editors now use Lorem Ipsum as their default model text.It is a long established fact that a reader will be distracted by the readable content of
-          a page when looking at its layout. The point of using Lorem Ipsum is that it has a
-          more-or-less normal distribution of letters, as opposed to using 'Content here, content
-          here', making it look like readable English. Many desktop publishing packages and web page
-          editors now use Lorem Ipsum as their default model text.Many desktop publishing packages and web page
-          editors now use Lorem Ipsum as their default model text.It is a long established fact that a reader will be distracted by the readable content of
-          a page when looking at its layout. The point of using Lorem Ipsum is that it has a
-          more-or-less normal distribution of letters, as opposed to using 'Content here, content
-          here', making it look like readable English. Many desktop publishing packages and web page
-          editors now use Lorem Ipsum as their default model text.`}
+                Abbiamo dei principi che applichiamo da sempre, da quando siamo attivi, ossia da
+                quasi trent’anni. Ecco una distinta dei valori a cui ci atteniamo rigorosamente:
+                Less is more (Mies van der Rohe) “Kalos kai agathos“ - Il bello è anche buono
+                (Platone) Il tempo non è denaro Ambendo l’eccellenza spesso roviniamo ciò che è bene
+                (W. Shakespeare). L’essenziale è invisibile agli occhi (Saint-Exupery) “Ho dei gusti
+                semplicissimi. Mi accontento sempre del meglio” diceva O. Wilde. Prendendo in
+                prestito il celebre personaggio di Collodi, cerchiamo di evitare ai nostri clienti i
+                guai di… Pinocchio. Niente naso lungo e gambe corte, niente incontri con il Gatto e
+                la Volpe, niente semina di zecchini d’oro nell’orto, niente orecchie lunghe. Siamo
+                seri why not? Diamine: non viviamo mica nel paese dei balocchi! Scansiamo i furbi,
+                scopriamo il tuo talento. Sotto la nostra regia, la tua comunicazione deve diventare
+                iconica: non progettiamo il tuo domani, ma il tuo dopo-domani. Oggi. Come? Perché?
+                Perché ci dedichiamo a te. Ci prendiamo il tempo, tutto il tempo necessario, perché
+                abbiamo tempo. Del resto il tempo non si compra: si prende.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section id="prodotti" className="h-space">
+          <div className="flex flex-col md:main-grid pt-20">
+            <div>
+              <h2 className="text-3xl">Prodotti</h2>
+            </div>
+            <div className="col-span-2">
+              <p className="text-base text-slate-700">
+                I nostri prodotti: Analisi e creazione di concetti di comunicazione, Fotografia,
+                grafica, video, siti web, libri. La nostra passione: l’arte, lo spettacolo, la
+                cucina, l’orto, il teatro, la musica, i libri… Libri e cataloghi Grafica:
+                impaginazioni, logotipi, post produzione immagini e video Webdesign: dal progetto
+                alla realizzazione e gestione del sito. Video: film, documentari, vidioclip
+                musicali, reportage di eventi (se il tuo matrimonio deve diventare un
+                lungometraggio), Fotografia. Ritratto, reportage, Still live, riprese con droni,
+                Curatoria produzione e allestimento di mostre openair. Se sei un creativo potresti
+                approfittare della nostra esperienza: Ritratti d’autore, cataloghi d’arte, libri a
+                tema, allestimento mostre all’aperto (open air); siti web; video clip, documentari
+                video FOTOGRAFIA: la nostra esperienza va dalla foto di sport, al, ritratto, still
+                life, oggettistica industriale (orologi, gioielli, meccanica fine, paesaggio,
+                teatro, riproduzioni d’arte (scultura), food, moda, reportage giornalistico
+                (matrimoni - eventi), musica, drone, 3D Specialità produzione: foto con droni
+                Specialità: mostre openair. Prodotto. Specialità: 3D Special interest: biografie,
+                scultura teatro architettura natura (orto incluso)
               </p>
             </div>
           </div>

@@ -5,7 +5,7 @@ import MenuDesktop from "../MenuDesktop/MenuDesktop";
 import HamburgerIcon from "@/components/HamburgerIcon/HamburgerIcon";
 import OpacityAnimation from "../Animations/OpacityAnimation";
 
-const menuItems = ["Prodotti", "Principi", "Obiettivi", "Chi siamo"];
+const menuItems = ["Portfolio", "Principi", "Prodotti", "Chi siamo", "Contatto"];
 
 export default function NavigationBar() {
   return (
