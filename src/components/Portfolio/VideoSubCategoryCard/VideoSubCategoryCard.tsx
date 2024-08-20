@@ -14,6 +14,7 @@ interface VideoSubCategoryCardProps {
 }
 
 export default function VideoSubCategoryCard({
+  key,
   title,
   shortDescription,
   description,

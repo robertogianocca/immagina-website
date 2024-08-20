@@ -9,7 +9,7 @@ import VideoSubCategoryCard from "@/components/Portfolio/VideoSubCategoryCard/Vi
 export default function videoPage() {
   const mappedVideo = videoDatabase.map((item, index) => {
     return (
-      <div>
+      <div key={index}>
         <VideoSubCategoryCard
           title={item.title}
           shortDescription={item.shortDescription}
