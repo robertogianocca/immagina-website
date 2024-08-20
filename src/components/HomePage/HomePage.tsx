@@ -31,27 +31,50 @@ export default function HomePage() {
 
   return (
     <>
-      <div className="text-base text-sky-800 font-semibold col-span-1">
-        <p>Niente si sa, tutto si IMMAGINA” Fernando Pessoa</p>
-        <p> IMMAGINA+ è un collettivo di creativi.</p>
-        <p>
+      {/* <div className="w-full h-screen md:hidden  bg-red-200">
+        <div className="absolute top-0 left-0 w-full h-full">
+          <iframe
+            src="https://player.vimeo.com/video/999094842?h=19a5c4fcfb&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&background=1"
+            className="absolute top-0 left-0 "
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+            style={{
+              position: "absolute",
+              top: "0",
+              left: "50%",
+              width: "300vw", // Double the viewport width to ensure cropping
+              height: "100vh",
+              transform: "translateX(-55%)", // Center the video horizontally
+              objectFit: "cover", // Cover the area, cropping as needed
+            }}
+          ></iframe>
+        </div>
+      </div> */}
+
+      <div className="text-sm md:text-base text-sky-800 font-semibold col-span-1">
+        <div className="mb-1 font-courier">
+          <p className="text-xl tracking-tighter">{`Niente si sa,`}</p>
+          <p className="text-xl tracking-tighter mb-3">{`tutto si immagina`}</p>
+          <p className="mb-14">Fernando Pessoa</p>
+        </div>
+        <p className="mb-7"> IMMAGINA+ è un collettivo di creativi.</p>
+        <p className="mb-7">
           Se per ragioni professionali o private vuoi comunicare al mondo chi sei, cosa fai,
-          potresti essere interessato ad affidarti al collettivo creativo IMMAGINA. Comunichiamo la
+          potresti essere interessato ad affidarti al collettivo creativo IMMAGINA+. Comunichiamo la
           tua immagine, come il sarto fa l’abito su misura. Quali strumenti abbiamo a disposizione?
         </p>
-        <p>Fotografia Grafica Video</p>
-        <p>Webdesign Bookdesign Scrittura</p>
-        <p>
+        <div className="mb-7">
+          <p>Fotografia Grafica Video</p>
+          <p>Webdesign Bookdesign Copywriting</p>
+        </div>
+        <p className="pb-7">
           Ti invitiamo a sfogliare il nostro portfolio: un’immagine vale mille parole. Se ti piace
-          scrivici. Why not?`
+          scrivici. Why not?
         </p>
-        <p>
-          <Link href="#portfolio">
-            <Button addClass="p-2 px-3 text-stone-600 text-base">Portfolio</Button>
-          </Link>
-        </p>
+        <Link href="#portfolio">
+          <Button addClass="p-2 px-3 text-stone-600 text-base">Portfolio</Button>
+        </Link>
       </div>
-      <div className="col-span-2 relative w-full h-full">
+      <div className="hidden md:inline col-span-2 relative w-full h-full">
         <div className="h-full flex">
           <iframe
             src="https://player.vimeo.com/video/999094842?h=19a5c4fcfb&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&background=1"

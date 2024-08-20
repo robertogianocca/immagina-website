@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-export default function MenuDesktop({ menuItems }) {
-  const mappedMenu = menuItems.map((item, index) => {
+export default function MenuDesktop({ menuItems }: { menuItems: string[] }) {
+  const mappedMenu = menuItems.map((item: string, index: number) => {
     return (
-      <li key={index} className="pr-16 ">
+      <li key={index} className="whitespace-nowrap">
         <Link href={`/#${item.toLowerCase()}`} className="hover:border-b-2 hover:border-red-500">
           {item}
         </Link>
@@ -11,6 +11,8 @@ export default function MenuDesktop({ menuItems }) {
     );
   });
   return (
-    <ul className="hidden md:flex font-courier font-bold text-base text-red-600">{mappedMenu}</ul>
+    <ul className="w-full hidden lg:flex lg:justify-between font-courier font-bold text-[1.5vw] text-red-600">
+      {mappedMenu}
+    </ul>
   );
 }

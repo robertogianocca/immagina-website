@@ -32,13 +32,13 @@ export default async function Home() {
     <>
       <NavigationBar />
       <Wrapper>
-        <section id="home" className="h-space grid grid-cols-3 gap-8 pt-16 pb-16">
+        <section id="home" className="h-space flex flex-col md:grid md:grid-cols-3 gap-8 pb-16">
           <HomePage />
         </section>
         <section id="portfolio" className="h-space pt-16 pb-16">
           <div className="flex flex-col md:main-grid">
             <div>
-              <h2 className="text-3xl">Portfolio</h2>
+              <h2 className="text-3xl font-courier">Portfolio</h2>
             </div>
             <div className="col-span-2 pl-6">
               <p className="text-base text-sky-800 font-semibold">
@@ -57,7 +57,7 @@ export default async function Home() {
         <section id="principi" className="h-space">
           <div className="flex flex-col md:main-grid pt-20">
             <div>
-              <h2 className="text-3xl">Principi</h2>
+              <h2 className="text-3xl font-courier">Principi</h2>
             </div>
             <div className="col-span-2">
               <p className="text-base text-slate-700">
@@ -82,7 +82,7 @@ export default async function Home() {
         <section id="prodotti" className="h-space">
           <div className="flex flex-col md:main-grid pt-20">
             <div>
-              <h2 className="text-3xl">Prodotti</h2>
+              <h2 className="text-3xl font-courier">Prodotti</h2>
             </div>
             <div className="col-span-2">
               <p className="text-base text-slate-700">
@@ -109,7 +109,7 @@ export default async function Home() {
         <section id="contact" className="h-space">
           <div className="flex flex-col md:main-grid pt-20">
             <div>
-              <h2 className="text-3xl">Contact</h2>
+              <h2 className="text-3xl font-courier">Contact</h2>
             </div>
             <div className="col-span-2 bg-red-200 w-full h-[500px]">
               <div className="text-base text-slate-700"></div>
