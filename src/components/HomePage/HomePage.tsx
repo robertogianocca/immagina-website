@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import Button from "@/components/Buttons/Button";
+import RedTriangle from "../Icons/RedTriangle";
 import { useState, useEffect } from "react";
 
 export default function HomePage() {
@@ -50,7 +51,7 @@ export default function HomePage() {
         </div>
       </div> */}
 
-      <div className="text-sm md:text-base text-sky-800 font-semibold col-span-1">
+      <div className="text-sm md:text-base text-sky-800 font-semibold col-span-1 pr-8">
         <div className="mb-1 font-courier">
           <p className="text-xl tracking-tighter">{`Niente si sa,`}</p>
           <p className="text-xl tracking-tighter mb-3">{`tutto si immagina`}</p>
@@ -62,10 +63,32 @@ export default function HomePage() {
           potresti essere interessato ad affidarti al collettivo creativo IMMAGINA+. Comunichiamo la
           tua immagine, come il sarto fa l’abito su misura. Quali strumenti abbiamo a disposizione?
         </p>
-        <div className="mb-7">
-          <p>Fotografia Grafica Video</p>
-          <p>Webdesign Bookdesign Copywriting</p>
-        </div>
+        <ul className="font-courier text-lg mb-7 grid grid-cols-2 gap-y-4 pr-16">
+          <li className="flex">
+            <RedTriangle />
+            Fotografia
+          </li>
+          <li className="flex items-centers">
+            <RedTriangle />
+            Grafica
+          </li>
+          <li className="flex items-center">
+            <RedTriangle />
+            Video
+          </li>
+          <li className="flex items-center">
+            <RedTriangle />
+            Webdesign
+          </li>
+          <li className="flex items-center">
+            <RedTriangle />
+            Bookdesign
+          </li>
+          <li className="flex items-center">
+            <RedTriangle />
+            Copywriting
+          </li>
+        </ul>
         <p className="pb-7">
           Ti invitiamo a sfogliare il nostro portfolio: un’immagine vale mille parole. Se ti piace
           scrivici. Why not?

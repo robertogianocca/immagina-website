@@ -1,3 +1,7 @@
+Category and Subcategory card:
+- formati immagine anteprima 4:5,
+- export da bridge (800px max, jpeg 10 quality) 
+
 
 Breakpoint prefix	Minimum width	CSS
 sm	640px	@media (min-width: 640px) { ... }
