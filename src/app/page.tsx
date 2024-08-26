@@ -42,11 +42,9 @@ export default async function Home() {
             </div>
             <div className="col-span-2 pl-6">
               <p className="text-base text-sky-800 font-semibold">
-                {`It is a long established fact that a reader will be distracted by the readable content of
-          a page when looking at its layout. The point of using Lorem Ipsum is that it has a
-          more-or-less normal distribution of letters, as opposed to using 'Content here, content
-          here', making it look like readable English. Many desktop publishing packages and web page
-          editors now use Lorem Ipsum as their default model text.`}
+                {`IL TROPPO GUASTA. IMMAGINA ha 50 di storia. Troppi. Si è dunque optato per una piccola selezione di lavori allo scopo di illustrare la varietà dei temi affrontati in passato.  Come un albo di famiglia da sfogliare e sfogliare e sfogliare.
+Soddisfare la tua curiosità.  Tutto qui.
+Vedrai che i temi hanno carattere locale, e anche planetario. Indifferentemente si passa da incarichi editoriali /giornalistici, a quelli commerciali/pubblicitari. Scoprirai la predilezione per il ritratto, il teatro, il cinema, il treno, la bicicletta e i matrimoni… `}
               </p>
             </div>
             <div className="col-span-3">

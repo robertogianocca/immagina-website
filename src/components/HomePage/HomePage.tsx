@@ -57,12 +57,12 @@ export default function HomePage() {
           <p className="text-xl tracking-tighter mb-3">{`tutto si immagina`}</p>
           <p className="mb-14">Fernando Pessoa</p>
         </div>
-        <p className="mb-7"> IMMAGINA+ è un collettivo di creativi.</p>
         <p className="mb-7">
-          Se per ragioni professionali o private vuoi comunicare al mondo chi sei, cosa fai,
-          potresti essere interessato ad affidarti al collettivo creativo IMMAGINA+. Comunichiamo la
-          tua immagine, come il sarto fa l’abito su misura. Quali strumenti abbiamo a disposizione?
+          Se per ragioni professionali o private vuoi comunicare al mondo le tue idee, chi sei, cosa
+          fai potresti essere interessato ad affidarti al collettivo crativo IMMAGINA+.
         </p>
+        <p>Come un sarto confeziona l'abito, IMMAGINA+ confeziona la tua comunicazione.</p>
+        <p className="mb-7">Quali gli strumenti?</p>
         <ul className="font-courier text-base 2xl:text-lg pr-4 2xl:pr-0 text-center mb-7 grid grid-cols-2 gap-x-4 gap-y-4">
           <li className="flex">
             <RedTriangle />
@@ -90,9 +90,9 @@ export default function HomePage() {
           </li>
         </ul>
         <p className="pb-7">
-          Ti invitiamo a sfogliare il nostro portfolio: un’immagine vale mille parole. Se ti piace
-          scrivici. Why not?
+          IMMAGINA+ ti invita a sfogliare il suo portfolio. Poche parole. Immagini? Troppe, forse.
         </p>
+        <p className="pb-7">If you like it, scrivici. Why not.</p>
         <Link href="#portfolio">
           <Button addClass="p-2 px-3 text-stone-600 text-base">Portfolio</Button>
         </Link>

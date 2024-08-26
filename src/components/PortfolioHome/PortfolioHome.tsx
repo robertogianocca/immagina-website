@@ -19,8 +19,8 @@ export default function PortfolioHome({ categoryList, portfolioData }) {
       <PortfolioCategoryCard
         key="£!ä"
         title="video"
-        description="Descrizione video"
-        cover="https://res.cloudinary.com/immagina/image/upload/v1716928095/IMMAGINA/Portfolio/Fotografia/Slava%27s%20Snowshow/images/20_ckiexj.jpg"
+        description="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia."
+        cover="https://res.cloudinary.com/immagina/image/upload/v1724666692/IMMAGINA/Portfolio/Video/thumb-carie.jpg"
       />
       {/* <iframe
         src="https://player.vimeo.com/video/917201659?&loop=1&autoplay=1"

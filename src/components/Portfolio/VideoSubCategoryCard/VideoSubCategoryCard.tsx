@@ -14,14 +14,14 @@ interface VideoSubCategoryCardProps {
 }
 
 export default function VideoSubCategoryCard({
-  key,
   title,
+  link,
   shortDescription,
   description,
   cover,
 }: VideoSubCategoryCardProps) {
   return (
-    <Link href={`/video/${title}`}>
+    <Link href={`/video/${link}`}>
       <motion.div
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 1.1 }}
@@ -30,9 +30,9 @@ export default function VideoSubCategoryCard({
       >
         <h2>{title}</h2>
         <p className="text-sm pb-4" dangerouslySetInnerHTML={{ __html: shortDescription }} />
-        {/* <div className="">
+        <div className="">
           <Image src={cover} width={3000} height={2000} alt="Category Cover" />
-        </div> */}
+        </div>
       </motion.div>
     </Link>
   );
