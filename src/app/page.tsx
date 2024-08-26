@@ -32,16 +32,16 @@ export default async function Home() {
     <>
       <NavigationBar />
       <Wrapper>
-        <section id="home" className="h-space flex flex-col md:grid md:grid-cols-3 gap-10 pb-16">
+        <section id="home" className="flex flex-col md:grid md:grid-cols-3 gap-10 pb-16">
           <HomePage />
         </section>
-        <section id="portfolio" className="h-space pt-16 pb-16">
+        <section id="portfolio" className="pt-16 pb-16">
           <div className="flex flex-col md:main-grid">
             <div>
-              <h2 className="text-3xl font-courier">Portfolio</h2>
+              <h2 className="text-4xl font-courier font-bold text-sky-800">Portfolio</h2>
             </div>
             <div className="col-span-2 pl-6">
-              <p className="text-base text-sky-1000 font-semibold">
+              <p className="text-base text-sky-800 font-semibold">
                 {`It is a long established fact that a reader will be distracted by the readable content of
           a page when looking at its layout. The point of using Lorem Ipsum is that it has a
           more-or-less normal distribution of letters, as opposed to using 'Content here, content

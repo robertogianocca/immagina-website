@@ -3,7 +3,6 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import H2 from "@/components/Fonts/H2";
 import { motion } from "framer-motion";
 
 interface PortfolioSubCategoryCardProps {
@@ -41,7 +40,7 @@ export default function PortfolioSubCategoryCard({
         transition={{ duration: 0.5 }}
         className="w-full h-full relative flex flex-col  bg-zinc-50 text-slate-600 p-6 shadow-xl hover:shadow-slate-400"
       >
-        <H2>{title}</H2>
+        <h3 className="font-courier font-bold text-sky-800 text-xl pb-3">{title}</h3>
         <p className="text-sm pb-4" dangerouslySetInnerHTML={{ __html: shortDescription }} />
         <div className="">
           <Image src={cover} width={3000} height={2000} alt="Category Cover" />

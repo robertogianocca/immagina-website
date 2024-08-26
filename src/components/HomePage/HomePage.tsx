@@ -63,12 +63,12 @@ export default function HomePage() {
           potresti essere interessato ad affidarti al collettivo creativo IMMAGINA+. Comunichiamo la
           tua immagine, come il sarto fa l’abito su misura. Quali strumenti abbiamo a disposizione?
         </p>
-        <ul className="font-courier text-lg mb-7 grid grid-cols-2 gap-y-4 pr-16">
+        <ul className="font-courier text-base 2xl:text-lg pr-4 2xl:pr-0 text-center mb-7 grid grid-cols-2 gap-x-4 gap-y-4">
           <li className="flex">
             <RedTriangle />
             Fotografia
           </li>
-          <li className="flex items-centers">
+          <li className="flex items-centers justi">
             <RedTriangle />
             Grafica
           </li>
@@ -100,7 +100,7 @@ export default function HomePage() {
       <div className="hidden md:inline col-span-2 relative w-full h-full">
         <div className="h-full flex">
           <iframe
-            src="https://player.vimeo.com/video/999094842?h=19a5c4fcfb&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&background=1"
+            src="https://player.vimeo.com/video/1002621299?h=8f0a2b3536&amp&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&background=1"
             className="aspect-home self-start object-cover"
             width="100%"
             height={variable}

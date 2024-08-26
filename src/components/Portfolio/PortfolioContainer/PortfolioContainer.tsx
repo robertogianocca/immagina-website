@@ -6,9 +6,10 @@ import NavigationBar from "@/components/NavigationBar/NavigationBar";
 import PortfolioGallery from "../PortfolioGallery/PortfolioGallery";
 import PortfolioGalleryMobile from "../PortfolioGalleryMobile/PortfolioGalleryMobile";
 import PortfolioSubCategoryCard from "@/components/Portfolio/PortfolioSubCategoryCard/PortfolioSubCategoryCard";
-import H1 from "@/components/Fonts/H1";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { motion } from "framer-motion";
+import RedTriangle from "@/components/Icons/RedTriangle";
 
 export default function PortfolioContainer({ portfolioData, categoriesFromPath }: any) {
   // Transform categoriesFromPath as the objects name, remove "-" (uppercasing after)
@@ -48,6 +49,27 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
       subCategoryList.splice(index, 1);
     }
   }
+
+  // --------------------------------- PATHS ---------------------------------
+
+  const pathList = categoriesFromPath.slice(0, -1).map((item, index) => {
+    return (
+      <Link
+        key={index}
+        href={`/${categoriesFromPath
+          .slice(0, 1 + index)
+          .join("/")
+          .toLowerCase()}`}
+      >
+        <div className="flex flex-row">
+          <RedTriangle />
+          <h3 className="text-base font-courier text-sky-800 font-bold">
+            {categoriesFromPath.slice(0, -1).length - 1 == index ? item + "" : item + " /"}
+          </h3>
+        </div>
+      </Link>
+    );
+  });
 
   const mappedSubCategory = subCategoryList.map((item, index) => (
     <motion.div
@@ -90,7 +112,8 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
           <Wrapper>
             <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8 h-space pt-10 pb-20">
               <div>
-                <H1>{currentCategory}</H1>
+                <div className="pb-4">{pathList}</div>
+                <h2 className="text-4xl font-courier font-bold text-sky-800">{currentCategory}</h2>
               </div>
               <div className="col-span-2 pb-16">
                 <p>{currentCategoryDescription}</p>
