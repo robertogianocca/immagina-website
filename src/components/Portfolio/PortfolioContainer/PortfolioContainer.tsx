@@ -110,13 +110,13 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
         <>
           <NavigationBar />
           <Wrapper>
-            <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8 h-space pt-10 pb-20">
+            <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8 h-space pb-20">
               <div>
                 <div className="pb-4">{pathList}</div>
                 <h2 className="text-4xl font-courier font-bold text-sky-800">{currentCategory}</h2>
               </div>
               <div className="col-span-2 pb-16">
-                <p>{currentCategoryDescription}</p>
+                <p className="text-base text-sky-800 font-semibold">{currentCategoryDescription}</p>
               </div>
               {mappedSubCategory}
             </div>

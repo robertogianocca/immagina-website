@@ -2,12 +2,10 @@
 
 import { revalidatePath } from "next/cache";
 import { getDataStructure } from "@/utils/portfolio-data-structure";
-import Link from "next/link";
 import Wrapper from "@/components/Wrapper/Wrapper";
 import NavigationBar from "@/components/NavigationBar/NavigationBar";
 import HomePage from "@/components/HomePage/HomePage";
 import PortfolioHome from "@/components/PortfolioHome/PortfolioHome";
-import Button from "@/components/Buttons/Button";
 
 export default async function Home() {
   const response = await fetch(
@@ -35,8 +33,8 @@ export default async function Home() {
         <section id="home" className="flex flex-col md:grid md:grid-cols-3 gap-10 pb-16">
           <HomePage />
         </section>
-        <section id="portfolio" className="pt-16 pb-16">
-          <div className="flex flex-col md:main-grid">
+        <section id="portfolio" className="pt-10 pb-16">
+          <div className="flex flex-col md:main-grid md:gap-10">
             <div>
               <h2 className="text-4xl font-courier font-bold text-sky-800">Portfolio</h2>
             </div>

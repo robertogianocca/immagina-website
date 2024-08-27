@@ -14,7 +14,7 @@ export default function PortfolioHome({ categoryList, portfolioData }) {
     // </AnimatePresence>
   ));
   return (
-    <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8">
+    <div className="flex flex-col lg:grid lg:grid-cols-3 gap-10">
       {mappedCategories}
       <PortfolioCategoryCard
         key="£!ä"

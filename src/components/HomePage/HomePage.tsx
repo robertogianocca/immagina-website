@@ -51,7 +51,7 @@ export default function HomePage() {
         </div>
       </div> */}
 
-      <div className="text-sm md:text-base text-sky-800 font-semibold col-span-1 pr-8">
+      <div className="text-sm lg:text-base text-sky-800 font-semibold col-span-1 pr-8">
         <div className="mb-1 font-courier">
           <p className="text-xl tracking-tighter">{`Niente si sa,`}</p>
           <p className="text-xl tracking-tighter mb-3">{`tutto si immagina`}</p>
@@ -59,7 +59,7 @@ export default function HomePage() {
         </div>
         <p className="mb-7">
           Se per ragioni professionali o private vuoi comunicare al mondo le tue idee, chi sei, cosa
-          fai potresti essere interessato ad affidarti al collettivo crativo IMMAGINA+.
+          fai, potresti essere interessato ad affidarti al collettivo creativo IMMAGINA+.
         </p>
         <p>Come un sarto confeziona l'abito, IMMAGINA+ confeziona la tua comunicazione.</p>
         <p className="mb-7">Quali gli strumenti?</p>
