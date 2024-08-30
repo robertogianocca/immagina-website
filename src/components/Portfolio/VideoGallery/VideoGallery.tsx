@@ -4,11 +4,29 @@ import VideoGallerySideBar from "./VideoGallerySideBar/VideoGallerySideBar";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function VideoGallery({ videoLink }: any) {
+export default function VideoGallery({
+  videoLink,
+  title,
+  path,
+  shortDescription,
+  longDescription,
+}: any) {
+  const [isVisible, setIsVisible] = useState(true);
+
+  function closeTextBox() {
+    setIsVisible((prevState) => !prevState);
+  }
+
   return (
     <div className="flex flex-row h-screen w-full">
       <div className="w-[300px] fixed h-screen overflow-auto flex flex-col justify-between p-5 bg-stone-100 text-base inner-shadow ">
-        <VideoGallerySideBar />
+        <VideoGallerySideBar
+          title={title}
+          path={path}
+          shortDescription={shortDescription}
+          longDescription={longDescription}
+          setIsVisible={setIsVisible}
+        />
       </div>
       <div className="ml-[300px] flex-grow p-4 pl-10 pb-10 bg-white">
         <div className="relative w-full h-full">
@@ -20,7 +38,7 @@ export default function VideoGallery({ videoLink }: any) {
             width="100%"
             height="100%"
             title="CARIE"
-            className="bg-red-200"
+            className=""
           ></iframe>
         </div>
       </div>

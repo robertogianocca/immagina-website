@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import Button from "@/components/Buttons/Button";
+import RedButton from "@/components/Buttons/RedButton";
 import RedTriangle from "../Icons/RedTriangle";
 import { useState, useEffect } from "react";
 
@@ -61,12 +62,27 @@ export default function HomePage() {
           Se per ragioni professionali o private vuoi comunicare al mondo le tue idee, chi sei, cosa
           fai, potresti essere interessato ad affidarti al collettivo creativo IMMAGINA+.
         </p>
-        <p>Come un sarto confeziona l'abito, IMMAGINA+ confeziona la tua comunicazione.</p>
-        <p className="mb-7">Quali gli strumenti?</p>
+        <p className="mb-7">
+          {"Come un sarto confeziona l'abito, IMMAGINA+ confeziona la tua comunicazione."}
+        </p>
+        <p className="pb-7">
+          IMMAGINA+ ti invita a <span className="text-red-600 italic">sfogliare</span> il suo
+          portfolio. Poche parole. Immagini? Troppe, forse.
+        </p>
+        <Link href="#portfolio">
+          {/* <Button addClass="p-2 px-3 text-xl font-courier mb-7 text-red-600 shadow-buttonTwo">
+            Portfolio
+          </Button> */}
+          <RedButton addClass="p-2 px-3 text-xl font-courier mb-7 text-red-600 font-light">
+            Portfolio
+          </RedButton>
+        </Link>
         <ul className="font-courier text-base 2xl:text-lg pr-4 2xl:pr-0 text-center mb-7 grid grid-cols-2 gap-x-4 gap-y-4">
           <li className="flex">
             <RedTriangle />
-            Fotografia
+            <Link href="/fotografia" className="hover:text-red-500">
+              Fotografia
+            </Link>
           </li>
           <li className="flex items-centers justi">
             <RedTriangle />
@@ -80,22 +96,16 @@ export default function HomePage() {
             <RedTriangle />
             Webdesign
           </li>
-          <li className="flex items-center">
+          {/* <li className="flex items-center">
             <RedTriangle />
             Bookdesign
           </li>
           <li className="flex items-center">
             <RedTriangle />
             Copywriting
-          </li>
+          </li> */}
         </ul>
-        <p className="pb-7">
-          IMMAGINA+ ti invita a sfogliare il suo portfolio. Poche parole. Immagini? Troppe, forse.
-        </p>
         <p className="pb-7">If you like it, scrivici. Why not.</p>
-        <Link href="#portfolio">
-          <Button addClass="p-2 px-3 text-stone-600 text-base">Portfolio</Button>
-        </Link>
       </div>
       <div className="hidden md:inline col-span-2 relative w-full h-full">
         <div className="h-full flex">

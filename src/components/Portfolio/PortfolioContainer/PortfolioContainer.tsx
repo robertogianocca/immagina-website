@@ -10,6 +10,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { motion } from "framer-motion";
 import RedTriangle from "@/components/Icons/RedTriangle";
+import Button from "@/components/Buttons/Button";
+import { FaArrowLeft } from "react-icons/fa";
+import { useParams } from "next/navigation";
 
 export default function PortfolioContainer({ portfolioData, categoriesFromPath }: any) {
   // Transform categoriesFromPath as the objects name, remove "-" (uppercasing after)
@@ -52,7 +55,7 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
 
   // --------------------------------- PATHS ---------------------------------
 
-  const pathList = categoriesFromPath.slice(0, -1).map((item, index) => {
+  const pathList = categoriesFromPath.slice(0, -1).map((item: string, index: number) => {
     return (
       <Link
         key={index}
@@ -70,6 +73,11 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
       </Link>
     );
   });
+
+  const paramsObject = useParams();
+  const params = paramsObject.categories || ""; // Ensure params is at least an empty string
+  const paramsArray = Array.isArray(params) ? params : params.split("/");
+  const categoryBefore = paramsArray.slice(0, -1);
 
   const mappedSubCategory = subCategoryList.map((item, index) => (
     <motion.div
@@ -111,8 +119,15 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
           <NavigationBar />
           <Wrapper>
             <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8 h-space pb-20">
-              <div>
-                <div className="pb-4">{pathList}</div>
+              <div className="col-span-1">
+                <div className="flex flex-row items-center h-20">
+                  <Link href={`/${categoryBefore.join("/")}`}>
+                    <Button addClass="p-2 text-slate-400">
+                      <FaArrowLeft size={25} />
+                    </Button>
+                  </Link>
+                  <div className="pl-8">{pathList}</div>
+                </div>
                 <h2 className="text-4xl font-courier font-bold text-sky-800">{currentCategory}</h2>
               </div>
               <div className="col-span-2 pb-16">

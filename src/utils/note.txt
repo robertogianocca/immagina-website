@@ -12,3 +12,4 @@ xl	1280px	@media (min-width: 1280px) { ... }
 
 Colori:
 - Testi blu: text-sky-800
+ - Sfondo galleriy (customWhite): 248 248 248
