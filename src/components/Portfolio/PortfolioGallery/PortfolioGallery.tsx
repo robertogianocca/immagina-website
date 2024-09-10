@@ -49,7 +49,7 @@ export default function PortfolioGallery({
         alt={picturesList[index].description}
         width={picturesList[index].width}
         height={picturesList[index].height}
-        className="object-contain max-w-full max-h-full mb-6"
+        className="pb-10"
         quality={imageQuality}
         onLoad={handleImageLoad}
         sizes="(max-width: 1200px) 100vw, 70vw"
@@ -58,7 +58,7 @@ export default function PortfolioGallery({
   });
 
   return (
-    <div className="flex flex-row h-screen w-full">
+    <div className="flex flex-col lg:flex-row lg:h-screen w-full">
       <div className="hidden w-[300px] fixed h-screen overflow-auto md:flex flex-col justify-between p-5 bg-stone-200 bg-opacity-35 text-base inner-shadow ">
         <PortfolioGallerySideBar
           title={currentCategory}
@@ -96,13 +96,15 @@ export default function PortfolioGallery({
       </div>
 
       {/* Image Container */}
-      <div className="md:ml-[300px] flex-grow p-4 pl-10 pb-10 bg-customWhite">
+      <div className="md:ml-[300px] flex-grow p-4 lg:pl-10 pb-10 bg-customWhite">
         <div className="relative w-full h-full">
           {/* Gallery title */}
           <div
-            className={`md:absolute left-0 right-0 top-0 m-auto p-2 aspect-cover h-full ${hideTitle}`}
+            className={`md:absolute lg:left-0 lg:right-0 lg:top-0 lg:m-auto p-2 lg:aspect-cover lg:h-full ${hideTitle}`}
           >
-            <h1 className="font-courier font-bold text-4xl text-red-600">{currentCategory}</h1>
+            <h1 className="font-courier font-bold text-2xl lg:text-4xl text-red-600">
+              {currentCategory}
+            </h1>
           </div>
           {/* Gallery image */}
           <AnimatePresence mode="popLayout">
@@ -127,7 +129,13 @@ export default function PortfolioGallery({
               />
             </motion.div>
           </AnimatePresence>
-          <div className="flex flex-col md:hidden">{mobileGallery}</div>
+          <div className="flex flex-col md:hidden">
+            <p
+              className="link text-xs pb-2"
+              dangerouslySetInnerHTML={{ __html: shortCategoryDescription }}
+            />
+            {mobileGallery}
+          </div>
         </div>
       </div>
     </div>

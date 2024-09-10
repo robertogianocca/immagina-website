@@ -30,7 +30,7 @@ export default async function Home() {
     <>
       <NavigationBar />
       <Wrapper>
-        <section id="home" className="flex flex-col md:grid md:grid-cols-3 gap-10 pb-16">
+        <section id="home" className="flex flex-col lg:grid lg:grid-cols-3 gap-10 pb-16">
           <HomePage />
         </section>
         <section id="portfolio" className="pt-10 pb-16">
