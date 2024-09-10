@@ -40,9 +40,26 @@ export default function PortfolioGallery({
     setImageQuality(70);
   };
 
+  const mobileGallery = picturesList.map((item, index) => {
+    return (
+      <Image
+        key={index}
+        priority={true}
+        src={picturesList[index].url}
+        alt={picturesList[index].description}
+        width={picturesList[index].width}
+        height={picturesList[index].height}
+        className="object-contain max-w-full max-h-full mb-6"
+        quality={imageQuality}
+        onLoad={handleImageLoad}
+        sizes="(max-width: 1200px) 100vw, 70vw"
+      />
+    );
+  });
+
   return (
     <div className="flex flex-row h-screen w-full">
-      <div className="w-[300px] fixed h-screen overflow-auto flex flex-col justify-between p-5 bg-stone-200 bg-opacity-35 text-base inner-shadow ">
+      <div className="hidden w-[300px] fixed h-screen overflow-auto md:flex flex-col justify-between p-5 bg-stone-200 bg-opacity-35 text-base inner-shadow ">
         <PortfolioGallerySideBar
           title={currentCategory}
           shortCategoryDescription={shortCategoryDescription}
@@ -79,11 +96,11 @@ export default function PortfolioGallery({
       </div>
 
       {/* Image Container */}
-      <div className="ml-[300px] flex-grow p-4 pl-10 pb-10 bg-customWhite">
+      <div className="md:ml-[300px] flex-grow p-4 pl-10 pb-10 bg-customWhite">
         <div className="relative w-full h-full">
           {/* Gallery title */}
           <div
-            className={`absolute left-0 right-0 top-0 m-auto p-2 aspect-cover h-full ${hideTitle}`}
+            className={`md:absolute left-0 right-0 top-0 m-auto p-2 aspect-cover h-full ${hideTitle}`}
           >
             <h1 className="font-courier font-bold text-4xl text-red-600">{currentCategory}</h1>
           </div>
@@ -95,7 +112,7 @@ export default function PortfolioGallery({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2, delay: 0.2 }}
-              className="flex items-center justify-center w-full h-full"
+              className="hidden md:flex items-center justify-center w-full h-full"
             >
               <Image
                 priority={true}
@@ -110,6 +127,7 @@ export default function PortfolioGallery({
               />
             </motion.div>
           </AnimatePresence>
+          <div className="flex flex-col md:hidden">{mobileGallery}</div>
         </div>
       </div>
     </div>

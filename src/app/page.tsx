@@ -5,7 +5,7 @@ import { getDataStructure } from "@/utils/portfolio-data-structure";
 import Wrapper from "@/components/Wrapper/Wrapper";
 import NavigationBar from "@/components/NavigationBar/NavigationBar";
 import HomePage from "@/components/HomePage/HomePage";
-import PortfolioHome from "@/components/PortfolioHome/PortfolioHome";
+import PortfolioHome from "@/components/Portfolio/PortfolioHome/PortfolioHome";
 
 export default async function Home() {
   const response = await fetch(
@@ -20,7 +20,7 @@ export default async function Home() {
   );
 
   const cloudinaryResponse = await response.json();
-  revalidatePath("/");
+  // revalidatePath("/");
 
   const portfolioData = getDataStructure(cloudinaryResponse);
 
@@ -36,10 +36,10 @@ export default async function Home() {
         <section id="portfolio" className="pt-10 pb-16">
           <div className="flex flex-col md:main-grid md:gap-10">
             <div>
-              <h2 className="text-4xl font-courier font-bold text-sky-800">Portfolio</h2>
+              <h2 className="text-4xl font-courier font-bold text-sky-800 mb-4">Portfolio</h2>
             </div>
-            <div className="col-span-2 pl-6">
-              <p className="text-base text-sky-800 font-semibold">
+            <div className="col-span-2 lg:pl-6 mb-8">
+              <p className="text-sm lg:text-base text-sky-800 font-semibold">
                 IL TROPPO GUASTA. IMMAGINA ha 50 di storia. Troppi. Si è dunque optato per una
                 piccola selezione di lavori allo scopo di illustrare la varietà dei temi affrontati
                 in passato. Come un albo di famiglia da sfogliare e sfogliare e sfogliare.
@@ -54,7 +54,7 @@ export default async function Home() {
             </div>
           </div>
         </section>
-        <section id="principi" className="h-space">
+        {/* <section id="principi" className="h-space">
           <div className="flex flex-col md:main-grid pt-20">
             <div>
               <h2 className="text-3xl font-courier">Principi</h2>
@@ -88,7 +88,7 @@ export default async function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
         {/* <section id="prodotti" className="h-space">
           <div className="flex flex-col md:main-grid pt-20">
             <div>

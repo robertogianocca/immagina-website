@@ -5,7 +5,7 @@ import { videoDatabase } from "@/app/video/video-database";
 import Wrapper from "@/components/Wrapper/Wrapper";
 import NavigationBar from "@/components/NavigationBar/NavigationBar";
 import VideoSubCategoryCard from "@/components/Portfolio/VideoSubCategoryCard/VideoSubCategoryCard";
-import PortfolioSubCategoryCard from "@/components/Portfolio/PortfolioSubCategoryCard/PortfolioSubCategoryCard";
+import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/PortfolioCategoryCard";
 
 export default function VideoPage() {
   const mappedVideo = videoDatabase.map((item, index) => {

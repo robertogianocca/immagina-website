@@ -1,43 +1,63 @@
 // CATEGORY CARD
 
 "use client";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 interface PortfolioCategoryCardProps {
-  title: string;
-  shortDescription: string;
+  title: any;
+  shortDescription: any;
   description: string;
   cover: string;
+  transformedCategoriesFromPath: string[] | string;
+  addClass: string;
 }
 
-const PortfolioCategoryCard = ({
+export default function PortfolioCategoryCard({
   title,
-  description,
   shortDescription,
+  description,
   cover,
-}: PortfolioCategoryCardProps) => {
-  // First letter upperCase
-  const titleUp = title[0].toUpperCase() + title.slice(1);
+  transformedCategoriesFromPath,
+  addClass,
+}: PortfolioCategoryCardProps) {
+  // Card title: Change the first letter and first letter after a space to upperCase
+  title = title.split(" ");
+  title = title.map((item: string, index: number) => {
+    return item[0].toUpperCase() + item.slice(1);
+  });
+  title = title.join(" ");
+
+  // Clean title to Link
+  let titleToLink = title.replace("'s", "");
+  titleToLink = titleToLink.replace(" ", "-");
+  titleToLink = titleToLink.toLowerCase();
+
+  const hrefLink = Array.isArray(transformedCategoriesFromPath)
+    ? `/${transformedCategoriesFromPath.join("/")}/${titleToLink}`
+    : `/${transformedCategoriesFromPath}`;
 
   return (
-    <Link href={title.includes(" ") ? title.replace(" ", "-") : `/${title}`}>
+    <Link href={hrefLink}>
       <motion.div
         whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 1.1 }}
+        whileTap={{ scale: 1.06 }}
         transition={{ duration: 0.5 }}
-        className="w-full h-full relative flex flex-col p-6 bg-zinc-50 shadow-2xl shadow-slate-400 hover:shadow-slate-500 "
+        className="w-full h-full relative flex flex-col bg-zinc-50 text-slate-600 p-6 shadow-xl shadow-slate-400 hover:shadow-slate-500 transition-shadow"
       >
-        <div className="absolute left-0 top-0 pr-1 w-0 h-0 border-l-[28px] border-b-[28px] border-b-transparent border-t-transparent border-l-red-600"></div>
-        <h3 className="font-courier font-bold text-sky-800 text-xl pb-3">{titleUp}</h3>
-        <p className="text-sm text-slate-500 pb-4">{shortDescription}</p>
-        <div>
+        <div
+          className={`absolute left-0 top-0 pr-1 w-0 h-0 border-l-[28px] border-b-[28px] border-b-transparent border-t-transparent ${addClass}`}
+        ></div>
+        <h3 className="font-courier font-bold text-sky-800 text-xl pb-3">{title}</h3>
+        <p
+          className="text-xs xl:text-sm pb-4"
+          dangerouslySetInnerHTML={{ __html: shortDescription }}
+        />
+        <div className="">
           <Image src={cover} width={3000} height={2000} alt="Category Cover" />
         </div>
       </motion.div>
     </Link>
   );
-};
-
-export default PortfolioCategoryCard;
+}

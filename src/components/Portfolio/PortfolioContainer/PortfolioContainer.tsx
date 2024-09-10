@@ -5,7 +5,7 @@ import Wrapper from "@/components/Wrapper/Wrapper";
 import NavigationBar from "@/components/NavigationBar/NavigationBar";
 import PortfolioGallery from "../PortfolioGallery/PortfolioGallery";
 import PortfolioGalleryMobile from "../PortfolioGalleryMobile/PortfolioGalleryMobile";
-import PortfolioSubCategoryCard from "@/components/Portfolio/PortfolioSubCategoryCard/PortfolioSubCategoryCard";
+import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/PortfolioCategoryCard";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { motion } from "framer-motion";
@@ -87,15 +87,18 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
       transition={{ duration: 0.5 }}
       key={index}
     >
-      <PortfolioSubCategoryCard
+      <PortfolioCategoryCard
         title={item}
-        shortDescription={portfolioData[item].pictures[0].heading}
         description={portfolioData[item].pictures[0].description}
+        shortDescription={portfolioData[item].pictures[0].heading}
         cover={portfolioData[item].pictures[0].url}
         transformedCategoriesFromPath={transformedCategoriesFromPath}
+        addClass=""
       />
     </motion.div>
   ));
+
+  console.log(transformedCategoriesFromPath);
 
   return (
     <>
