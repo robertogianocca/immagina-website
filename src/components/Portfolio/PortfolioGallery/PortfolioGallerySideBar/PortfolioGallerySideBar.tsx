@@ -26,7 +26,7 @@ interface PortfolioGallerySideBarProps {
   setIndex: (index: number) => void;
   currentIndex: number;
   transformedCategoriesFromPath: any[];
-  setIsVisible: (visible: boolean) => boolean;
+  setIsVisible: any;
 }
 
 export default function PortfolioGallerySideBar({

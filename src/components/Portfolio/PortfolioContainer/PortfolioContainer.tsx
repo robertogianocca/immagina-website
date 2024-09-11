@@ -12,6 +12,8 @@ import { motion } from "framer-motion";
 import RedTriangle from "@/components/Icons/RedTriangle";
 import Button from "@/components/Buttons/Button";
 import { FaArrowLeft } from "react-icons/fa";
+import { TiHome } from "react-icons/ti";
+
 import { useParams } from "next/navigation";
 
 export default function PortfolioContainer({ portfolioData, categoriesFromPath }: any) {
@@ -98,8 +100,6 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
     </motion.div>
   ));
 
-  console.log(transformedCategoriesFromPath);
-
   return (
     <>
       {subCategoryList[0] === "images" && subCategoryList.length === 1 ? (
@@ -122,19 +122,38 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
           <NavigationBar />
           <Wrapper>
             <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8 h-space pb-20">
-              <div className="col-span-1">
-                <div className="flex flex-row items-center h-20">
-                  <Link href={`/${categoryBefore.join("/")}`}>
-                    <Button addClass="p-2 text-slate-400">
-                      <FaArrowLeft size={25} />
-                    </Button>
-                  </Link>
-                  <div className="pl-8">{pathList}</div>
-                </div>
-                <h2 className="text-4xl font-courier font-bold text-sky-800">{currentCategory}</h2>
+              <div className="flex gap-2 col-span-3 my-[-20px]">
+                <Link href={`/${categoryBefore.join("/")}`}>
+                  <Button addClass="p-2 text-slate-400">
+                    <FaArrowLeft size={25} />
+                  </Button>
+                </Link>
+                <Link href={"/"}>
+                  <Button addClass="p-2 text-slate-400">
+                    <TiHome size={25} />
+                  </Button>
+                </Link>
               </div>
-              <div className="col-span-2 pb-16">
-                <p className="text-base text-sky-800 font-semibold">{currentCategoryDescription}</p>
+              <div className="col-span-1">
+                <h2 className="text-4xl font-courier font-bold text-sky-800 mb-2">
+                  {currentCategory}
+                </h2>
+                <div className="flex flex-rowh-20 ">
+                  <div className="flex flex-row gap-4">
+                    <Link href="/portfolio">
+                      <div className="flex flex-row ">
+                        <RedTriangle />
+                        <h3 className="text-base font-courier text-sky-800 font-bold">portfolio</h3>
+                      </div>
+                    </Link>
+                    {pathList}
+                  </div>
+                </div>
+              </div>
+              <div className="hidden lg:block col-span-2 pb-16">
+                <p className=" text-base text-sky-800 font-semibold">
+                  {currentCategoryDescription}
+                </p>
               </div>
               {mappedSubCategory}
             </div>

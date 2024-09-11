@@ -35,7 +35,7 @@ export default function HomePage() {
     <>
       <div className="md:hidden relative h-[90vh] sm:h-[90vh] overflow-hidden m-[-24px]">
         <iframe
-          className="absolute top-0 left-[-320px] xs:left-0 w-[1200px] xs:w-[100%] xs:top-[-790px] h-[100%] xs:h-[2000px] "
+          className="absolute top-0 left-[-320px] sm:left-0 w-[1200px] sm:w-[100%] sm:top-[-790px] h-[100%] sm:h-[2000px] "
           style={{ objectFit: "cover" }}
           src="https://player.vimeo.com/video/1002621299?h=8f0a2b3536&amp&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&background=1"
         ></iframe>

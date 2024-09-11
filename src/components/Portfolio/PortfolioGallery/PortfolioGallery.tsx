@@ -1,8 +1,15 @@
 "use client";
+import Link from "next/link";
 import Image from "next/image";
 import PortfolioGallerySideBar from "@/components/Portfolio/PortfolioGallery/PortfolioGallerySideBar/PortfolioGallerySideBar";
+import MenuMobile from "../../MenuMobile/MenuMobile";
+import HamburgerIcon from "@/components/HamburgerIcon/HamburgerIcon";
 import Button from "@/components/Buttons/Button";
+import { TiHome } from "react-icons/ti";
+import { FaArrowLeft } from "react-icons/fa";
+import { FaInfo } from "react-icons/fa";
 import { useState } from "react";
+import { useParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function PortfolioGallery({
@@ -14,9 +21,42 @@ export default function PortfolioGallery({
 }: any) {
   const [currentIndex, setIndex] = useState(0);
 
+  const [isVisible, setIsVisible] = useState(true);
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const [imageQuality, setImageQuality] = useState(2);
+
+  // Text box open and close
+  function openTextBox() {
+    setIsVisible((prevState) => !prevState);
+  }
+
+  function closeTextBox() {
+    setIsVisible((prevState) => !prevState);
+  }
+
+  // Mobile Menu Open and Close Toggle
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const menuItems = ["Portfolio", "Principi", "Prodotti", "Chi siamo", "Contatto"];
+
+  // Image quality setting
+  const handleImageLoad = () => {
+    setImageQuality(70);
+  };
+
+  // Category Before
+  const paramsObject = useParams();
+  const params = paramsObject.categories || ""; // Ensure params is at least an empty string
+  const paramsArray = Array.isArray(params) ? params : params.split("/");
+  const categoryBefore = paramsArray.slice(0, -1);
+
   // Sort pictures by file name
-  function sortByFileNamePrefix(array) {
-    return array.sort((a, b) => {
+  function sortByFileNamePrefix(array: any) {
+    return array.sort((a: any, b: any) => {
       const numA = parseInt(a.fileName.substring(0, 2), 10);
       const numB = parseInt(b.fileName.substring(0, 2), 10);
       return numA - numB;
@@ -28,31 +68,20 @@ export default function PortfolioGallery({
   // Title class
   const hideTitle = currentIndex == 0 ? " " : "hidden";
 
-  const [isVisible, setIsVisible] = useState(true);
-
-  function closeTextBox() {
-    setIsVisible((prevState) => !prevState);
-  }
-
-  const [imageQuality, setImageQuality] = useState(2);
-
-  const handleImageLoad = () => {
-    setImageQuality(70);
-  };
-
-  const mobileGallery = picturesList.map((item, index) => {
+  // Mobile Gallery Images
+  const mobileGallery = picturesList.map((item: any, index: string) => {
     return (
       <Image
         key={index}
-        priority={true}
+        className="pb-10"
         src={picturesList[index].url}
         alt={picturesList[index].description}
         width={picturesList[index].width}
         height={picturesList[index].height}
-        className="pb-10"
+        sizes="(max-width: 1200px) 100vw, 70vw"
+        priority={true}
         quality={imageQuality}
         onLoad={handleImageLoad}
-        sizes="(max-width: 1200px) 100vw, 70vw"
       />
     );
   });
@@ -71,16 +100,17 @@ export default function PortfolioGallery({
           setIsVisible={setIsVisible}
         />
       </div>
-      {/* Text Description Overlay */}
+      {/*  ------------ TEXT BOX DESCRIPTION ------------ */}
       <div
-        className={`fixed top-0 left-[300px] right-0 bottom-0 bg-white z-50 bg-opacity-100 flex items-center justify-center p-10 ${
+        className={`flex items-center justify-center fixed top-[60px] lg:top-0 lg:left-[300px] right-0 bottom-0 p-0 lg:p-10 z-50 bg-opacity-100 bg-white ${
           isVisible ? "hidden" : "block"
         }`}
       >
         <div className="flex flex-col items-center w-full max-w-[800px] h-full">
-          <div className="w-full px-10 mb-3">
+          <div className="w-full px-10 lg:mb-3">
+            {/* Bottone Chiusura X */}
             <Button
-              addClass="px-4 py-2 mb-4 shadow-stone-300 text-stone-600 font-bold text-md"
+              addClass="px-4 py-2 mt-4 mb-4 shadow-stone-300 text-stone-600 font-bold text-md"
               onClick={closeTextBox}
             >
               X
@@ -88,19 +118,19 @@ export default function PortfolioGallery({
           </div>
           <div className="w-full flex-grow px-10 overflow-auto ">
             <p
-              className="link text-base text-sky-800 font-semibold"
+              className="link text-sm lg:text-base text-sky-800 lg:font-semibold"
               dangerouslySetInnerHTML={{ __html: categoryDescription }}
             />
           </div>
         </div>
       </div>
 
-      {/* Image Container */}
-      <div className="md:ml-[300px] flex-grow p-4 lg:pl-10 pb-10 bg-customWhite">
+      {/* ------------ IMAGE CONTAINER ------------ */}
+      <div className="mt-[60px] lg:mt-0 md:ml-[300px] flex-grow p-4 lg:pl-10 pb-10 bg-customWhite">
         <div className="relative w-full h-full">
           {/* Gallery title */}
           <div
-            className={`md:absolute lg:left-0 lg:right-0 lg:top-0 lg:m-auto p-2 lg:aspect-cover lg:h-full ${hideTitle}`}
+            className={` md:absolute lg:left-0 lg:right-0 lg:top-0 lg:m-auto lg:p-2 lg:aspect-cover lg:h-full ${hideTitle}`}
           >
             <h1 className="font-courier font-bold text-2xl lg:text-4xl text-red-600">
               {currentCategory}
@@ -129,6 +159,41 @@ export default function PortfolioGallery({
               />
             </motion.div>
           </AnimatePresence>
+          {/* ------------ MOBILE GALLERY ------------ */}
+          <nav className="lg:hidden w-full h-[60px] fixed left-0 top-0 z-50 px-4 lg:pl-14 lg:pr-24 flex lg:main-grid md:shadow-xl bg-stone-200">
+            <div className="flex flex-row items-center justify-between w-full">
+              <h1 className="font-courier font-bold text-sm lg:text-4xl text-red-600">
+                {currentCategory}
+              </h1>
+              <div className="flex gap-3">
+                <Link href={`/${categoryBefore.join("/")}`}>
+                  <Button addClass="p-2 text-slate-400">
+                    <FaArrowLeft size={20} />
+                  </Button>
+                </Link>
+                <Link href={"/"}>
+                  <Button addClass="p-2 text-slate-400">
+                    <TiHome size={20} />
+                  </Button>
+                </Link>
+                <Link href={""}>
+                  <Button onClick={openTextBox} addClass="p-2 text-slate-400">
+                    <FaInfo size={20} />
+                  </Button>
+                </Link>
+                <div onClick={toggleMenu}>
+                  <HamburgerIcon />
+                </div>
+                <div
+                  className={`absolute top-[60px] left-0 w-full h-space bg-customWhite opacity-98 px-4 py-10 ${
+                    isOpen ? "block" : "hidden"
+                  }`}
+                >
+                  <MenuMobile menuItems={menuItems} toggleMenu={toggleMenu} />
+                </div>
+              </div>
+            </div>
+          </nav>
           <div className="flex flex-col md:hidden">
             <p
               className="link text-xs pb-2"
