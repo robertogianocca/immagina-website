@@ -55,7 +55,7 @@ export default function PortfolioHome({ categoryList, portfolioData, params }: a
             title="Video"
             shortDescription={`IMMAGINA offre servizi video a tutto tondo. Produciamo di preferenza documentari per artisti, musicisti, attori, teatri, festival, matrimoni: per gente simpatica only.`}
             description={``}
-            cover="https://res.cloudinary.com/immagina/image/upload/v1724666692/IMMAGINA/Portfolio/Video/thumb-carie.jpg"
+            cover="https://res.cloudinary.com/immagina/image/upload/v1726135738/IMMAGINA/Video/thumb-carie_tqot2z.jpg"
             transformedCategoriesFromPath="video"
             addClass="border-l-red-600"
           />

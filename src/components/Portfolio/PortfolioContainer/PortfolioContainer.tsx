@@ -121,15 +121,15 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
         <>
           <NavigationBar />
           <Wrapper>
-            <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8 h-space pb-20">
+            <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8 pb-20">
               <div className="flex gap-2 col-span-3 my-[-20px]">
                 <Link href={`/${categoryBefore.join("/")}`}>
-                  <Button addClass="p-2 text-slate-400">
+                  <Button addClass="p-2">
                     <FaArrowLeft size={25} />
                   </Button>
                 </Link>
                 <Link href={"/"}>
-                  <Button addClass="p-2 text-slate-400">
+                  <Button addClass="p-2">
                     <TiHome size={25} />
                   </Button>
                 </Link>
@@ -140,7 +140,7 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
                 </h2>
                 <div className="flex flex-rowh-20 ">
                   <div className="flex flex-row gap-4">
-                    <Link href="/portfolio">
+                    <Link href="/#portfolio">
                       <div className="flex flex-row ">
                         <RedTriangle />
                         <h3 className="text-base font-courier text-sky-800 font-bold">portfolio</h3>

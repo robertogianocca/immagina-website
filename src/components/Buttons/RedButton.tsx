@@ -8,14 +8,11 @@ interface ButtonProps {
 
 export default function RedButton({ children, addClass, onClick }: Readonly<ButtonProps>) {
   return (
-    <motion.button
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.9 }}
-      transition={{ duration: 0.8 }}
-      className={`bg-red-600 text-slate-50 flex items-center justify-center rounded-md ${addClass} hover:bg-gradient-to-tl hover:from-red-700 hover:to-red-600`}
+    <button
+      className={`bg-red-600 text-slate-50 flex items-center justify-center rounded-md ${addClass} hover:bg-gradient-to-tl hover:from-red-600 hover:to-orange-500 active:bg-gradient-to-br`}
       onClick={onClick}
     >
       {children}
-    </motion.button>
+    </button>
   );
 }

@@ -52,7 +52,7 @@ const config: Config = {
       },
       boxShadow: {
         button: "0px 4px 10px 3px rgb(0 0 0 / 0.1)",
-        buttonTwo: "0px 4px 10px 3px rgb(0 0 0 / 0.3)",
+        buttonTwo: "0px 4px 10px 3px rgb(0 0 0 / 0.2)",
       },
     },
   },

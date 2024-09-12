@@ -20,7 +20,7 @@ export default async function Home() {
   );
 
   const cloudinaryResponse = await response.json();
-  // revalidatePath("/");
+  revalidatePath("/");
 
   const portfolioData = getDataStructure(cloudinaryResponse);
 
@@ -30,7 +30,7 @@ export default async function Home() {
     <>
       <NavigationBar />
       <Wrapper>
-        <section id="home" className="flex flex-col lg:grid lg:grid-cols-3 gap-10 pb-16">
+        <section id="home" className="">
           <HomePage />
         </section>
         <section id="portfolio" className="pt-10 pb-16">
@@ -54,7 +54,7 @@ export default async function Home() {
             </div>
           </div>
         </section>
-        {/* <section id="principi" className="h-space">
+        <section id="principi" className="h-space">
           <div className="flex flex-col md:main-grid pt-20">
             <div>
               <h2 className="text-3xl font-courier">Principi</h2>
@@ -88,7 +88,7 @@ export default async function Home() {
               </div>
             </div>
           </div>
-        </section> */}
+        </section>
         {/* <section id="prodotti" className="h-space">
           <div className="flex flex-col md:main-grid pt-20">
             <div>

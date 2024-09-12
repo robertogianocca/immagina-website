@@ -5,7 +5,7 @@ export const videoDatabase = [
     description: "Descrizione CARIE",
     shortDescription: "",
     cover:
-      "https://res.cloudinary.com/immagina/image/upload/v1724666692/IMMAGINA/Portfolio/Video/thumb-carie.jpg",
+      "https://res.cloudinary.com/immagina/image/upload/v1726135738/IMMAGINA/Video/thumb-carie_tqot2z.jpg",
     videoLink:
       "https://player.vimeo.com/video/676793805?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
   },

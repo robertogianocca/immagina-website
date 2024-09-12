@@ -3,12 +3,14 @@ import { motion } from "framer-motion";
 
 export default function OpacityAnimation({
   children,
-}: Readonly<{
+  addClass,
+}: {
   children: React.ReactNode;
-}>) {
+  addClass: string;
+}) {
   return (
     <motion.div
-      className="flex w-full items-center justify-between"
+      className={addClass}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
