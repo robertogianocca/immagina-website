@@ -20,7 +20,7 @@ export default async function Home() {
   );
 
   const cloudinaryResponse = await response.json();
-  revalidatePath("/");
+  // revalidatePath("/");
 
   const portfolioData = getDataStructure(cloudinaryResponse);
 
@@ -30,7 +30,7 @@ export default async function Home() {
     <>
       <NavigationBar />
       <Wrapper>
-        <section id="home" className="">
+        <section id="home" className="h-space md:h-auto">
           <HomePage />
         </section>
         <section id="portfolio" className="pt-10 pb-16">

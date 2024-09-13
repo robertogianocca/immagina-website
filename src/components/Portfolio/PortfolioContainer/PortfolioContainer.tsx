@@ -9,14 +9,22 @@ import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { motion } from "framer-motion";
-import RedTriangle from "@/components/Icons/RedTriangle";
+import Triangle from "@/components/Icons/Triangle";
 import Button from "@/components/Buttons/Button";
 import { FaArrowLeft } from "react-icons/fa";
 import { TiHome } from "react-icons/ti";
 
 import { useParams } from "next/navigation";
+import HamburgerIcon from "@/components/HamburgerIcon/HamburgerIcon";
+import { useState } from "react";
 
 export default function PortfolioContainer({ portfolioData, categoriesFromPath }: any) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   // Transform categoriesFromPath as the objects name, remove "-" (uppercasing after)
   const transformedCategoriesFromPath = categoriesFromPath.map((item: string) => {
     // Exception of "Slava's Snowshow"
@@ -67,7 +75,7 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
           .toLowerCase()}`}
       >
         <div className="flex flex-row">
-          <RedTriangle />
+          <Triangle addClass="border-l-red-600" />
           <h3 className="text-base font-courier text-sky-800 font-bold">
             {categoriesFromPath.slice(0, -1).length - 1 == index ? item + "" : item + " /"}
           </h3>
@@ -99,6 +107,15 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
       />
     </motion.div>
   ));
+
+  const subcategoryMenu = subCategoryList.map((item, index) => {
+    return (
+      <li key={index} className="flex flex-row">
+        <Triangle addClass="border-l-green-600" />
+        {item}
+      </li>
+    );
+  });
 
   return (
     <>
@@ -135,20 +152,33 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
                 </Link>
               </div>
               <div className="col-span-1">
-                <h2 className="text-4xl font-courier font-bold text-sky-800 mb-2">
-                  {currentCategory}
-                </h2>
+                <div className="flex flex-row">
+                  <h2 className="text-4xl font-courier font-bold text-sky-800 mb-2 mr-3">
+                    {currentCategory}
+                  </h2>
+                  <div onClick={toggleMenu}>
+                    <HamburgerIcon addClass="mt-2 text-green-600" />
+                  </div>
+                </div>
                 <div className="flex flex-rowh-20 ">
                   <div className="flex flex-row gap-4">
                     <Link href="/#portfolio">
                       <div className="flex flex-row ">
-                        <RedTriangle />
+                        <Triangle addClass="border-l-red-600" />
                         <h3 className="text-base font-courier text-sky-800 font-bold">portfolio</h3>
                       </div>
                     </Link>
                     {pathList}
                   </div>
                 </div>
+              </div>
+              {/* ---------- SUBCATEGORY MENU ---------- */}
+              <div
+                className={`bg-customWhite absolute left-[10px] pt-10 pl-[10px] w-full h-full top-[230px] z-[200] font-courier font-bold text-xl text-sky-800 ${
+                  isOpen ? "block" : "hidden"
+                }`}
+              >
+                {subcategoryMenu}
               </div>
               <div className="hidden lg:block col-span-2 pb-16">
                 <p className=" text-base text-sky-800 font-semibold">

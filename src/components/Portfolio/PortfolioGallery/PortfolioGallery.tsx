@@ -165,7 +165,7 @@ export default function PortfolioGallery({
               <h1 className="font-courier font-bold text-sm lg:text-4xl text-red-600">
                 {currentCategory}
               </h1>
-              <div className="flex gap-3">
+              <div className="flex gap-6">
                 <Link href={`/${categoryBefore.join("/")}`}>
                   <Button addClass="p-2 text-slate-400">
                     <FaArrowLeft size={20} />
@@ -177,8 +177,8 @@ export default function PortfolioGallery({
                   </Button>
                 </Link>
                 <Link href={""}>
-                  <Button onClick={openTextBox} addClass="p-2 text-slate-400">
-                    <FaInfo size={20} />
+                  <Button onClick={openTextBox} addClass="p-[5.6px] text-slate-400">
+                    <p>Read</p>
                   </Button>
                 </Link>
                 <div onClick={toggleMenu}>

@@ -27,7 +27,7 @@ export default function NavigationBar() {
             </div>
           </Link>
           <div onClick={toggleMenu}>
-            <HamburgerIcon />
+            <HamburgerIcon addClass="" />
           </div>
         </div>
         <div className="flex flex-row items-center col-span-2">

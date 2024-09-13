@@ -27,3 +27,5 @@ description:
 
 Fotografia di scultura: ossia togliere il superfluo.
 La scultura monumentale in genere è disturbata da elementi circostanti “fastidiosi”. Ragion per cui si istallano se del caso, dei fondi che sottolineano le intenzioni dell’artista e tolgono il disturbo. Se trasportata nello studio fotografico, la scultura viene accarezzata da raffinate luci, da pannelli riflettori argentati. O pannelli neri - riflettenti, why not, per sottrarre la luce, esaltarne la forma e la materia.
+
+bg-contain bg-[url('https://res.cloudinary.com/immagina/image/upload/v1726056297/IMMAGINA/Home%20Page/placeholder-01_ynx5pe.jpg')]
