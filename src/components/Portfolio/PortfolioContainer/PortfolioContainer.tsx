@@ -103,20 +103,27 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
         shortDescription={portfolioData[item].pictures[0].heading}
         cover={portfolioData[item].pictures[0].url}
         transformedCategoriesFromPath={transformedCategoriesFromPath}
-        addClass=""
+        addClass={
+          portfolioData[subCategoryList[0]].images === undefined
+            ? "border-l-red-600"
+            : "border-l-green-600"
+        }
       />
     </motion.div>
   ));
 
+  console.log(portfolioData[subCategoryList[0]].images);
+
   const subcategoryMenu = subCategoryList.map((item, index) => {
     return (
       <li key={index} className="flex flex-row">
-        <Triangle addClass="border-l-green-600" />
+        <Triangle addClass={"border-l-green-600"} />
         {item}
       </li>
     );
   });
 
+  // portfolioData.pictures.length === 1;
   return (
     <>
       {subCategoryList[0] === "images" && subCategoryList.length === 1 ? (
