@@ -70,7 +70,12 @@ export default function HomePage() {
         <p className="pb-7 md:pb-0 lg:pb-7">If you like it, scrivici. Why not.</p>
       </div>
       {/*  ------------ VIDEO DESKTOP ------------ */}
-      <div className="hidden md:inline col-span-2 relative w-full h-full">
+      <div className="col-span-2 w-[90%] loop h-full bg-green-400">
+        <video controls autoPlay muted className="w-full h-full object-cover">
+          <source src="/video/animazione-bosco-two.mp4" type="video/mp4" />
+        </video>
+      </div>
+      {/* <div className="hidden md:inline col-span-2 relative w-full h-full">
         <div className="col-span-2 relative overflow-hidden pt-[75%] object-cover">
           <iframe
             className="absolute top-0 left-0 object-cover w-full h-full bg-contain bg-[url('https://res.cloudinary.com/immagina/image/upload/v1726056297/IMMAGINA/Home%20Page/placeholder-01_ynx5pe.jpg')]"
@@ -78,7 +83,7 @@ export default function HomePage() {
             loading="lazy"
           ></iframe>
         </div>
-      </div>
+      </div> */}
     </OpacityAnimation>
   );
 }
