@@ -30,7 +30,10 @@ export default async function Home() {
     <>
       <NavigationBar />
       <Wrapper>
-        <section id="home" className="h-space md:h-auto">
+        <section
+          id="home"
+          className="h-[calc(100vh-80px)] sm:h-auto md:h-[calc(100vh-80px)] 2xl:h-[calc(100vh-120px)] overflow-hidden"
+        >
           <HomePage />
         </section>
         <section id="portfolio" className="pt-10 pb-16">

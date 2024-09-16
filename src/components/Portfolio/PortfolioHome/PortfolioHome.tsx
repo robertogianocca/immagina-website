@@ -61,14 +61,6 @@ export default function PortfolioHome({ categoryList, portfolioData, params }: a
           />
         </motion.div>
       </AnimatePresence>
-      {/* <iframe
-        src="https://player.vimeo.com/video/917201659?&loop=1&autoplay=1"
-        width="640"
-        height="564"
-        frameborder="0"
-        allow="autoplay; fullscreen"
-        allowfullscreen
-      ></iframe> */}
     </div>
   );
 }

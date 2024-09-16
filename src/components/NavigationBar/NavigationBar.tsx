@@ -18,8 +18,8 @@ export default function NavigationBar() {
   };
 
   return (
-    <OpacityAnimation>
-      <nav className="w-full h-[60px] fixed left-0 top-0 z-50 px-4 lg:pl-14 lg:pr-24 flex lg:main-grid bg-customWhite md:shadow-xl md:shadow-slate-200">
+    <OpacityAnimation addClass="">
+      <nav className="w-full h-[60px] fixed left-0 top-0 z-50 px-4 lg:pl-14 lg:pr-24 flex lg:main-grid bg-customWhite lg:shadow-xl lg:shadow-slate-200">
         <div className="flex w-full items-center justify-between">
           <Link href="/">
             <div className="w-52 h-10 relative">
@@ -27,7 +27,7 @@ export default function NavigationBar() {
             </div>
           </Link>
           <div onClick={toggleMenu}>
-            <HamburgerIcon addClass="" />
+            <HamburgerIcon addClass="text-red-600" />
           </div>
         </div>
         <div className="flex flex-row items-center col-span-2">

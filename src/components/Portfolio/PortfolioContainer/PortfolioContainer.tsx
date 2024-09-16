@@ -145,37 +145,36 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
         <>
           <NavigationBar />
           <Wrapper>
-            <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8 pb-20">
-              <div className="flex gap-2 col-span-3 my-[-20px]">
-                <Link href={`/${categoryBefore.join("/")}`}>
-                  <Button addClass="p-2">
-                    <FaArrowLeft size={25} />
-                  </Button>
-                </Link>
-                <Link href={"/"}>
-                  <Button addClass="p-2">
-                    <TiHome size={25} />
-                  </Button>
-                </Link>
-              </div>
-              <div className="col-span-1">
-                <div className="flex flex-row">
-                  <h2 className="text-4xl font-courier font-bold text-sky-800 mb-2 mr-3">
-                    {currentCategory}
-                  </h2>
-                  <div onClick={toggleMenu}>
-                    <HamburgerIcon addClass="mt-2 text-green-600" />
+            <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8 pb-20 ">
+              <div className="flex flex-col gap-2 col-span-1 mt-4 lg:mt-0">
+                <div className="flex gap-4 items-center">
+                  <Link href={`/${categoryBefore.join("/")}`}>
+                    <Button addClass="p-2">
+                      <FaArrowLeft size={25} />
+                    </Button>
+                  </Link>
+                  <Link href={"/"}>
+                    <Button addClass="p-2">
+                      <TiHome size={25} />
+                    </Button>
+                  </Link>
+                  <div className="flex flex-row gap-4">
+                    <h3 className="text-base font-courier text-sky-800 font-bold">
+                      <Link href="/#portfolio" className="hover:text-red-600">
+                        portfolio
+                      </Link>
+                    </h3>
+                    {pathList}
                   </div>
                 </div>
-                <div className="flex flex-rowh-20 ">
-                  <div className="flex flex-row gap-4">
-                    <Link href="/#portfolio">
-                      <div className="flex flex-row ">
-                        <Triangle addClass="border-l-red-600" />
-                        <h3 className="text-base font-courier text-sky-800 font-bold">portfolio</h3>
-                      </div>
-                    </Link>
-                    {pathList}
+                <div className="col-span-1">
+                  <div className="flex flex-row">
+                    <h2 className="text-4xl font-courier font-bold text-sky-800 mb-2 mr-3">
+                      {currentCategory}
+                    </h2>
+                    <div onClick={toggleMenu}>
+                      <HamburgerIcon addClass="mt-2 text-green-600" />
+                    </div>
                   </div>
                 </div>
               </div>

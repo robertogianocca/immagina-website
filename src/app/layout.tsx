@@ -7,14 +7,14 @@ import { Inter } from "next/font/google";
 const main = Inter({
   weight: ["300", "400", "600", "700"],
   subsets: ["latin"],
-  fallback: ["system-ui", "arial"],
+  // fallback: ["arial"],
   variable: "--customMain",
 });
 
 const courier = Courier_Prime({
   weight: ["400", "700"],
   subsets: ["latin"],
-  fallback: ["system-ui", "arial"],
+  // fallback: ["system-ui", "arial"],
   variable: "--customCourier",
 });
 

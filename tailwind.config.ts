@@ -16,8 +16,15 @@ const config: Config = {
         home: "4 / 3",
       },
       fontSize: {
-        xs: ["13.89px", "normal"],
-        sm: ["16.67px", "normal"],
+        xs: ["13.89px", "19px"],
+        sm: [
+          "16.67px",
+          {
+            lineHeight: "21px",
+            letterSpacing: "0.0em",
+          },
+        ],
+
         base: ["20px", "27px"],
         lg: ["24px", "normal"],
         xl: ["28.8px", "normal"],
