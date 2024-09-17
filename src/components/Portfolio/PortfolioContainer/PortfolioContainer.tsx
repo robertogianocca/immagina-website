@@ -105,20 +105,29 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
         transformedCategoriesFromPath={transformedCategoriesFromPath}
         addClass={
           portfolioData[subCategoryList[0]].images === undefined
-            ? "border-l-red-600"
-            : "border-l-green-600"
+            ? "border-l-green-600"
+            : "border-l-amber-400"
         }
       />
     </motion.div>
   ));
 
-  console.log(portfolioData[subCategoryList[0]].images);
+  console.log(categoriesFromPath);
 
   const subcategoryMenu = subCategoryList.map((item, index) => {
     return (
-      <li key={index} className="flex flex-row">
-        <Triangle addClass={"border-l-green-600"} />
-        {item}
+      <li
+        key={index}
+        className="flex flex-row mb-4 font-courier text-sky-800 font-semibold text-xl"
+      >
+        <Triangle
+          addClass={
+            portfolioData[subCategoryList[0]].images === undefined
+              ? "border-l-green-600"
+              : "border-l-amber-400"
+          }
+        />
+        <Link href={`/${categoriesFromPath.join("/")}/${item.replace(" ", "-")}`}>{item}</Link>
       </li>
     );
   });
@@ -169,22 +178,41 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
                 </div>
                 <div className="col-span-1">
                   <div className="flex flex-row">
+                    <Triangle
+                      addClass={
+                        portfolioData[subCategoryList[0]].images === undefined
+                          ? "border-l-red-600"
+                          : "border-l-green-600"
+                      }
+                    />
+
                     <h2 className="text-4xl font-courier font-bold text-sky-800 mb-2 mr-3">
                       {currentCategory}
                     </h2>
                     <div onClick={toggleMenu}>
-                      <HamburgerIcon addClass="mt-2 text-green-600" />
+                      <HamburgerIcon
+                        addClass={`mt-2 ${
+                          portfolioData[subCategoryList[0]].images === undefined
+                            ? "text-green-600"
+                            : "text-amber-400"
+                        }`}
+                      />
                     </div>
                   </div>
                 </div>
               </div>
               {/* ---------- SUBCATEGORY MENU ---------- */}
               <div
-                className={`bg-customWhite absolute left-[10px] pt-10 pl-[10px] w-full h-full top-[230px] z-[200] font-courier font-bold text-xl text-sky-800 ${
+                className={`bg-zinc-200 static w-full h-[100vh] top-[230px] z-[200]  ${
                   isOpen ? "block" : "hidden"
                 }`}
               >
-                {subcategoryMenu}
+                <div className="lg:hidden col-span-2 pb-4">
+                  <p className=" text-sm text-sky-800 font-semibold">
+                    {currentCategoryDescription}
+                  </p>
+                </div>
+                <ul>{subcategoryMenu}</ul>
               </div>
               <div className="hidden lg:block col-span-2 pb-16">
                 <p className=" text-base text-sky-800 font-semibold">

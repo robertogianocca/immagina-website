@@ -24,7 +24,7 @@ export default function Wrapper({
 
   return (
     <motion.main
-      className="mt-[60px] px-4 lg:px-6 pt-0 lg:pt-10 xl:pl-14 xl:pr-24 bg-zinc-200 md:bg-customWhite"
+      className="h-screen mt-[60px] px-4 lg:px-6 pt-0 lg:pt-10 xl:pl-14 xl:pr-24 bg-zinc-200 md:bg-customWhite"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
