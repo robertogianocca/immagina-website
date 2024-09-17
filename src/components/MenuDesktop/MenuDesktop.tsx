@@ -11,7 +11,7 @@ export default function MenuDesktop({ menuItems }: { menuItems: string[] }) {
     );
   });
   return (
-    <ul className="w-full hidden lg:flex lg:justify-between font-courier font-bold text-[1.5vw] text-red-600">
+    <ul className="w-full 3xl:w-[70%] hidden lg:flex lg:justify-between font-courier font-bold text-[1.5vw] 2xxl:text-lg 3xl:text-xl text-red-600">
       {mappedMenu}
     </ul>
   );

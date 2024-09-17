@@ -19,7 +19,7 @@ export default function NavigationBar() {
 
   return (
     <OpacityAnimation addClass="">
-      <nav className="w-full h-[60px] fixed left-0 top-0 z-50 px-4 lg:pl-14 lg:pr-24 flex lg:main-grid bg-customWhite lg:shadow-xl lg:shadow-slate-200">
+      <nav className="w-full h-[60px] fixed left-0 top-0 px-4 lg:pl-14 lg:pr-24 z-50  flex lg:main-grid bg-customWhite lg:shadow-xl lg:shadow-slate-200">
         <div className="flex w-full items-center justify-between">
           <Link href="/">
             <div className="w-52 h-10 relative">

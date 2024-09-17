@@ -9,7 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       screens: {
-        xs: "415px",
+        xs: "412px",
+        "3xl": "1750px",
       },
       aspectRatio: {
         cover: "1920 / 2150",

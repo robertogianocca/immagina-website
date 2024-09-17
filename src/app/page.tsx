@@ -30,14 +30,11 @@ export default async function Home() {
     <>
       <NavigationBar />
       <Wrapper>
-        <section
-          id="home"
-          className="h-[calc(100vh-80px)] sm:h-auto md:h-[calc(100vh-80px)] 2xl:h-[calc(100vh-120px)] overflow-hidden"
-        >
+        <section id="home" className="h-[calc(100vh-60px)] sm:h-full md:h-[calc(100vh-60px)]">
           <HomePage />
         </section>
-        <section id="portfolio" className="pt-10 pb-16">
-          <div className="flex flex-col md:main-grid md:gap-10">
+        <section id="portfolio" className="pb-16 md:pt-10">
+          <div className="flex flex-col md:main-grid gap-0 md:gap-10">
             <div>
               <h2 className="text-4xl font-courier font-bold text-sky-800 mb-4">Portfolio</h2>
             </div>
@@ -78,17 +75,38 @@ export default async function Home() {
                 abbiamo tempo. Del resto il tempo non si compra: si prende.
               </p>
             </div>{" "}
-            <div className="hidden md:inline col-span-2 relative w-full h-full">
-              <div className="h-full flex">
-                <iframe
-                  src="https://player.vimeo.com/video/999094842?h=19a5c4fcfb&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&background=1"
-                  className="aspect-home self-start object-cover"
-                  width="100%"
-                  height="100%"
-                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-                  // style={{ alignSelf: "flex-start", aspectRatio: "4 / 3" }}
-                ></iframe>
-              </div>
+            <div className="hidden lg:inline col-span-2 lg:w-full h-full aspect-home">
+              <video autoPlay muted loop className="w-full h-full object-cover">
+                <source src="/video/animazione-bosco-03.mp4" />
+              </video>
+            </div>
+          </div>
+        </section>
+        <section id="principi" className="h-space">
+          <div className="flex flex-col md:main-grid pt-20">
+            <div>
+              <h2 className="text-3xl font-courier">Principi</h2>
+              <p className="text-base text-slate-700">
+                Abbiamo dei principi che applichiamo da sempre, da quando siamo attivi, ossia da
+                quasi trent’anni. Ecco una distinta dei valori a cui ci atteniamo rigorosamente:
+                Less is more (Mies van der Rohe) “Kalos kai agathos“ - Il bello è anche buono
+                (Platone) Il tempo non è denaro Ambendo l’eccellenza spesso roviniamo ciò che è bene
+                (W. Shakespeare). L’essenziale è invisibile agli occhi (Saint-Exupery) “Ho dei gusti
+                semplicissimi. Mi accontento sempre del meglio” diceva O. Wilde. Prendendo in
+                prestito il celebre personaggio di Collodi, cerchiamo di evitare ai nostri clienti i
+                guai di… Pinocchio. Niente naso lungo e gambe corte, niente incontri con il Gatto e
+                la Volpe, niente semina di zecchini d’oro nell’orto, niente orecchie lunghe. Siamo
+                seri why not? Diamine: non viviamo mica nel paese dei balocchi! Scansiamo i furbi,
+                scopriamo il tuo talento. Sotto la nostra regia, la tua comunicazione deve diventare
+                iconica: non progettiamo il tuo domani, ma il tuo dopo-domani. Oggi. Come? Perché?
+                Perché ci dedichiamo a te. Ci prendiamo il tempo, tutto il tempo necessario, perché
+                abbiamo tempo. Del resto il tempo non si compra: si prende.
+              </p>
+            </div>{" "}
+            <div className="hidden lg:inline col-span-2 lg:w-full h-full aspect-home">
+              <video autoPlay muted loop className="w-full h-full object-cover">
+                <source src="/video/animazione-bosco-04.mov" />
+              </video>
             </div>
           </div>
         </section>
