@@ -7,8 +7,8 @@ import OpacityAnimation from "../Animations/OpacityAnimation";
 
 export default function HomePage() {
   return (
-    <OpacityAnimation addClass="h-full sm:h-auto flex flex-col  justify-between sm:justify-no sm:grid sm:grid-cols-3 gap-[2vh] sm:gap-4 lg:gap-x-10 pt-4 lg:pt-[30px] pb-6 lg:pb-[30px] font-bold text-sky-800 ">
-      <div className="flex flex-col gap-[2vh] sm:gap-4 lg:gap-x-10 xl:gap-y-[2vh] sm:col-span-2 lg:col-span-1 text-sm xl:text-base">
+    <OpacityAnimation addClass="h-full sm:h-auto flex flex-col justify-between sm:justify-no sm:grid sm:grid-cols-3 gap-[2vh] sm:gap-4 lg:gap-x-10 pt-4 lg:pt-[30px] pb-6 lg:pb-[30px] font-bold text-sky-800 ">
+      <div className="flex flex-col gap-[2vh] sm:gap-4 lg:gap-x-10 xl:gap-y-[2vh] sm:col-span-2 lg:col-span-1 text-sm xl:responsive-home">
         {/* ---------- CITAZIONE ---------- */}
         <div className="hidden xl:block font-courier">
           <p className="text-xl lg:text-lg xl:text-xl tracking-tighter">{`Niente si sa,`}</p>
@@ -32,8 +32,8 @@ export default function HomePage() {
             Portfolio
           </RedButton>
         </Link>
-        {/* ---------- PORTFOLIO ---------- */}
-        <ul className="grid grid-cols-2 sm:flex lg:grid gap-x-4 gap-y-4  xs:pr-4 2xl:pr-0 text-center lg:mb-0 font-courier text-base xl:text-lg 2xl:w-[40vh]">
+        {/* ---------- PORTFOLIO LIST ---------- */}
+        <ul className="grid grid-cols-2 sm:flex lg:grid gap-x-6 gap-y-4 2xl:gap-x-[min(1rem)] 2xl:w-[max(400px)] xs:pr-4 xl:pr-0 text-center lg:mb-0 font-courier text-base xl:text-lg">
           <li className="flex">
             <Triangle addClass="border-l-red-600" />
             <Link href="/fotografia" className="hover:text-red-600">
@@ -58,7 +58,7 @@ export default function HomePage() {
             Webdesign
           </li>
         </ul>
-        <p className="md:pb-0 lg:pb-7">If you like it, scrivici. Why not.</p>
+        <p className="md:pb-0">If you like it, scrivici. Why not.</p>
       </div>
 
       {/*  ------------ VIDEO DESKTOP ------------ */}

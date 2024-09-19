@@ -51,7 +51,7 @@ export default function PortfolioCategoryCard({
         ></div>
         <h3 className="font-courier font-bold text-sky-800 text-xl pb-3">{title}</h3>
         <p
-          className="hidden lg:block text-xs xl:text-sm pb-4"
+          className="hidden xl:block text-xs xl:text-xs pb-4"
           dangerouslySetInnerHTML={{ __html: shortDescription }}
         />
         <div className="">

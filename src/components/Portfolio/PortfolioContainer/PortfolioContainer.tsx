@@ -96,6 +96,7 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
       exit={{ opacity: 0, y: -50 }}
       transition={{ duration: 0.5 }}
       key={index}
+      className=""
     >
       <PortfolioCategoryCard
         title={item}
@@ -112,13 +113,15 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
     </motion.div>
   ));
 
-  console.log(categoriesFromPath);
-
   const subcategoryMenu = subCategoryList.map((item, index) => {
     return (
       <li
         key={index}
-        className="flex flex-row mb-4 font-courier text-sky-800 font-semibold text-xl"
+        className={`flex flex-row mb-4 font-courier text-sky-800 font-semibold text-xl  ${
+          portfolioData[subCategoryList[0]].images === undefined
+            ? "hover:text-green-600"
+            : "hover:text-amber-400"
+        }`}
       >
         <Triangle
           addClass={
@@ -133,6 +136,7 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
   });
 
   // portfolioData.pictures.length === 1;
+  console.log(categoriesFromPath.length);
   return (
     <>
       {subCategoryList[0] === "images" && subCategoryList.length === 1 ? (
@@ -154,10 +158,14 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
         <>
           <NavigationBar />
           <Wrapper>
-            <div className="flex flex-col lg:grid lg:grid-cols-3 gap-8 pb-20 ">
-              <div className="flex flex-col gap-2 col-span-1 mt-4 lg:mt-0">
+            <div className="flex flex-col sm:grid lg:grid sm:grid-cols-2 lg:grid-cols-3 gap-8 pb-20 min-h-[calc(100vh-60px)] pt-8 ">
+              <div className="flex flex-col gap-2 col-span-1 sm:col-span-2 lg:col-span-1">
                 <div className="flex gap-4 items-center">
-                  <Link href={`/${categoryBefore.join("/")}`}>
+                  <Link
+                    href={`/${
+                      categoriesFromPath.length == 1 ? "/#portfolio" : categoryBefore.join("/")
+                    }`}
+                  >
                     <Button addClass="p-2">
                       <FaArrowLeft size={25} />
                     </Button>
@@ -178,20 +186,25 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
                 </div>
                 <div className="col-span-1">
                   <div className="flex flex-row">
-                    <Triangle
-                      addClass={
-                        portfolioData[subCategoryList[0]].images === undefined
-                          ? "border-l-red-600"
-                          : "border-l-green-600"
-                      }
-                    />
-
-                    <h2 className="text-4xl font-courier font-bold text-sky-800 mb-2 mr-3">
+                    <div className="pt-[7.5px] pr-1">
+                      <Triangle
+                        addClass={
+                          portfolioData[subCategoryList[0]].images === undefined
+                            ? "border-l-red-600"
+                            : "border-l-green-600"
+                        }
+                      />
+                    </div>
+                    {/* ---------- TITLE ---------- */}
+                    <h1 className="text-3xl xl:text-4xl font-courier font-bold text-sky-800 mr-3">
                       {currentCategory}
-                    </h2>
-                    <div onClick={toggleMenu}>
+                    </h1>
+                    <div
+                      className={`h-full p-1 mt-[-2px] ${isOpen ? "bg-zinc-300 rounded-full" : ""}`}
+                      onClick={toggleMenu}
+                    >
                       <HamburgerIcon
-                        addClass={`mt-2 ${
+                        addClass={`${
                           portfolioData[subCategoryList[0]].images === undefined
                             ? "text-green-600"
                             : "text-amber-400"
@@ -201,21 +214,20 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
                   </div>
                 </div>
               </div>
-              {/* ---------- SUBCATEGORY MENU ---------- */}
+              {/* ---------- SUBCATEGORY MENU AND DESCRIPTION MOBILE ---------- */}
               <div
-                className={`bg-zinc-200 static w-full h-[100vh] top-[230px] z-[200]  ${
+                className={`flex flex-col grow min-h-[calc(100vh-230px)] bg-zinc-200 col-span-2 static w-full sm:w-[80%] md:w-full top-[230px] z-49  ${
                   isOpen ? "block" : "hidden"
                 }`}
               >
-                <div className="lg:hidden col-span-2 pb-4">
-                  <p className=" text-sm text-sky-800 font-semibold">
-                    {currentCategoryDescription}
-                  </p>
+                <div className="lg:hidden pb-4">
+                  <p className="text-sm text-sky-800 font-semibold">{currentCategoryDescription}</p>
                 </div>
                 <ul>{subcategoryMenu}</ul>
               </div>
-              <div className="hidden lg:block col-span-2 pb-16">
-                <p className=" text-base text-sky-800 font-semibold">
+              {/* ---------- DESCRIPTION DESKTOP  ---------- */}
+              <div className="hidden lg:block col-span-2">
+                <p className="text-sm xl:text-base text-sky-800 font-semibold">
                   {currentCategoryDescription}
                 </p>
               </div>
