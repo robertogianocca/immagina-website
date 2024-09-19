@@ -84,7 +84,7 @@ export default async function Home() {
             </div>{" "}
             <div className="hidden lg:inline col-span-2 lg:w-full h-full aspect-home">
               <video autoPlay muted loop className="w-full h-full object-cover">
-                <source src="/video/animazione-bosco-03.mp4" />
+                <source src="/video/animazione-bosco-03.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
@@ -116,7 +116,7 @@ export default async function Home() {
             </div>{" "}
             <div className="hidden lg:inline col-span-2 lg:w-full h-full aspect-home">
               <video autoPlay muted loop className="w-full h-full object-cover">
-                <source src="/video/animazione-bosco-04.mov" />
+                <source src="/video/animazione-bosco-02.mp4" type="video/mp4" />
               </video>
             </div>
           </div>

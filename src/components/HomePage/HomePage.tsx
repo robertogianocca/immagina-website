@@ -61,14 +61,15 @@ export default function HomePage() {
         <p className="md:pb-0">If you like it, scrivici. Why not.</p>
       </div>
 
-      {/*  ------------ VIDEO DESKTOP ------------ */}
+      {/*  ------------ VIDEO ------------ */}
       <video
         autoPlay
         muted
         loop
+        playsInline
         className="sm:col-span-3 lg:col-span-2 object-cover lg:object-contain object-bottom sm:object-top w-full h-[50vh] xs:h-[70vh] md:max-h-[calc(100vh-478px)] lg:h-full lg:max-h-[calc(100vh-135px)] 2xl:w-full 2xl:h-auto 2xl:max-h-auto 2xl:object-cover 2xl:object-top"
       >
-        <source src="/video/animazione-bosco.mov" />
+        <source src="/video/animazione-bosco-01.mp4" type="video/mp4" />
       </video>
     </OpacityAnimation>
   );
