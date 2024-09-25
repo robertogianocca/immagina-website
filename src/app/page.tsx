@@ -20,7 +20,7 @@ export default async function Home() {
   );
 
   const cloudinaryResponse = await response.json();
-  // revalidatePath("/");
+  revalidatePath("/");
 
   const portfolioData = getDataStructure(cloudinaryResponse);
 
@@ -28,12 +28,13 @@ export default async function Home() {
 
   return (
     <>
-      <NavigationBar />
+      {/* <NavigationBar /> */}
       <Wrapper>
         <section
           id="home"
           className="h-[calc(100vh-60px)] sm:h-full md:min-h-[calc(100vh-60px)] overflow-hidden"
         >
+          <NavigationBar addClass="" />
           <HomePage />
         </section>
         <section id="portfolio" className="pb-16 md:pt-10 ">
@@ -43,15 +44,26 @@ export default async function Home() {
                 Portfolio
               </h2>
             </div>
-            <div className="col-span-2 lg:pl-6 ">
+            <div className="hidden lg:block col-span-2 lg:pl-6 text-sm lg:text-base text-sky-800 font-semibold">
+              <p>
+                Albo di famiglia da sfogliare. Sfogliare per soddisfare la curiosità. Proponiamo una
+                piccola selezione di lavori realizzati in passato nei vari settori (culturale e
+                aziendale). Quali gli strumenti? Grafica, tipografica, fotografia, video/film,
+                editoria/libri, web design, mostre. Quali le nostre preferenze? Una, nessuna,
+                centomila. L’approccio è ludico e i messaggi vengono trasmessi analogicamente.
+              </p>
+              <p>
+                L’understatement è il nostro stile: less is more. Fatalmente l’albo di famiglia
+                racconta del passato. Passato di passioni. Biografie, spettacoli, edifici, ferrovie,
+                fonderie, vestiti, modelle, visi, incontri. Intuizioni, sogni realizzati.
+              </p>
+            </div>
+            <div className="col-span-2 lg:pl-6 lg:hidden">
               <p className="text-sm lg:text-base text-sky-800 font-semibold">
-                IL TROPPO GUASTA. IMMAGINA ha 50 di storia. Troppi. Si è dunque optato per una
-                piccola selezione di lavori allo scopo di illustrare la varietà dei temi affrontati
-                in passato. Come un albo di famiglia da sfogliare e sfogliare e sfogliare.
-                Soddisfare la tua curiosità. Tutto qui. Vedrai che i temi hanno carattere locale, e
-                anche planetario. Indifferentemente si passa da incarichi editoriali /giornalistici,
-                a quelli commerciali/pubblicitari. Scoprirai la predilezione per il ritratto, il
-                teatro, il cinema, il treno, la bicicletta e i matrimoni…
+                Albo di famiglia da sfogliare. Sfogliare per soddisfare la curiosità. Proponiamo una
+                piccola selezione di lavori realizzati in passato nei vari settori (culturale e
+                aziendale). Quali gli strumenti? Grafica, tipografica, fotografia, video/film,
+                editoria/libri, web design, mostre.
               </p>
             </div>
             <div className="col-span-3">
@@ -81,7 +93,7 @@ export default async function Home() {
                 Perché ci dedichiamo a te. Ci prendiamo il tempo, tutto il tempo necessario, perché
                 abbiamo tempo. Del resto il tempo non si compra: si prende.
               </p>
-            </div>{" "}
+            </div>
             <div className="hidden lg:inline col-span-2 lg:w-full h-full aspect-home">
               <video autoPlay muted loop className="w-full h-full object-cover">
                 <source src="/video/animazione-bosco-03.mp4" type="video/mp4" />
@@ -113,7 +125,7 @@ export default async function Home() {
                 Specialità: mostre openair. Prodotto. Specialità: 3D Special interest: biografie,
                 scultura teatro architettura natura (orto incluso)
               </p>
-            </div>{" "}
+            </div>
             <div className="hidden lg:inline col-span-2 lg:w-full h-full aspect-home">
               <video autoPlay muted loop className="w-full h-full object-cover">
                 <source src="/video/animazione-bosco-02.mp4" type="video/mp4" />

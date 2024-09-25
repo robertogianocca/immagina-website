@@ -3,8 +3,6 @@ import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function PortfolioHome({ categoryList, portfolioData, params }: any) {
-  console.log(categoryList);
-
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: (i: number) => ({
@@ -39,7 +37,7 @@ export default function PortfolioHome({ categoryList, portfolioData, params }: a
   ));
 
   return (
-    <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-10">
+    <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-8 xl:gap-10">
       <AnimatePresence>
         {mappedCategories}
         <motion.div

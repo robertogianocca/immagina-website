@@ -1,7 +1,7 @@
 export const videoDatabase = [
   {
     title: "CARIE",
-    link: "CARIE",
+    link: "video/carie",
     description: "Descrizione CARIE",
     shortDescription: "",
     cover:

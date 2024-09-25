@@ -13,10 +13,10 @@ export default function HomePage() {
         <div className="hidden xl:block font-courier">
           <p className="text-xl lg:text-lg xl:text-xl tracking-tighter">{`Niente si sa,`}</p>
           <p className="text-xl lg:text-lg xl:text-xl tracking-tighter mb-3">{`tutto si immagina`}</p>
-          <p className="text-lg lg:text-base xl:text-lg ">Fernando Pessoa</p>
+          <p className="text-lg lg:text-base  font-main italic">Fernando Pessoa</p>
         </div>
         {/* ---------- PRESENTAZIONE ---------- */}
-        <p className="">
+        <p className="mt-5">
           Se per ragioni professionali o private vuoi comunicare al mondo le tue idee, chi sei, cosa
           fai, potresti essere interessato ad affidarti al collettivo creativo IMMAGINA+.
         </p>
@@ -24,8 +24,8 @@ export default function HomePage() {
           {"Come un sarto confeziona l'abito, IMMAGINA+ confeziona la tua comunicazione."}
         </p>
         <p className="hidden sm:block">
-          IMMAGINA+ ti invita a <span className="italic text-red-600">sfogliare</span> il suo
-          portfolio. Poche parole. Immagini? Troppe, forse.
+          IMMAGINA+ ti invita a <span className="italic">sfogliare</span> il suo portfolio. Poche
+          parole. Immagini? Troppe, forse.
         </p>
         <Link href="#portfolio" className="hidden sm:block">
           <RedButton addClass="p-2 px-3 text-base xl:text-xl font-courier mb-4 text-red-600 lg:font-light">

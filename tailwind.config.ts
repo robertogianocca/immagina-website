@@ -6,6 +6,11 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: [
+    "custom-indent",
+    "italic",
+    // Add any other dynamic classes
+  ],
   theme: {
     extend: {
       screens: {
@@ -51,9 +56,8 @@ const config: Config = {
         // custom-One: "red"
         customWhite: "#F8F8F8",
       },
-      height: {
+      minHeight: {
         space: "calc(100vh - 60px)",
-        // space: "200px",
       },
       cursor: {
         redPoint: "url(/images/cursore.png), auto",

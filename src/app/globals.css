@@ -7,6 +7,10 @@
     @apply grid grid-cols-3 gap-8;
   }
 
+  .custom-indent {
+    @apply indent-7;
+  }
+
   .gallery-grid {
     display: grid;
     grid-template-columns: 15% 85%;

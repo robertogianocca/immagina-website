@@ -7,7 +7,7 @@ import HamburgerIcon from "@/components/HamburgerIcon/HamburgerIcon";
 import Button from "@/components/Buttons/Button";
 import { TiHome } from "react-icons/ti";
 import { FaArrowLeft } from "react-icons/fa";
-import { FaInfo } from "react-icons/fa";
+import { IoMdCloseCircle } from "react-icons/io";
 import { useState } from "react";
 import { useParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -88,7 +88,7 @@ export default function PortfolioGallery({
 
   return (
     <div className="flex flex-col lg:flex-row lg:h-screen w-full">
-      <div className="hidden w-[300px] fixed h-screen overflow-auto md:flex flex-col justify-between p-5 bg-stone-200 bg-opacity-35 text-base inner-shadow ">
+      <div className="hidden lg:flex flex-col justify-between w-[300px] fixed h-screen overflow-auto p-5 bg-stone-200 bg-opacity-35 text-base inner-shadow ">
         <PortfolioGallerySideBar
           title={currentCategory}
           shortCategoryDescription={shortCategoryDescription}
@@ -106,17 +106,18 @@ export default function PortfolioGallery({
           isVisible ? "hidden" : "block"
         }`}
       >
-        <div className="flex flex-col items-center w-full max-w-[800px] h-full">
-          <div className="w-full px-10 lg:mb-3">
+        <div className="flex flex-col items-center w-full max-w-[screen] h-full">
+          <div className="w-full xl:w-[75%] flex-grow px-6 overflow-auto ">
             {/* Bottone Chiusura X */}
-            <Button
-              addClass="px-4 py-2 mt-4 mb-4 shadow-stone-300 text-stone-600 font-bold text-md"
-              onClick={closeTextBox}
-            >
-              X
-            </Button>
-          </div>
-          <div className="w-full flex-grow px-10 overflow-auto ">
+            <div className="w-full lg:mb-3">
+              <Button
+                addClass="p-2 mt-4 mb-4 shadow-stone-300 text-slate-400"
+                onClick={closeTextBox}
+              >
+                <IoMdCloseCircle size={30} />
+              </Button>
+            </div>
+            {/* Testo */}
             <p
               className="link text-sm lg:text-base text-sky-800 lg:font-semibold"
               dangerouslySetInnerHTML={{ __html: categoryDescription }}
@@ -126,11 +127,11 @@ export default function PortfolioGallery({
       </div>
 
       {/* ------------ IMAGE CONTAINER ------------ */}
-      <div className="mt-[60px] lg:mt-0 md:ml-[300px] flex-grow p-4 lg:pl-10 pb-10 bg-customWhite">
+      <div className="mt-[60px] lg:mt-0 lg:ml-[300px] flex-grow p-4 lg:pl-10 pb-10 bg-customWhite">
         <div className="relative w-full h-full">
           {/* Gallery title */}
           <div
-            className={` md:absolute lg:left-0 lg:right-0 lg:top-0 lg:m-auto lg:p-2 lg:aspect-cover lg:h-full ${hideTitle}`}
+            className={` lg:absolute lg:left-0 lg:right-0 lg:top-0 mb-2 lg:m-auto lg:p-2 lg:aspect-cover lg:h-full ${hideTitle}`}
           >
             <h1 className="font-courier font-bold text-2xl lg:text-4xl text-red-600">
               {currentCategory}
@@ -144,7 +145,7 @@ export default function PortfolioGallery({
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2, delay: 0.2 }}
-              className="hidden md:flex items-center justify-center w-full h-full"
+              className="hidden lg:flex items-center justify-center w-full h-full"
             >
               <Image
                 priority={true}
@@ -160,6 +161,7 @@ export default function PortfolioGallery({
             </motion.div>
           </AnimatePresence>
           {/* ------------ MOBILE GALLERY ------------ */}
+          {/* Mobile Menu */}
           <nav className="lg:hidden w-full h-[60px] fixed left-0 top-0 z-50 px-4 lg:pl-14 lg:pr-24 flex lg:main-grid md:shadow-xl bg-stone-200">
             <div className="flex flex-row items-center justify-between w-full">
               <h1 className="font-courier font-bold text-sm lg:text-4xl text-red-600">
@@ -177,12 +179,12 @@ export default function PortfolioGallery({
                   </Button>
                 </Link>
                 <Link href={""}>
-                  <Button onClick={openTextBox} addClass="p-[5.6px] text-slate-400">
-                    <p>Read</p>
+                  <Button onClick={openTextBox} addClass="p-[5.9px] text-slate-400">
+                    <p className="font-bold">Read</p>
                   </Button>
                 </Link>
                 <div onClick={toggleMenu}>
-                  <HamburgerIcon />
+                  <HamburgerIcon addClass="text-red-600" />
                 </div>
                 <div
                   className={`absolute top-[60px] left-0 w-full h-space bg-customWhite opacity-98 px-4 py-10 ${
@@ -194,12 +196,13 @@ export default function PortfolioGallery({
               </div>
             </div>
           </nav>
-          <div className="flex flex-col md:hidden">
+          {/* Mobile Gallery */}
+          <div className="flex flex-col lg:hidden">
             <p
-              className="link text-xs pb-2"
+              className="z-10 link text-xs font-semibold text-sky-800"
               dangerouslySetInnerHTML={{ __html: shortCategoryDescription }}
             />
-            {mobileGallery}
+            <div className="mt-[-12px]">{mobileGallery}</div>
           </div>
         </div>
       </div>
