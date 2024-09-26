@@ -26,7 +26,7 @@ const config: Config = {
         sm: [
           "16.67px",
           {
-            lineHeight: "21px",
+            lineHeight: "22px",
             letterSpacing: "0.0em",
           },
         ],

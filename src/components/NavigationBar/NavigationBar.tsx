@@ -5,7 +5,7 @@ import MenuDesktop from "../MenuDesktop/MenuDesktop";
 import MenuMobile from "../MenuMobile/MenuMobile";
 import Link from "next/link";
 import HamburgerIcon from "@/components/HamburgerIcon/HamburgerIcon";
-import OpacityAnimation from "../Animations/OpacityAnimation";
+// import OpacityAnimation from "../Animations/OpacityAnimation";
 import { useState } from "react";
 
 type NavigationBarProps = {

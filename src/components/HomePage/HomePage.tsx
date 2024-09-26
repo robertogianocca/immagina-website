@@ -55,7 +55,7 @@ export default function HomePage() {
 
           <li className="flex items-center">
             <Triangle addClass="border-l-red-600" />
-            Webdesign
+            Bookdesign
           </li>
         </ul>
         <p className="md:pb-0">If you like it, scrivici. Why not.</p>

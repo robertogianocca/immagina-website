@@ -15,7 +15,7 @@ export default function MenuMobile({ menuItems, toggleMenu }) {
     );
   });
   return (
-    <ul className="flex flex-col font-courier font-bold text-lg leading-[3rem] text-red-600">
+    <ul className="flex flex-col min-h-screen font-courier font-bold text-lg leading-[3rem] text-red-600">
       {mappedMenu}
     </ul>
   );
