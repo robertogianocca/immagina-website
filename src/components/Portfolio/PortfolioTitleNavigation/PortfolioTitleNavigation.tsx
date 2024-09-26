@@ -25,6 +25,11 @@ export default function PortfolioTitleNavigation({
   };
 
   const subcategoryMenu = subCategoryList.map((item, index) => {
+    let itemLink = item.replace("'s", "");
+    itemLink = itemLink.replace(" ", "-");
+    // titleToLink = titleToLink.toLowerCase();
+    console.log(itemLink);
+
     item = item.split(" ");
     item = item.map((item: string, index: number) => {
       return item[0].toUpperCase() + item.slice(1);
@@ -36,7 +41,7 @@ export default function PortfolioTitleNavigation({
         className={`flex flex-row mb-4 font-courier text-sky-800 font-semibold text-xl  ${categoryColors}`}
       >
         <Triangle addClass={subCategoryColors} />
-        <Link href={`/${categoriesFromPath.join("/")}/${item.replace(" ", "-")}`}>{item}</Link>
+        <Link href={`/${categoriesFromPath.join("/")}/${itemLink}`}>{item}</Link>
       </li>
     );
   });
@@ -57,9 +62,9 @@ export default function PortfolioTitleNavigation({
               <TiHome size={25} />
             </Button>
           </Link>
-          <div className="flex flex-row gap-4">
+          <div className="flex flex-row lg:flex-col 2xl:flex-row gap-4 lg:gap-1">
             <h3 className="text-base font-courier text-sky-800 font-bold">
-              <Link href="/#portfolio" className="hover:text-red-600">
+              <Link href="/#portfolio" className="hover:text-red-600 mr-2">
                 portfolio
               </Link>
             </h3>
@@ -75,8 +80,11 @@ export default function PortfolioTitleNavigation({
             <h1 className="text-3xl xl:text-4xl font-courier font-bold text-sky-800 mr-3">
               {currentCategory}
             </h1>
+            {/* ---------- HAMBURGER SUBMENU ---------- */}
             <div
-              className={`h-full p-1 mt-[-2px] ${isOpen ? "bg-zinc-300 rounded-full" : ""}`}
+              className={`xl:hidden h-full p-1 mt-[-2px] ${
+                isOpen ? "bg-zinc-300 rounded-full" : ""
+              }`}
               onClick={toggleMenu}
             >
               <HamburgerIcon addClass={hamburgerColors} />
@@ -86,12 +94,15 @@ export default function PortfolioTitleNavigation({
       </div>
       {/* ---------- SUBCATEGORY MENU AND DESCRIPTION MOBILE ---------- */}
       <div
-        className={`flex flex-col grow min-h-[calc(100vh-230px)] bg-zinc-200 col-span-2 static w-full sm:w-[80%] md:w-full top-[230px] z-49  ${
+        className={`flex flex-col grow min-h-[calc(100vh-230px)] bg-zinc-200 col-span-2 lg:row-start-2  static w-full sm:w-[80%] md:w-full top-[230px] z-49  ${
           isOpen ? "block" : "hidden"
         }`}
       >
-        <div className="lg:hidden pb-4">
-          <p className="text-sm text-sky-800 font-semibold">{currentCategoryDescription}</p>
+        <div className=" pb-4">
+          <p
+            className="text-sm text-sky-800 font-semibold"
+            dangerouslySetInnerHTML={{ __html: currentCategoryDescription }}
+          />
         </div>
         <ul>{subcategoryMenu}</ul>
       </div>

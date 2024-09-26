@@ -5,7 +5,7 @@ interface Props {
 }
 
 const HamburgerIcon = ({ addClass }: Props) => {
-  return <FiMenu strokeWidth="2.5px" size="40px" className={`p-0 m-0 lg:hidden ${addClass}`} />;
+  return <FiMenu strokeWidth="2.5px" size="40px" className={`p-0 m-0 ${addClass}`} />;
 };
 
 export default HamburgerIcon;

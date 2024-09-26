@@ -33,7 +33,7 @@ export default function NavigationBar({ addClass }: NavigationBarProps) {
           </div>
         </Link>
         <div onClick={toggleMenu}>
-          <HamburgerIcon addClass="text-red-600" />
+          <HamburgerIcon addClass="text-red-600 lg:hidden" />
         </div>
       </div>
       <div className="flex flex-row items-center col-span-2">

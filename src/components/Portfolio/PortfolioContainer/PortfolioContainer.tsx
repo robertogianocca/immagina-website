@@ -71,7 +71,7 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
   const pathList = categoriesFromPath.slice(0, -1).map((item: string, index: number) => {
     return (
       <div key={index} className="flex flex-row">
-        <Triangle addClass="border-l-red-600" />
+        <Triangle addClass="md:border-l-[13px] xl:border-l-[19px] xl:border-b-[19px] md:border-b-[13px] border-l-red-600" />
         <Link href={`/${categoriesFromPath.slice(0, 1 + index).join("/")}`}>
           <h3 className="text-base font-courier text-sky-800 font-bold hover:text-red-600">
             {categoriesFromPath.slice(0, -1).length - 1 == index ? item + "" : item + " /"}
@@ -93,6 +93,7 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
       exit={{ opacity: 0, y: -50 }}
       transition={{ duration: 0.5 }}
       key={index}
+      className="lg:row-start-3 xl:row-start-2"
     >
       <PortfolioCategoryCard
         title={item}
@@ -128,7 +129,7 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
         <>
           <NavigationBar addClass="" />
           <Wrapper>
-            <div className="flex flex-col sm:grid lg:grid sm:grid-cols-2 lg:grid-cols-3 gap-8 pt-6 pb-20">
+            <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 pt-6 pb-20">
               <PortfolioTitleNavigation
                 categoriesFromPath={categoriesFromPath}
                 transformedCategoriesFromPath={transformedCategoriesFromPath}
@@ -143,9 +144,10 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
               />
               {/* ---------- DESCRIPTION DESKTOP  ---------- */}
               <div className="xl:block col-span-2">
-                <p className="hidden text-sm xl:text-base text-sky-800 font-semibold">
-                  {currentCategoryDescription}
-                </p>
+                <p
+                  className="hidden xl:block text-base text-sky-800 font-semibold col-span-2"
+                  dangerouslySetInnerHTML={{ __html: currentCategoryDescription }}
+                />
               </div>
               {mappedSubCategory}
             </div>
