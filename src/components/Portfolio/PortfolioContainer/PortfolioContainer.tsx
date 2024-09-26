@@ -7,12 +7,10 @@ import Wrapper from "@/components/Wrapper/Wrapper";
 import NavigationBar from "@/components/NavigationBar/NavigationBar";
 import PortfolioTitleNavigation from "../PortfolioTitleNavigation/PortfolioTitleNavigation";
 import PortfolioGallery from "../PortfolioGallery/PortfolioGallery";
-import PortfolioGalleryMobile from "../PortfolioGalleryMobile/PortfolioGalleryMobile";
 import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/PortfolioCategoryCard";
 import Triangle from "@/components/Icons/Triangle";
 import { motion } from "framer-motion";
 import { useParams } from "next/navigation";
-import { useState } from "react";
 
 export default function PortfolioContainer({ portfolioData, categoriesFromPath }: any) {
   // Transform categoriesFromPath as the objects name, remove "-" (uppercasing after)
@@ -93,7 +91,6 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
       exit={{ opacity: 0, y: -50 }}
       transition={{ duration: 0.5 }}
       key={index}
-      className="lg:row-start-3 xl:row-start-2"
     >
       <PortfolioCategoryCard
         title={item}
