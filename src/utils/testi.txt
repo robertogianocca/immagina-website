@@ -4,7 +4,7 @@
 TEATRO:
 
 shortDescription:
-<p>La vita è fatta della materia dei sogni <span class="italic">(Shakespeare)<span class="italic">. Anche una fotografia di teatro deve far sognare. Vietato documentare. Rivelare l’invisibile. Sorprendere registi, attori, spettatori col proprio lavoro. E’ quanto auspicava Shakespeare, scrivendo.</p>
+<p>La vita è fatta della materia dei sogni <span class="italic">(Shakespeare)</span>. Anche una fotografia di teatro deve far sognare. Vietato documentare. Rivelare l’invisibile. Sorprendere registi, attori, spettatori col proprio lavoro. E’ quanto auspicava Shakespeare, scrivendo.</p>
 
 description:
 <p>
@@ -35,6 +35,20 @@ Da allora migliaia di rappresentazioni, milioni di spettatori di tutto il mondo,
 Lo spettacolo sfugge a qualsiasi definizione. Che sorpresa quella allegra bolgia finale in sala quando la tormenta di neve e giganteschi palloni straripano dal palco inondando gli spettatori. Polverizzata è la linea di demarcazione tra palco e platea. Lo stesso pubblico ritornerà a teatro ogni volta, a rivedere e a rivivere lo SnowShow, come una cerimonia, come un rituale magico.<span class="italic"> Au revoir Slava</span>. Tu, comico, malinconico, drammatico artista. Tu clown in esilio, apostolo della fratellanza.
 </p>
 
+-----------------------------------------------------------------------------------------------
+FINZI PASCA 
+
+shortDescription:
+
+description:
+<p>
+Il Daniele Finzi Pasca.
+</p>
+</br>
+<p>
+Sin da bambino è affascinato dalle acrobazie. Icaro Daniele fa sul serio. È regista, cresciuto in Ticino, cittadino del mondo. Cirque du Soleil; Olimpiadi; Fête des vignerons. Aida, Carmen, Pagliacci. Čechov e Dalì in compagnia di tanti tanti Rinoceronti ed Elefanti.
+</p>
+Tanti acrobati, trapezisti.  Daniele mago della luce, del controluce e delle ombre e delle nebbie…  Geniale manager dello spettacolo. Daniele l’eterno fanciullo cresciuto in Ticino, figlio del Canadà, del Sud America, di San Pietroburgo e di un po’ dappertutto.
 
 -----------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------

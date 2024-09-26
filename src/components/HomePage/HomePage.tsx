@@ -36,8 +36,8 @@ export default function HomePage() {
         <ul className="grid grid-cols-2 sm:flex lg:grid gap-x-6 gap-y-4 2xl:gap-x-[min(1rem)] 2xl:w-[max(400px)] xs:pr-4 xl:pr-0 text-center lg:mb-0 font-courier text-base xl:text-lg">
           <li className="flex">
             <Triangle addClass="border-l-red-600" />
-            <Link href="/fotografia" className="hover:text-red-600">
-              Fotografia
+            <Link href="/photography" className="hover:text-red-600">
+              Photography
             </Link>
           </li>
           <Link href="/grafica" className="hover:text-red-600">
