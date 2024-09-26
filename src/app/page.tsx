@@ -20,7 +20,7 @@ export default async function Home() {
   );
 
   const cloudinaryResponse = await response.json();
-  revalidatePath("/");
+  // revalidatePath("/");
 
   const portfolioData = getDataStructure(cloudinaryResponse);
 

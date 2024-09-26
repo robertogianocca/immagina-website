@@ -107,7 +107,7 @@ export default function PortfolioGallery({
         }`}
       >
         <div className="flex flex-col items-center w-full max-w-[screen] h-full">
-          <div className="w-full xl:w-[75%] flex-grow px-6 overflow-auto ">
+          <div className="w-full xl:w-[70%] flex-grow px-6 overflow-auto ">
             {/* Bottone Chiusura X */}
             <div className="w-full lg:mb-3">
               <Button

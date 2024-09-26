@@ -37,7 +37,8 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
   currentCategory = currentCategory.join(" ");
 
   // Current Catregory description
-  const currentCategoryDescription = portfolioData.pictures[0].description;
+  const currentCategoryDescription =
+    portfolioData?.pictures?.[0]?.description || "No description available";
 
   // Not Found Page
   if (!portfolioData) {
@@ -95,9 +96,11 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
     >
       <PortfolioCategoryCard
         title={item}
-        description={portfolioData[item].pictures[0].description}
-        shortDescription={portfolioData[item].pictures[0].heading}
-        cover={portfolioData[item].pictures[0].url}
+        description={portfolioData[item]?.pictures?.[0]?.description || "No description available"}
+        shortDescription={
+          portfolioData[item]?.pictures?.[0]?.heading || "No short description available"
+        }
+        cover={portfolioData[item]?.pictures?.[0]?.url || "/images/samples/01.jpg"}
         transformedCategoriesFromPath={transformedCategoriesFromPath}
         addClass={subCategoryColors}
       />
