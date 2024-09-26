@@ -91,6 +91,7 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
       exit={{ opacity: 0, y: -50 }}
       transition={{ duration: 0.5 }}
       key={index}
+      // className="lg:row-start-3 xl:row-start-2"
     >
       <PortfolioCategoryCard
         title={item}

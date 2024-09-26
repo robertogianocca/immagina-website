@@ -94,7 +94,7 @@ export default function PortfolioTitleNavigation({
       </div>
       {/* ---------- SUBCATEGORY MENU AND DESCRIPTION MOBILE ---------- */}
       <div
-        className={`flex flex-col grow min-h-[calc(100vh-230px)] bg-zinc-200 col-span-2 lg:row-start-2  static w-full sm:w-[80%] md:w-full top-[230px] z-49  ${
+        className={`flex flex-col grow min-h-[calc(100vh-230px)] bg-zinc-200 col-span-2 lg:row-start-2 lg:col-span-3 xl:col-span-2 static w-full lg:w-[60%] sm:w-[80%] md:w-full top-[230px] z-49  ${
           isOpen ? "block" : "hidden"
         }`}
       >
