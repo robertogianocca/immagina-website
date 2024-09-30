@@ -21,22 +21,38 @@ const config: Config = {
         cover: "1920 / 2150",
         home: "4 / 3",
       },
+      // fontSize: {
+      //   xs: ["13.89px", "19px"],
+      //   sm: [
+      //     "16.67px",
+      //     {
+      //       lineHeight: "22px",
+      //       letterSpacing: "0.0em",
+      //     },
+      //   ],
+
+      //   base: ["20px", "27px"],
+      //   lg: ["24px", "normal"],
+      //   xl: ["28.8px", "normal"],
+      //   "2xl": ["34.56px", "normal"],
+      //   "3xl": ["41.47px", "normal"],
+      //   "4xl": ["49.77px", "normal"],
+      // },
       fontSize: {
-        xs: ["13.89px", "19px"],
+        xs: ["0.868rem", "1.1875rem"], // 13.89px -> 0.868rem, 19px -> 1.1875rem
         sm: [
-          "16.67px",
+          "1.042rem", // 16.67px -> 1.042rem
           {
-            lineHeight: "22px",
+            lineHeight: "1.375rem", // 22px -> 1.375rem
             letterSpacing: "0.0em",
           },
         ],
-
-        base: ["20px", "27px"],
-        lg: ["24px", "normal"],
-        xl: ["28.8px", "normal"],
-        "2xl": ["34.56px", "normal"],
-        "3xl": ["41.47px", "normal"],
-        "4xl": ["49.77px", "normal"],
+        base: ["1.25rem", "1.6875rem"], // 20px -> 1.25rem, 27px -> 1.6875rem
+        lg: ["1.5rem", "normal"], // 24px -> 1.5rem
+        xl: ["1.8rem", "normal"], // 28.8px -> 1.8rem
+        "2xl": ["2.16rem", "normal"], // 34.56px -> 2.16rem
+        "3xl": ["2.592rem", "normal"], // 41.47px -> 2.592rem
+        "4xl": ["3.11rem", "normal"], // 49.77px -> 3.11rem
       },
       fontFamily: {
         courier: ["var(--customCourier)"],
