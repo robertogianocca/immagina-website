@@ -1,7 +1,7 @@
 const NotFoundGallery = () => {
   return (
     <>
-      <h1>Gallery herror page!</h1>
+      <h1>Pagina non trovata</h1>
     </>
   );
 };

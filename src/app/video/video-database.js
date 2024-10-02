@@ -11,7 +11,7 @@ export const videoDatabase = [
   },
   {
     title: "Memorie Future - Laveggio",
-    link: "memorie-future",
+    link: "video/memorie-future",
     description: "Descrizione MEMORIE FUTURE",
     shortDescription: "",
     cover:
@@ -21,7 +21,7 @@ export const videoDatabase = [
   },
   {
     title: "Met Parachute MCR",
-    link: "met-parachute-mrc",
+    link: "video/met-parachute-mrc",
     description: "Descrizione Met Parachute MCR",
     shortDescription: "",
     cover:
