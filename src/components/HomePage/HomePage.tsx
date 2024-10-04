@@ -9,7 +9,6 @@ export default function HomePage() {
   return (
     <OpacityAnimation addClass="h-full sm:h-auto flex flex-col justify-between sm:justify-no sm:grid sm:grid-cols-3 gap-[2vh] sm:gap-4 lg:gap-x-10 pt-4 lg:pt-[30px] pb-6 lg:pb-[30px] font-bold text-sky-800 ">
       <div className="flex flex-col gap-[2vh] sm:gap-4 lg:gap-x-10 xl:gap-y-[2vh] sm:col-span-2 lg:col-span-1 text-sm xl:text-base">
-        {/* <div className="flex flex-col gap-[2vh] sm:gap-4 lg:gap-x-10 xl:gap-y-[2vh] sm:col-span-2 lg:col-span-1 text-sm xl:responsive-home"> */}
         {/* ---------- CITAZIONE ---------- */}
         <div className="hidden xl:block font-courier">
           <p className="text-xl lg:text-lg xl:text-xl tracking-tighter">{`Niente si sa,`}</p>
@@ -64,6 +63,7 @@ export default function HomePage() {
 
       {/*  ------------ VIDEO ------------ */}
       <video
+        preload="auto"
         autoPlay
         muted
         loop
