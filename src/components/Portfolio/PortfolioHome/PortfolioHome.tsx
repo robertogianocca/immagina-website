@@ -2,7 +2,7 @@
 import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/PortfolioCategoryCard";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function PortfolioHome({ categoryList, portfolioData, params }: any) {
+export default function PortfolioHome({ categoryList, portfolioData }: any) {
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: (i: number) => ({
@@ -14,6 +14,8 @@ export default function PortfolioHome({ categoryList, portfolioData, params }: a
       },
     }),
   };
+
+  console.log(categoryList);
 
   let mappedCategories = categoryList.map((item: string, index: number) => (
     <motion.div
@@ -27,9 +29,10 @@ export default function PortfolioHome({ categoryList, portfolioData, params }: a
       <PortfolioCategoryCard
         key={index}
         title={item}
-        shortDescription={portfolioData[item].pictures[0].heading}
-        description={portfolioData[item].pictures[0].description}
-        cover={portfolioData[item].pictures[0].url}
+        shortDescription={
+          portfolioData[item]?.pictures?.[0]?.heading || "No short description available"
+        }
+        cover={portfolioData[item]?.pictures?.[0]?.url || "/No cover image available"}
         transformedCategoriesFromPath={item}
         addClass="border-l-red-600"
       />
@@ -40,7 +43,7 @@ export default function PortfolioHome({ categoryList, portfolioData, params }: a
     <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-8 xl:gap-10">
       <AnimatePresence>
         {mappedCategories}
-        <motion.div
+        {/* <motion.div
           key="£!ä"
           variants={cardVariants}
           initial="hidden"
@@ -57,7 +60,7 @@ export default function PortfolioHome({ categoryList, portfolioData, params }: a
             transformedCategoriesFromPath="video"
             addClass="border-l-red-600"
           />
-        </motion.div>
+        </motion.div> */}
       </AnimatePresence>
     </div>
   );

@@ -1,4 +1,4 @@
-// CATEGORIES PAGES
+// CULTURE CATEGORIES PAGES
 
 import { revalidatePath } from "next/cache";
 import { getDataStructure } from "@/utils/portfolio-data-structure";
@@ -22,9 +22,14 @@ export default async function CategoriesPages({ params }: any) {
   const portfolioData = getDataStructure(cloudinaryResponse);
   const categoriesFromPath = params.categories;
 
+  // console.log("categorie" + categoriesFromPath);
+
   return (
     <>
-      <PortfolioContainer portfolioData={portfolioData} categoriesFromPath={categoriesFromPath} />
+      <PortfolioContainer
+        portfolioData={portfolioData.cultura.portfolio}
+        categoriesFromPath={categoriesFromPath}
+      />
     </>
   );
 }

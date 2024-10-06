@@ -4,11 +4,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 interface PortfolioCategoryCardProps {
   title: any;
   shortDescription: any;
-  description: string;
   cover: string;
   transformedCategoriesFromPath: string[] | string;
   addClass: string;
@@ -17,11 +17,13 @@ interface PortfolioCategoryCardProps {
 export default function PortfolioCategoryCard({
   title = "empty",
   shortDescription = "empty",
-  description = "empty",
-  cover = "empty",
+  cover = "/empty",
   transformedCategoriesFromPath,
   addClass,
 }: PortfolioCategoryCardProps) {
+  const usePathName = usePathname();
+  const path = usePathName.split("/")[1];
+
   // Card title: Change the first letter and first letter after a space to upperCase
   title = title.split(" ");
   title = title.map((item: string, index: number) => {
@@ -35,8 +37,10 @@ export default function PortfolioCategoryCard({
   titleToLink = titleToLink.toLowerCase();
 
   const hrefLink = Array.isArray(transformedCategoriesFromPath)
-    ? `/${transformedCategoriesFromPath.join("/")}/${titleToLink}`
-    : `/${transformedCategoriesFromPath}`;
+    ? `/${path}/${transformedCategoriesFromPath.join("/")}/${titleToLink}`
+    : `/${path}/${transformedCategoriesFromPath}`;
+
+  console.log(path);
 
   return (
     <Link href={hrefLink}>

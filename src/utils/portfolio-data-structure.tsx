@@ -47,7 +47,7 @@ export const getDataStructure = (cloudinaryResponse: { resources: [] }) => {
     folders = folders.map((item) => item.toLowerCase());
 
     // Remove immagina and portfolio
-    folders.splice(0, 2);
+    folders.splice(0, 1);
 
     // Push all the data inside "portfolioData"
 

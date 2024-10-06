@@ -95,7 +95,6 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
     >
       <PortfolioCategoryCard
         title={item}
-        description={portfolioData[item]?.pictures?.[0]?.description || "No description available"}
         shortDescription={
           portfolioData[item]?.pictures?.[0]?.heading || "No short description available"
         }
@@ -125,7 +124,10 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
         </motion.div>
       ) : (
         <>
-          <NavigationBar addClass="" />
+          <NavigationBar
+            menuColor="text-customRed hover:border-b-2 hover:border-customRed"
+            bgColor="bg-customWhite lg:shadow-xl lg:shadow-slate-200"
+          />
           <Wrapper>
             <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 pt-6 pb-20">
               <PortfolioTitleNavigation

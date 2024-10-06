@@ -8,7 +8,7 @@ import { TiHome } from "react-icons/ti";
 import { FaArrowLeft } from "react-icons/fa";
 import { MdOutlineFullscreen } from "react-icons/md";
 import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 interface Picture {
   fileName: string;
@@ -105,10 +105,13 @@ export default function PortfolioGallerySideBar({
     );
   });
 
-  const paramsObject = useParams();
-  const params = paramsObject.categories || ""; // Ensure params is at least an empty string
-  const paramsArray = Array.isArray(params) ? params : params.split("/");
-  const categoryBefore = paramsArray.slice(0, -1);
+  const usePathName = usePathname();
+  const path = usePathName.split("/").slice(1).slice(0, -1).join("/");
+
+  // const paramsObject = useParams();
+  // const params = paramsObject.categories || ""; // Ensure params is at least an empty string
+  // const paramsArray = Array.isArray(params) ? params : params.split("/");
+  // const categoryBefore = paramsArray.slice(0, -1);
 
   //   First letter upper case
   transformedCategoriesFromPath = transformedCategoriesFromPath.map((item, index) => {
@@ -120,16 +123,18 @@ export default function PortfolioGallerySideBar({
     return item.join(" ");
   });
 
+  console.log(path.split("/")[0]);
+
   return (
     <>
       {/* ------ HOME, BACK BUTTONS, LOGO ------ */}
       <div className="flex gap-2 mb-2">
-        <Link href={`/${categoryBefore.join("/")}`}>
+        <Link href={`/${path}`}>
           <Button addClass="p-2 text-slate-400">
             <FaArrowLeft size={25} />
           </Button>
         </Link>
-        <Link href={"/"}>
+        <Link href={`/${path.split("/")[0]}`}>
           <Button addClass="p-2 text-slate-400">
             <TiHome size={25} />
           </Button>

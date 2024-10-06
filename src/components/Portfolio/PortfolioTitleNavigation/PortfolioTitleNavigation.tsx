@@ -5,6 +5,7 @@ import Button from "@/components/Buttons/Button";
 import { FaArrowLeft } from "react-icons/fa";
 import { TiHome } from "react-icons/ti";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function PortfolioTitleNavigation({
   categoriesFromPath,
@@ -46,25 +47,31 @@ export default function PortfolioTitleNavigation({
     );
   });
 
+  const usePathName = usePathname();
+  const path = usePathName.split("/")[1];
+
   return (
     <>
       <div className="flex flex-col gap-2 col-span-1 sm:col-span-2 lg:col-span-1">
         <div className="flex gap-4 items-center">
+          {/* ---------- BACK BUTTON ---------- */}
           <Link
-            href={`/${categoriesFromPath.length == 1 ? "/#portfolio" : categoryBefore.join("/")}`}
+            href={`/${
+              categoriesFromPath.length == 1 ? path : path + "/" + categoryBefore.join("/")
+            }`}
           >
             <Button addClass="p-2">
               <FaArrowLeft size={25} />
             </Button>
           </Link>
-          <Link href={"/"}>
+          <Link href={`/${path}`}>
             <Button addClass="p-2">
               <TiHome size={25} />
             </Button>
           </Link>
           <div className="flex flex-row lg:flex-col 2xl:flex-row gap-4 lg:gap-1">
             <h3 className="text-base font-courier text-sky-800 font-bold">
-              <Link href="/#portfolio" className="hover:text-red-600 mr-2">
+              <Link href={`/${path}`} className="hover:text-red-600 mr-2">
                 portfolio
               </Link>
             </h3>
