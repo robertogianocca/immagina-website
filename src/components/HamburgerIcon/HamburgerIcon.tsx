@@ -1,11 +1,17 @@
 import { FiMenu } from "react-icons/fi";
 
-interface Props {
-  addClass: string;
-}
+type HamburgerIconProps = {
+  menuColor: string;
+};
 
-const HamburgerIcon = ({ addClass }: Props) => {
-  return <FiMenu strokeWidth="2.5px" size="40px" className={`p-0 m-0 ${addClass}`} />;
+const HamburgerIcon = ({ menuColor }: HamburgerIconProps) => {
+  return (
+    <FiMenu
+      strokeWidth="2.5px"
+      size="40px"
+      className={`lg:hidden p-0 m-0 ${menuColor} hover:border-b-0`}
+    />
+  );
 };
 
 export default HamburgerIcon;

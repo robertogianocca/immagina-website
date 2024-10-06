@@ -1,16 +1,15 @@
 import type { Config } from "tailwindcss";
 
+// NAVIGATION HEIGHT
+const navHeight = "60px";
+
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  safelist: [
-    "custom-indent",
-    "italic",
-    // Add any other dynamic classes
-  ],
+  safelist: ["custom-indent", "italic"],
   theme: {
     extend: {
       screens: {
@@ -57,23 +56,17 @@ const config: Config = {
       fontFamily: {
         courier: ["var(--customCourier)"],
         main: ["var(--customMain)"],
-        // sans: [
-        //   "Inter",
-        //   "-apple-system",
-        //   "BlinkMacSystemFont",
-        //   "Segoe UI",
-        //   "Roboto",
-        //   "Helvetica Neue",
-        //   "Ubuntu",
-        //   "sans-serif",
-        // ],
       },
       colors: {
-        // custom-One: "red"
         customWhite: "#F8F8F8",
+        customRed: "#dc2626",
+      },
+      height: {
+        nav: navHeight,
+        space: `calc(100vh - ${navHeight})`,
       },
       minHeight: {
-        space: "calc(100vh - 60px)",
+        space: `calc(100vh - ${navHeight})`,
       },
       cursor: {
         redPoint: "url(/images/cursore.png), auto",

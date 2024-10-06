@@ -1,20 +1,20 @@
 "use client";
 
 import Logo from "@/components/Logo/Logo";
+import HamburgerIcon from "@/components/HamburgerIcon/HamburgerIcon";
 import MenuDesktop from "../MenuDesktop/MenuDesktop";
 import MenuMobile from "../MenuMobile/MenuMobile";
 import Link from "next/link";
-import HamburgerIcon from "@/components/HamburgerIcon/HamburgerIcon";
-// import OpacityAnimation from "../Animations/OpacityAnimation";
 import { useState } from "react";
 
 type NavigationBarProps = {
-  addClass: string;
+  menuColor: string;
+  bgColor: string;
 };
 
 const menuItems = ["Portfolio", "Principi", "Prodotti", "Chi siamo", "Contatto"];
 
-export default function NavigationBar({ addClass }: NavigationBarProps) {
+export default function NavigationBar({ menuColor, bgColor }: NavigationBarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -22,31 +22,27 @@ export default function NavigationBar({ addClass }: NavigationBarProps) {
   };
 
   return (
-    // <OpacityAnimation addClass="">
     <nav
-      className={`w-full h-[60px] fixed left-0 top-0 px-4 lg:pl-14 lg:pr-24 z-50  flex lg:main-grid bg-customWhite lg:shadow-xl lg:shadow-slate-200 ${addClass}`}
+      className={`flex lg:main-grid w-full h-nav fixed left-0 top-0 px-4 lg:pl-14 lg:pr-24 z-50 ${bgColor}`}
     >
-      <div className="flex w-full items-center justify-between">
+      <div className="flex items-center justify-between w-full">
         <Link href="/">
-          <div className="w-52 h-10 relative">
-            <Logo />
-          </div>
+          <Logo />
         </Link>
         <div onClick={toggleMenu}>
-          <HamburgerIcon addClass="text-red-600 lg:hidden" />
+          <HamburgerIcon menuColor={menuColor} />
         </div>
       </div>
       <div className="flex flex-row items-center col-span-2">
-        <MenuDesktop menuItems={menuItems} />
+        <MenuDesktop menuItems={menuItems} menuColor={menuColor} />
       </div>
       <div
         className={`absolute top-[60px] left-0 w-full h-space bg-customWhite opacity-98 px-4 py-10 ${
           isOpen ? "block" : "hidden"
         }`}
       >
-        <MenuMobile menuItems={menuItems} toggleMenu={toggleMenu} />
+        <MenuMobile menuItems={menuItems} menuColor={menuColor} toggleMenu={toggleMenu} />
       </div>
     </nav>
-    // </OpacityAnimation>
   );
 }

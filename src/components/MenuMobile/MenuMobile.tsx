@@ -1,12 +1,18 @@
 import Link from "next/link";
 
-export default function MenuMobile({ menuItems, toggleMenu }) {
+type MenuMobileProps = {
+  menuItems: string[];
+  menuColor: string;
+  toggleMenu: () => void;
+};
+
+export default function MenuMobile({ menuItems, menuColor, toggleMenu }: MenuMobileProps) {
   const mappedMenu = menuItems.map((item: string, index: number) => {
     return (
-      <li key={index} className="whitespace-nowrap">
+      <li key={index}>
         <Link
           href={`/#${item.toLowerCase()}`}
-          className="hover:border-b-2 hover:border-red-500"
+          className={`whitespace-nowrap ${menuColor}`}
           onClick={toggleMenu}
         >
           {item}
@@ -15,7 +21,7 @@ export default function MenuMobile({ menuItems, toggleMenu }) {
     );
   });
   return (
-    <ul className="flex flex-col min-h-screen font-courier font-bold text-lg leading-[3rem] text-red-600">
+    <ul className="flex flex-col min-h-screen font-courier font-bold text-lg leading-[3rem]">
       {mappedMenu}
     </ul>
   );
