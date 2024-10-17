@@ -4,7 +4,7 @@ import NavigationBar from "@/components/NavigationBar/NavigationBar";
 import Wrapper from "@/components/Wrapper/Wrapper";
 import HomePage from "@/components/HomePage/HomePage";
 
-export default function Impresa() {
+export default function Azienda() {
   return (
     <>
       <NavigationBar
