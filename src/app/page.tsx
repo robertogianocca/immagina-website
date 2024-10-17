@@ -9,6 +9,8 @@ export default function Home() {
       <div className="grid grid-cols-2 gap-8 w-[60%] m-auto mt-10 text-stone-700 font-bold text-xs">
         <div className="col-span-2">
           <p>
+            {" "}
+            {`
             IMMAGINA ti dice ciao e si presenta. Se per ragioni aziendali, o culturali o private
             vuoi far conoscere al mondo la tua attività, personalità, le tue idee, i tuoi progetti
             potresti essere interessato ad affidarti al collettivo creativo IMMAGINA+. Come il sarto
@@ -18,15 +20,15 @@ export default function Home() {
             cultura). Dipende dal committente: o imprenditore o istituzione pubblica ǁ o artista o
             promotore culturale. A volte le due anime si intrecciano. IMMAGINA+ ti invita a
             sfogliare la sua storia: un’esperienza iniziata 50 anni fa. Ciò che scoprirai appartiene
-            al passato, ma puoi immaginare con noi il tuo futuro.
+            al passato, ma puoi immaginare con noi il tuo futuro.`}
           </p>
         </div>
         <div className="text-stone-500">
           <p>
-            Dedicato agli artisti: Confessiamo di aver un debole: promuovere la cultura. Narrare per
+            {`Dedicato agli artisti: Confessiamo di aver un debole: promuovere la cultura. Narrare per
             immagini il gesto creativo degli artisti, siano essi attori, clown, scultori e pittori,
             musicisti, scrittori, registi. La nostra missione? Rivelare l’invisibile, ossia
-            trasmettere l’essenza di ogni espressione artistica.
+            trasmettere l’essenza di ogni espressione artistica.`}
           </p>
           <MainCard
             title="cultura"
