@@ -1,10 +1,13 @@
 import VideoGallery from "@/components/Portfolio/VideoGallery/VideoGallery";
-import { videoDatabase } from "../video-database";
+import { videoDatabaseCultura } from "../video-database-cultura";
 
 export default function MemorieFuture() {
   return (
     <div>
-      <VideoGallery videoLink={videoDatabase[1].videoLink} link={videoDatabase[1].link} />
+      <VideoGallery
+        videoLink={videoDatabaseCultura[1].videoLink}
+        link={videoDatabaseCultura[1].link}
+      />
       <h1></h1>
     </div>
   );

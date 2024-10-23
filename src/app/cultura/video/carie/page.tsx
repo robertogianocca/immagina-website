@@ -1,6 +1,6 @@
 "use client";
 import VideoGallery from "@/components/Portfolio/VideoGallery/VideoGallery";
-import { videoDatabase } from "../video-database";
+import { videoDatabaseCultura } from "../video-database-cultura";
 
 export default function Carie({ params, setIsVisible }) {
   const categoriesFromPath = params.categories;
@@ -8,11 +8,11 @@ export default function Carie({ params, setIsVisible }) {
   return (
     <div>
       <VideoGallery
-        videoLink={videoDatabase[0].videoLink}
-        title={videoDatabase[0].title}
+        videoLink={videoDatabaseCultura[0].videoLink}
+        title={videoDatabaseCultura[0].title}
         path={categoriesFromPath}
-        shortDescription={videoDatabase[0].shortDescription}
-        longDescription={videoDatabase[0].description}
+        shortDescription={videoDatabaseCultura[0].shortDescription}
+        longDescription={videoDatabaseCultura[0].description}
         setIsVisible={setIsVisible}
       />
       <h1>VIDEOOOO</h1>
