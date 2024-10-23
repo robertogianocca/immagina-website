@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import MainCard from "@/components/HomePage/MainCard/MainCard";
+import MainCard from "@/components/MainPage/MainCard/MainCard";
 import logoRed from "/public/images/logo/logo-immagina.svg";
 import logoBlue from "/public/images/logo/logo-immagina-blue.svg";
 import Triangle from "@/components/Icons/Triangle";

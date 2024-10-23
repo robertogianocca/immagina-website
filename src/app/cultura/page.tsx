@@ -4,8 +4,9 @@ import { revalidatePath } from "next/cache";
 import { getDataStructure } from "@/utils/portfolio-data-structure";
 import NavigationBar from "@/components/NavigationBar/NavigationBar";
 import Wrapper from "@/components/Wrapper/Wrapper";
-import HomePage from "@/components/HomePage/HomePage";
-import PortfolioHome from "@/components/Portfolio/PortfolioHome/PortfolioHome";
+import IntroSection from "@/components/Sections/IntroSection/IntroSection";
+import PortfolioSection from "@/components/Sections/PortfolioSection/PortfolioSection";
+import logoRed from "/public/images/logo/logo-immagina.svg";
 
 export default async function Cultura() {
   const response = await fetch(
@@ -20,29 +21,34 @@ export default async function Cultura() {
   );
 
   const cloudinaryResponse = await response.json();
-  //   revalidatePath("/cultura");
+  revalidatePath("/cultura");
 
   const portfolioData = getDataStructure(cloudinaryResponse);
 
   const categoryList = Object.keys(portfolioData.cultura.portfolio);
 
   return (
-    <div>
+    <div className="text-customBrown">
       <NavigationBar
+        logo={logoRed}
         menuColor="text-customRed hover:border-b-2 hover:border-customRed"
         bgColor="bg-customWhite lg:shadow-xl lg:shadow-slate-200"
       />
       <Wrapper>
         <section id="home" className="h-space sm:h-full md:min-h-space overflow-hidden">
-          <HomePage />
+          <IntroSection />
         </section>
-        <section>
-          <PortfolioHome
+        {/* ---------- PORTFOLIO ---------- */}
+        <section id="portfolio">
+          <h2 className="text-3xl xl:text-4xl font-courier font-bold text-sky-800 mr-3 pb-6">
+            Portfolio
+          </h2>
+          <PortfolioSection
             categoryList={categoryList}
             portfolioData={portfolioData.cultura.portfolio}
           />
         </section>
-        {/* ---------- PRINCIPI SECTION ---------- */}
+        {/* ---------- PRINCIPI ---------- */}
         <section id="principi" className="min-h-space">
           <div className="flex flex-col md:main-grid pt-20">
             <div>

@@ -11,6 +11,7 @@ import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/
 import Triangle from "@/components/Icons/Triangle";
 import { motion } from "framer-motion";
 import { useParams } from "next/navigation";
+import logoBlue from "/public/images/logo/logo-immagina-blue.svg";
 
 export default function PortfolioContainer({ portfolioData, categoriesFromPath }: any) {
   // Transform categoriesFromPath as the objects name, remove "-" (uppercasing after)
@@ -125,6 +126,7 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
       ) : (
         <>
           <NavigationBar
+            logo={logoBlue}
             menuColor="text-customRed hover:border-b-2 hover:border-customRed"
             bgColor="bg-customWhite lg:shadow-xl lg:shadow-slate-200"
           />

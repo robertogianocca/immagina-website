@@ -2,6 +2,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Courier_Prime } from "next/font/google";
 import { Inter } from "next/font/google";
+import NavigationBar from "@/components/NavigationBar/NavigationBar";
+import logoRed from "/public/images/logo/logo-immagina.svg";
 
 type RootLayoutProps = {
   children: React.ReactNode;
