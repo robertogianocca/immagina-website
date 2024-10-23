@@ -60,6 +60,9 @@ const config: Config = {
       colors: {
         customWhite: "#F8F8F8",
         customRed: "#dc2626",
+        customBlue: "#0066B3",
+        customGrey: "#E4E4E7",
+        customBrown: "#5D3E38",
       },
       height: {
         nav: navHeight,

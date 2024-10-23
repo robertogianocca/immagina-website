@@ -10,19 +10,24 @@ export default function HomePage() {
     <OpacityAnimation addClass="h-full sm:h-auto flex flex-col justify-between sm:justify-no sm:grid sm:grid-cols-3 gap-[2vh] sm:gap-4 lg:gap-x-10 pt-4 lg:pt-[30px] pb-6 lg:pb-[30px] font-bold text-sky-800 ">
       <div className="flex flex-col gap-[2vh] sm:gap-4 lg:gap-x-10 xl:gap-y-[2vh] sm:col-span-2 lg:col-span-1 text-sm xl:text-base">
         {/* ---------- CITAZIONE ---------- */}
-        <div className="hidden xl:block font-courier">
+        {/* <div className="hidden xl:block font-courier">
           <p className="text-xl lg:text-lg xl:text-xl tracking-tighter">{`Niente si sa,`}</p>
           <p className="text-xl lg:text-lg xl:text-xl tracking-tighter mb-3">{`tutto si immagina`}</p>
           <p className="text-lg lg:text-base  font-main italic">Fernando Pessoa</p>
-        </div>
+        </div> */}
         {/* ---------- PRESENTAZIONE ---------- */}
-        <p className="mt-5">
+        {/* <p className="mt-5">
           Se per ragioni professionali o private vuoi comunicare al mondo le tue idee, chi sei, cosa
           fai, potresti essere interessato ad affidarti al collettivo creativo IMMAGINA+.
+        </p> */}
+        <p className="mt-5">
+          Narrare per immagini il gesto creativo degli artisti, siano essi attori, clown, scultori e
+          pittori, musicisti, scrittori, registi. La nostra missione? Rivelare l’invisibile, ossia
+          trasmettere l’essenza di ogni espressione artistica.
         </p>
-        <p className="shidden sm:block">
+        {/* <p className="shidden sm:block">
           {"Come un sarto confeziona l'abito, IMMAGINA+ confeziona la tua comunicazione."}
-        </p>
+        </p> */}
         <p className="hidden sm:block">
           IMMAGINA+ ti invita a <span className="italic">sfogliare</span> il suo portfolio. Poche
           parole. Immagini? Troppe, forse.

@@ -1,60 +1,60 @@
-// HOME
+// IMMAGINA MAIN PAGE
 
 import React from "react";
+import Link from "next/link";
 import MainCard from "@/components/HomePage/MainCard/MainCard";
+import logoRed from "/public/images/logo/logo-immagina.svg";
+import logoBlue from "/public/images/logo/logo-immagina-blue.svg";
+import Triangle from "@/components/Icons/Triangle";
 
 export default function Home() {
   return (
     <>
-      <div className="grid grid-cols-2 gap-8 w-[60%] m-auto mt-10 text-stone-700 font-bold text-xs">
-        <div className="col-span-2">
-          <p>
-            {" "}
-            {`
-            IMMAGINA ti dice ciao e si presenta. Se per ragioni aziendali, o culturali o private
-            vuoi far conoscere al mondo la tua attività, personalità, le tue idee, i tuoi progetti
-            potresti essere interessato ad affidarti al collettivo creativo IMMAGINA+. Come il sarto
-            confeziona l'abito, IMMAGINA+ confeziona la tua immagine, la tua comunicazione. Due sono
-            le anime di IMMAGINA: una commerciale dedicata al modo del business (IMMAGINA azienda) e
-            una culturale dedicata a teatro, musica, scultura, pittura, editoria, (IMMAGINA
-            cultura). Dipende dal committente: o imprenditore o istituzione pubblica ǁ o artista o
-            promotore culturale. A volte le due anime si intrecciano. IMMAGINA+ ti invita a
-            sfogliare la sua storia: un’esperienza iniziata 50 anni fa. Ciò che scoprirai appartiene
-            al passato, ma puoi immaginare con noi il tuo futuro.`}
-          </p>
+      <div className="flex flex-col lg:grid grid-cols-3 gap-12 lg:m-10 p-4 lg:px-20 lg:pt-16 lg:pb-20 bg-customGrey font-bold text-xs lg:text-sm rounded-2xl">
+        <div className="text-customBrown">
+          {/* ---------- CITAZIONE ---------- */}
+          <div className="font-courier font-bold text-2xl tracking-tight">
+            <p className="">{`Niente si sa,`}</p>
+            <p className="mb-5">{`tutto si immagina`}</p>
+            <p className="mb-16 text-lg italic">{`Fernando Pessoa`}</p>
+          </div>
+          <p className="mb-5">{`IMMAGINA ti dice ciao e si presenta.`}</p>
+          <p className="mb-5">{`Come il sarto confeziona l'abito, IMMAGINA confeziona la tua immagine, la tua comunicazione.`}</p>
+          <p className="mb-5">{`Se per ragioni aziendali, o culturali o private vuoi far conoscere al mondo la tua attività, personalità, le tue idee, i tuoi progetti, potresti essere interessato ad affidarti al collettivo creativo IMMAGINA.`}</p>
+          <p className="mb-4">{`Due sono le anime di IMMAGINA:`}</p>
+          <div className="flex flex-row">
+            <div className="flex flex-row">
+              <Triangle addClass="border-l-customRed" />
+              <Link href="/cultura">
+                <p className="font-courier text-lg text-customRed hover:border-b-2 hover:border-customRed mr-6 ml-[-4px]">
+                  cultura
+                </p>
+              </Link>
+            </div>
+            <div className="flex flex-row">
+              <Triangle addClass="border-l-customBlue" />
+              <Link href="/cultura">
+                <p className="font-courier text-lg text-customBlue hover:border-b-2 hover:border-customBlue ml-[-4px]">
+                  azienda
+                </p>
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className="text-stone-500">
-          <p>
-            {`Dedicato agli artisti: Confessiamo di aver un debole: promuovere la cultura. Narrare per
-            immagini il gesto creativo degli artisti, siano essi attori, clown, scultori e pittori,
-            musicisti, scrittori, registi. La nostra missione? Rivelare l’invisibile, ossia
-            trasmettere l’essenza di ogni espressione artistica.`}
-          </p>
+        <div>
           <MainCard
             title="cultura"
             cover="https://res.cloudinary.com/immagina/image/upload/v1728637625/IMMAGINA/Home%20Page/immagina-cultura_uqdajd.jpg"
+            logo={logoRed}
+            titleColor="text-customRed"
           />
         </div>
-        <div className="text-stone-500">
-          <p>
-            Dedicato a imprenditori e manager. Corporate identity. Creare l’identità di un’azienda.
-            Essere raffinati in ogni dettaglio: dalle immagini (foto/video) alla parola; dalla
-            tipografia alla grafica; dalla comunicazione, alle pubblicazioni, al webdesign. Una
-            narrazione coerente. Il Bauhaus ci insegna: Less is more.
-          </p>
-          <MainCard
-            title="azienda"
-            cover="https://res.cloudinary.com/immagina/image/upload/v1728637625/IMMAGINA/Home%20Page/immagina-azienda_t7txrw.jpg"
-          />
-        </div>
-        {/* <div className="flex space-x-4">
-          <Link href="/cultura" className="bg-blue-500 text-white px-4 py-2 rounded">
-            Cultura
-          </Link>
-          <Link href="/impresa" className="bg-green-500 text-white px-4 py-2 rounded">
-            Impresa
-          </Link>
-        </div> */}
+        <MainCard
+          title="azienda"
+          cover="https://res.cloudinary.com/immagina/image/upload/v1728637625/IMMAGINA/Home%20Page/immagina-azienda_t7txrw.jpg"
+          logo={logoBlue}
+          titleColor="text-customBlue"
+        />
       </div>
     </>
   );
