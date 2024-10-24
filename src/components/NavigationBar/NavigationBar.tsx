@@ -50,11 +50,11 @@ export default function NavigationBar({ logo, menuColor, bgColor }: NavigationBa
             )}
 
             {pathName === "/azienda" ? (
-              <p className="text-customBlue cursor-default">azienda</p>
+              <p className="text-customBlue cursor-default">busines</p>
             ) : (
               <Link href="/azienda">
                 <p className="text-customBlue opacity-40 hover:opacity-100 cursor-pointer">
-                  azienda
+                  business
                 </p>
               </Link>
             )}
