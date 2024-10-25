@@ -1,33 +1,56 @@
-// IMMAGINA MAIN PAGE
-
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import MainCard from "@/components/MainPage/MainCard/MainCard";
+import logoWhite from "/public/images/logo/logo-immagina-white.svg";
 import logoRed from "/public/images/logo/logo-immagina.svg";
 import logoBlue from "/public/images/logo/logo-immagina-blue.svg";
 import Triangle from "@/components/Icons/Triangle";
 
-export default function Home() {
+export default function Main() {
   return (
     <>
-      <div className="flex flex-col lg:grid grid-cols-3 gap-4 lg:gap-12 h-screen lg:h-auto lg:m-10 p-4 lg:px-20 lg:pt-16 lg:pb-20 bg-customGrey font-bold text-xs lg:text-sm lg:rounded-2xl">
-        <div className="text-customBrown">
-          {/* ---------- CITAZIONE ---------- */}
-          <div className="hidden lg:flex flex-col font-courier font-bold text-2xl tracking-tight">
-            <p className="">{`Niente si sa,`}</p>
-            <p className="mb-5">{`tutto si immagina`}</p>
-            <p className="mb-16 text-lg italic">{`Fernando Pessoa`}</p>
-          </div>
-          {/* ---------- DESCRIZIONE ---------- */}
-          <p className="mb-5">{`IMMAGINA ti dice ciao e si presenta.`}</p>
-          <p className="mb-5">{`Come il sarto confeziona l'abito, IMMAGINA confeziona la tua immagine, la tua comunicazione.`}</p>
-          <p className="hidden lg:block mb-5">{`Se per ragioni aziendali, o culturali o private vuoi far conoscere al mondo la tua attività, personalità, le tue idee, i tuoi progetti, potresti essere interessato ad affidarti al collettivo creativo IMMAGINA. Sfogliaci.`}</p>
-          {/* mobile only */}
-          <p className="lg:hidden mb-5">{`Se ti vuoi profilare potresti essere interessato ad affidarti al collettivo IMMAGINA. Sfogliaci.
-`}</p>
-          <p className="mb-4 hidden lg:block">{`IMMAGINA ha un cuore e un’anima.
-Il cuore batte per la cultura. L’anima governa il business.`}</p>
-          {/* ---------- DESCRIZIONE ---------- */}
+      <div className="flex flex-col lg:grid lg:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-12 min-h-screen lg:h-auto p-4 sm:px-8 lg:px-20 lg:pt-16 lg:pb-20 bg-customGrey font-bold text-sm sm:text-base lg:text-sm">
+        {/* -------------------- LOGO AND TEXT -------------------- */}
+        <div className="text-customBrown lg:col-span-1">
+          {/* ---------- LOGO BIANCO ---------- */}
+          <Image
+            className="w-full lg:ml-[-5px] mb-4 lg:mb-10 xl:mb-[50px]"
+            src={logoWhite}
+            width={500}
+            height={500}
+            alt="Logo IMMAGINA"
+          />
+          {/* ---------- DESCRIZIONE DESKTOP ---------- */}
+          <p className="hidden lg:block mb-5">
+            {`IMMAGINA ti dice ciao e si presenta.`}
+            <br />
+            <br />
+            {`Come il sarto confeziona l'abito, IMMAGINA confeziona la tua immagine, la tua
+            comunicazione.`}
+            <br />
+            <br />
+            {`Se per ragioni aziendali, o culturali o private vuoi far conoscere al mondo la tua
+            attività, personalità, le tue idee, i tuoi progetti, potresti essere interessato ad
+            affidarti al collettivo creativo IMMAGINA.`}
+            <br />
+            <br />
+            {`IMMAGINA ha un cuore e un’anima. `}
+            <br />
+            {`Il cuore batte per la cultura. L’anima governa il business.`}
+          </p>
+          {/* ---------- DESCRIZIONE MOBILE ---------- */}
+          <p className="lg:hidden">
+            {`IMMAGINA ti dice ciao e si presenta.`}
+            <br />
+            <br />
+            {`Come il sarto confeziona l'abito, IMMAGINA confeziona la tua immagine, la tua
+            comunicazione.`}
+            <br />
+            <br />
+            {`Se ti vuoi profilare potresti essere interessato ad affidarti al collettivo IMMAGINA.`}
+          </p>
+          {/* ---------- CULTURA BUSINESS ---------- */}
           <div className="hidden lg:flex flex-row">
             <div className="flex flex-row">
               <Triangle addClass="border-l-customRed" />
@@ -39,15 +62,18 @@ Il cuore batte per la cultura. L’anima governa il business.`}</p>
             </div>
             <div className="flex flex-row">
               <Triangle addClass="border-l-customBlue" />
-              <Link href="/cultura">
-                <p className="font-courier text-lg text-customBlue hover:border-b-2 hover:border-customBlue ml-[-4px]">
+              <Link href="/business">
+                <p className="font-courier text-lg text-customBlue hover:border-b-2 hover:border-customBlue">
                   business
                 </p>
               </Link>
             </div>
           </div>
         </div>
-        <div>
+
+        {/* Cards Container */}
+        <div className="flex flex-col gap-4 xl:grid xl:col-span-2 xl:grid-cols-2 xl:gap-12">
+          {/* MainCard for "cultura" */}
           <MainCard
             title="cultura"
             description="Dedicato ad artisti e operatori culturali."
@@ -55,14 +81,15 @@ Il cuore batte per la cultura. L’anima governa il business.`}</p>
             logo={logoRed}
             titleColor="text-customRed"
           />
+          {/* MainCard for "business" */}
+          <MainCard
+            title="business"
+            description="Dedicato ad aziende, imprenditori e manager."
+            cover="https://res.cloudinary.com/immagina/image/upload/v1729761866/IMMAGINA/Home%20Page/immagina-azienda_fndvpj.jpg"
+            logo={logoBlue}
+            titleColor="text-customBlue"
+          />
         </div>
-        <MainCard
-          title="business"
-          description="Dedicato ad aziende, imprenditori e manager."
-          cover="https://res.cloudinary.com/immagina/image/upload/v1729761866/IMMAGINA/Home%20Page/immagina-azienda_fndvpj.jpg"
-          logo={logoBlue}
-          titleColor="text-customBlue"
-        />
       </div>
     </>
   );
