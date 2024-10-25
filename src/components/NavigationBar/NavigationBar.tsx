@@ -1,29 +1,36 @@
 "use client";
 
+import logoRed from "/public/images/logo/logo-immagina.svg";
+import logoBlue from "/public/images/logo/logo-immagina-blue.svg";
 import Logo from "@/components/Logo/Logo";
 import HamburgerIcon from "@/components/HamburgerIcon/HamburgerIcon";
 import MenuDesktop from "../MenuDesktop/MenuDesktop";
 import MenuMobile from "../MenuMobile/MenuMobile";
 import Link from "next/link";
 import OpacityAnimation from "../Animations/OpacityAnimation";
-import { usePathname } from "next/navigation"; // Import useRouter to detect the current route
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 type NavigationBarProps = {
-  logo: string;
+  color: string;
   menuColor: string;
   bgColor: string;
 };
 
 const menuItems = ["Portfolio", "Principi", "Prodotti", "Chi siamo", "Contatto"];
 
-export default function NavigationBar({ logo, menuColor, bgColor }: NavigationBarProps) {
+export default function NavigationBar({ color, menuColor, bgColor }: NavigationBarProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const pathName = usePathname(); // Get the current route
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  const pathName = usePathname();
+  const pathChanged = pathName.split("/").slice(2);
+
+  const isCulturaActive = pathName.includes("cultura");
+  const isBusinessActive = pathName.includes("business");
 
   return (
     <OpacityAnimation addClass="">
@@ -31,33 +38,27 @@ export default function NavigationBar({ logo, menuColor, bgColor }: NavigationBa
         className={`flex lg:main-grid w-full h-nav fixed left-0 top-0 px-4 lg:px-6 xl:pl-14 xl:pr-24 z-50 ${bgColor}`}
       >
         {/* ---------- LOGO CULTURA AZIENDA ---------- */}
-        <div className="flex justify-between lg:justify-normal items-center w-full">
-          <Link href="/">
-            <Logo logo={logo} />
+        <div className="flex justify-between lg:justify-normal items-center w-full gap-8 pt-2">
+          <Link
+            href={`/cultura/${pathChanged.join("/")}`}
+            className={isBusinessActive ? "opacity-25" : "opacity-100"}
+          >
+            <Logo logo={logoRed} />
+            <p className="text-customRed opacity-100 cursor-default font-courier font-bold">
+              cultura
+            </p>
+          </Link>
+          <Link
+            href={`/business/${pathChanged.join("/")}`}
+            className={isCulturaActive ? "opacity-25" : "opacity-100"}
+          >
+            <Logo logo={logoBlue} />
+            <p className="text-customBlue opacity-100 cursor-default font-courier font-bold">
+              business
+            </p>
           </Link>
           <div onClick={toggleMenu}>
-            <HamburgerIcon menuColor={menuColor} />
-          </div>
-          <div className="hidden lg:flex flex-row gap-8 lg:gap-3 lg:pl-6 xl:pl-8 justify-between font-courier font-bold text-base">
-            {pathName === "/cultura" ? (
-              <p className="text-customRed opacity-100 cursor-default">cultura</p>
-            ) : (
-              <Link href="/cultura">
-                <p className="text-customRed opacity-40 hover:opacity-100 cursor-pointer">
-                  cultura
-                </p>
-              </Link>
-            )}
-
-            {pathName === "/azienda" ? (
-              <p className="text-customBlue cursor-default">busines</p>
-            ) : (
-              <Link href="/azienda">
-                <p className="text-customBlue opacity-40 hover:opacity-100 cursor-pointer">
-                  business
-                </p>
-              </Link>
-            )}
+            <HamburgerIcon color={color} />
           </div>
         </div>
         <div className="flex flex-row items-center col-span-2">

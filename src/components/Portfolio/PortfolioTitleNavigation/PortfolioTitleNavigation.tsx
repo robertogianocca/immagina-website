@@ -29,7 +29,6 @@ export default function PortfolioTitleNavigation({
     let itemLink = item.replace("'s", "");
     itemLink = itemLink.replace(" ", "-");
     // titleToLink = titleToLink.toLowerCase();
-    console.log(itemLink);
 
     item = item.split(" ");
     item = item.map((item: string, index: number) => {

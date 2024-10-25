@@ -6,7 +6,6 @@ import NavigationBar from "@/components/NavigationBar/NavigationBar";
 import Wrapper from "@/components/Wrapper/Wrapper";
 import IntroSection from "@/components/Sections/IntroSection/IntroSection";
 import PortfolioSection from "@/components/Sections/PortfolioSection/PortfolioSection";
-import logoRed from "/public/images/logo/logo-immagina.svg";
 
 export default async function Cultura() {
   const response = await fetch(
@@ -30,15 +29,16 @@ export default async function Cultura() {
   return (
     <div className="text-customBrown">
       <NavigationBar
-        logo={logoRed}
+        color="text-customRed"
         menuColor="text-customRed hover:border-b-2 hover:border-customRed"
         bgColor="bg-customWhite lg:shadow-xl lg:shadow-slate-200"
       />
       <Wrapper>
+        {/* ---------- INTRO SECTION ---------- */}
         <section id="home" className="h-space sm:h-full md:min-h-space overflow-hidden">
           <IntroSection
             text={
-              <p>
+              <p className="font-semibold text-xs lg:text-base">
                 Questa sezione del sito di IMMAGINA è dedicata agli
                 <span className="font-bold text-customBrownRed"> artisti</span> e agli
                 <span className="font-bold text-customBrownRed"> operatori culturali</span>.
@@ -100,7 +100,7 @@ export default async function Cultura() {
                 Prodotti
               </h2>
               <p className="text-sm text-sky-800 font-semibold">
-                I nostri prodotti: Analisi e creazione di concetti di comunicazione, Fotografia,
+                {`            I nostri prodotti: Analisi e creazione di concetti di comunicazione, Fotografia,
                 grafica, video, siti web, libri. La nostra passione: l’arte, lo spettacolo, la
                 cucina, l’orto, il teatro, la musica, i libri… Libri e cataloghi Grafica:
                 impaginazioni, logotipi, post produzione immagini e video Webdesign: dal progetto
@@ -115,7 +115,7 @@ export default async function Cultura() {
                 teatro, riproduzioni d’arte (scultura), food, moda, reportage giornalistico
                 (matrimoni - eventi), musica, drone, 3D Specialità produzione: foto con droni
                 Specialità: mostre openair. Prodotto. Specialità: 3D Special interest: biografie,
-                scultura teatro architettura natura (orto incluso)
+                scultura teatro architettura natura (orto incluso)`}
               </p>
             </div>
             <div className="hidden lg:inline col-span-2 lg:w-full h-full aspect-home">

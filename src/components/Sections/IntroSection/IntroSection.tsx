@@ -9,7 +9,7 @@ export default function IntroSection({ text }: any) {
   return (
     <OpacityAnimation addClass="h-full sm:h-auto flex flex-col justify-between sm:justify-no sm:grid sm:grid-cols-3 sm:gap-4 lg:gap-x-8 pt-4 lg:pt-[30px] pb-6 lg:pb-[30px] font-bold">
       <div className="flex flex-col gap-[3vh] lg:gap-x-10 xl:gap-y-[2vh] sm:col-span-2 lg:col-span-1 text-sm xl:text-base">
-        <p className="font-semibold">{text}</p>
+        {text}
         <p className="hidden sm:block font-semibold">
           IMMAGINA ti invita a <span className="italic">sfogliare</span> il suo portfolio.
         </p>
@@ -46,7 +46,7 @@ export default function IntroSection({ text }: any) {
           </Link> */}
         </ul>
         {/* ---------- IF YOU LIKE IT ---------- */}
-        <p className="mb-4 font-semibold">If you like it, scrivici. Why not.</p>
+        {/* <p className="mb-4 font-semibold">If you like it, scrivici. Why not.</p> */}
       </div>
 
       {/*  ------------ VIDEO ------------ */}

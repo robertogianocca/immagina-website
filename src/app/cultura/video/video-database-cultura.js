@@ -20,6 +20,17 @@ export const videoDatabaseCultura = [
       "https://player.vimeo.com/video/917201659?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
   },
 
+  {
+    title: "Met Parachute MCR",
+    link: "video/met-parachute-mrc",
+    description: "Descrizione Met Parachute MCR",
+    shortDescription: "",
+    cover:
+      "https://res.cloudinary.com/immagina/image/upload/v1724931249/IMMAGINA/Video/thumb-met-parachute_zigmgf.jpg",
+    videoLink:
+      "https://player.vimeo.com/video/676799834?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
+  },
+
   // {
   //   title: "BENVENGA",
   //   description: "Descrizione BENVENGA",

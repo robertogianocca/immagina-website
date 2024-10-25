@@ -6,7 +6,7 @@ import NavigationBar from "@/components/NavigationBar/NavigationBar";
 import Wrapper from "@/components/Wrapper/Wrapper";
 import logoBlue from "/public/images/logo/logo-immagina-blue.svg";
 
-export default async function Azienda() {
+export default async function Business() {
   const response = await fetch(
     `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_ID}/resources/image/?max_results=500&metadata=true&context=true`,
     {

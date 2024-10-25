@@ -40,8 +40,6 @@ export default function PortfolioCategoryCard({
     ? `/${path}/${transformedCategoriesFromPath.join("/")}/${titleToLink}`
     : `/${path}/${transformedCategoriesFromPath}`;
 
-  console.log(path);
-
   return (
     <Link href={hrefLink}>
       <motion.div
