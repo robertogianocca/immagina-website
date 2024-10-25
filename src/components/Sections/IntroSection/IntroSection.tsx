@@ -5,22 +5,13 @@ import RedButton from "@/components/Buttons/RedButton";
 import Triangle from "@/components/Icons/Triangle";
 import OpacityAnimation from "@/components/Animations/OpacityAnimation";
 
-export default function IntroSection() {
+export default function IntroSection({ text }: any) {
   return (
     <OpacityAnimation addClass="h-full sm:h-auto flex flex-col justify-between sm:justify-no sm:grid sm:grid-cols-3 sm:gap-4 lg:gap-x-8 pt-4 lg:pt-[30px] pb-6 lg:pb-[30px] font-bold">
       <div className="flex flex-col gap-[3vh] lg:gap-x-10 xl:gap-y-[2vh] sm:col-span-2 lg:col-span-1 text-sm xl:text-base">
-        <p className="">
-          Dedicato agli artisti: Promuovere la cultura. Narrare per immagini il gesto creativo degli
-          artisti, siano essi attori, clown, scultori e pittori, musicisti, ballerini, scrittori,
-          cineasti, registi di teatro e via dicendo.
-          <p>
-            Affianchiamo Operatori culturali (teatri, musei, gallerie), Organizzatori di eventi.
-            Editori (libri, cataloghi) e Produttori (di film, di video). La nostra missione?
-            Rivelare al mondo il vostro charme.
-          </p>
-        </p>
-        <p className="hidden sm:block">
-          IMMAGINA+ ti invita a <span className="italic">sfogliare</span> il suo portfolio.
+        <p className="font-semibold">{text}</p>
+        <p className="hidden sm:block font-semibold">
+          IMMAGINA ti invita a <span className="italic">sfogliare</span> il suo portfolio.
         </p>
         <Link href="#portfolio" className="hidden sm:block">
           <RedButton addClass="p-2 px-3 text-base xl:text-xl font-courier mb-4 lg:font-light">
@@ -55,7 +46,7 @@ export default function IntroSection() {
           </Link> */}
         </ul>
         {/* ---------- IF YOU LIKE IT ---------- */}
-        <p className="mb-4">If you like it, scrivici. Why not.</p>
+        <p className="mb-4 font-semibold">If you like it, scrivici. Why not.</p>
       </div>
 
       {/*  ------------ VIDEO ------------ */}

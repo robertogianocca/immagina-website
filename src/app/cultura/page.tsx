@@ -36,7 +36,21 @@ export default async function Cultura() {
       />
       <Wrapper>
         <section id="home" className="h-space sm:h-full md:min-h-space overflow-hidden">
-          <IntroSection />
+          <IntroSection
+            text={
+              <p>
+                Questa sezione del sito di IMMAGINA è dedicata agli
+                <span className="font-bold text-customBrownRed"> artisti</span> e agli
+                <span className="font-bold text-customBrownRed"> operatori culturali</span>.
+                <br />
+                <br />
+                {`Come il sarto, vestiamo su misura ogni aspetto legato alla sconfinata attività culturale. Per mezzo di foto, video, testi.  Seguiamo la produzione di libri, cataloghi, manifesti, mostre… `}
+                <br />
+                <br />
+                {`La nostra missione: Vestire la cultura, comunicare con successo il profumo dell’arte.`}
+              </p>
+            }
+          />
         </section>
         {/* ---------- PORTFOLIO ---------- */}
         <section id="portfolio">
