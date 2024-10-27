@@ -20,7 +20,7 @@ export default async function Cultura() {
   );
 
   const cloudinaryResponse = await response.json();
-  // revalidatePath("/cultura");
+  revalidatePath("/cultura");
 
   const portfolioData = getDataStructure(cloudinaryResponse);
 
@@ -38,7 +38,7 @@ export default async function Cultura() {
         <section id="home" className="h-space sm:h-full md:min-h-space overflow-hidden">
           <IntroSection
             text={
-              <p className="font-semibold text-xs lg:text-base">
+              <p className="font-semibold text-xs md:text-base">
                 Questa sezione del sito di IMMAGINA è dedicata agli
                 <span className="font-bold text-customBrownRed"> artisti</span> e agli
                 <span className="font-bold text-customBrownRed"> operatori culturali</span>.
@@ -48,6 +48,11 @@ export default async function Cultura() {
                 <br />
                 <br />
                 {`La nostra missione: Vestire la cultura, comunicare con successo il profumo dell’arte.`}
+                <br />
+                <br />
+                <p className="hidden sm:block font-semibold">
+                  IMMAGINA ti invita a <span className="italic">sfogliare</span> il suo portfolio.
+                </p>
               </p>
             }
           />

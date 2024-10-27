@@ -25,10 +25,12 @@ export default function PortfolioTitleNavigation({
     setIsOpen(!isOpen);
   };
 
+  const usePathName = usePathname();
+  const path = usePathName.split("/")[1];
+
   const subcategoryMenu = subCategoryList.map((item, index) => {
     let itemLink = item.replace("'s", "");
     itemLink = itemLink.replace(" ", "-");
-    // titleToLink = titleToLink.toLowerCase();
 
     item = item.split(" ");
     item = item.map((item: string, index: number) => {
@@ -38,16 +40,13 @@ export default function PortfolioTitleNavigation({
     return (
       <li
         key={index}
-        className={`flex flex-row mb-4 font-courier text-sky-800 font-semibold text-xl  ${categoryColors}`}
+        className={`flex flex-row mb-4 font-courier font-semibold text-xl  ${categoryColors}`}
       >
         <Triangle addClass={subCategoryColors} />
-        <Link href={`/${categoriesFromPath.join("/")}/${itemLink}`}>{item}</Link>
+        <Link href={`/${path}/${categoriesFromPath.join("/")}/${itemLink}`}>{item}</Link>
       </li>
     );
   });
-
-  const usePathName = usePathname();
-  const path = usePathName.split("/")[1];
 
   return (
     <>
@@ -88,19 +87,19 @@ export default function PortfolioTitleNavigation({
             </h1>
             {/* ---------- HAMBURGER SUBMENU ---------- */}
             <div
-              className={`xl:hidden h-full p-1 mt-[-2px] ${
+              className={`xl:hidden h-full p-1 mt-[-6px] ${
                 isOpen ? "bg-zinc-300 rounded-full" : ""
               }`}
               onClick={toggleMenu}
             >
-              <HamburgerIcon addClass={hamburgerColors} />
+              <HamburgerIcon color={hamburgerColors} />
             </div>
           </div>
         </div>
       </div>
       {/* ---------- SUBCATEGORY MENU AND DESCRIPTION MOBILE ---------- */}
       <div
-        className={`flex flex-col grow min-h-[calc(100vh-230px)] bg-zinc-200 col-span-2 lg:row-start-2 lg:col-span-3 xl:col-span-2 static w-full lg:w-[60%] sm:w-[80%] md:w-full top-[230px] z-49  ${
+        className={`flex flex-col min-h-screen bg-zinc-200 col-span-2 lg:row-start-2 lg:col-span-3 xl:col-span-2 static w-full lg:w-[60%] sm:w-[80%] md:w-full top-[230px] z-49  ${
           isOpen ? "block" : "hidden"
         }`}
       >

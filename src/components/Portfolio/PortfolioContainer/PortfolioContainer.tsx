@@ -3,15 +3,15 @@
 "use client";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Wrapper from "@/components/Wrapper/Wrapper";
 import NavigationBar from "@/components/NavigationBar/NavigationBar";
+import Wrapper from "@/components/Wrapper/Wrapper";
 import PortfolioTitleNavigation from "../PortfolioTitleNavigation/PortfolioTitleNavigation";
-import PortfolioGallery from "../PortfolioGallery/PortfolioGallery";
 import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/PortfolioCategoryCard";
+import PortfolioGallery from "../PortfolioGallery/PortfolioGallery";
 import Triangle from "@/components/Icons/Triangle";
-import { motion } from "framer-motion";
-import { useParams } from "next/navigation";
 import logoBlue from "/public/images/logo/logo-immagina-blue.svg";
+import { motion } from "framer-motion";
+import { useParams, usePathname } from "next/navigation";
 
 export default function PortfolioContainer({ portfolioData, categoriesFromPath }: any) {
   // Transform categoriesFromPath as the objects name, remove "-" (uppercasing after)
@@ -66,13 +66,14 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
   const hamburgerColors =
     portfolioData[subCategoryList[0]].images === undefined ? "text-green-600" : "text-amber-400";
   // --------------------------------- PATHS ---------------------------------
+  const mainCategory = usePathname().split("/")[1];
 
   const pathList = categoriesFromPath.slice(0, -1).map((item: string, index: number) => {
     return (
       <div key={index} className="flex flex-row">
         <Triangle addClass="md:border-l-[13px] xl:border-l-[19px] xl:border-b-[19px] md:border-b-[13px] border-l-red-600" />
-        <Link href={`/${categoriesFromPath.slice(0, 1 + index).join("/")}`}>
-          <h3 className=" hover:text-red-600">
+        <Link href={`/${mainCategory}/${categoriesFromPath.slice(0, 1 + index).join("/")}`}>
+          <h3 className=" hover:text-customRed">
             {categoriesFromPath.slice(0, -1).length - 1 == index ? item + "" : item + " /"}
           </h3>
         </Link>
@@ -126,12 +127,13 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
       ) : (
         <>
           <NavigationBar
-            logo={logoBlue}
+            color="text-customRed"
             menuColor="text-customRed hover:border-b-2 hover:border-customRed"
             bgColor="bg-customWhite lg:shadow-xl lg:shadow-slate-200"
           />
           <Wrapper>
-            <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-8 pt-6 pb-20 text-customBrown">
+            <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-8 pb-20 text-customBrown">
+              {/* ---------- TITLE NAVIGATION  ---------- */}
               <PortfolioTitleNavigation
                 categoriesFromPath={categoriesFromPath}
                 transformedCategoriesFromPath={transformedCategoriesFromPath}

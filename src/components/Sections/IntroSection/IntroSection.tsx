@@ -7,12 +7,9 @@ import OpacityAnimation from "@/components/Animations/OpacityAnimation";
 
 export default function IntroSection({ text }: any) {
   return (
-    <div className="h-full sm:h-auto flex flex-col justify-between sm:justify-no sm:grid sm:grid-cols-3 sm:gap-4 lg:gap-x-8 pt-4 lg:pt-[30px] pb-6 lg:pb-[30px] font-bold">
+    <div className="h-full sm:h-auto flex flex-col justify-between sm:justify-no sm:grid sm:grid-cols-3 sm:gap-4 lg:gap-x-8 pb-6 lg:pb-[30px] font-bold">
       <div className="flex flex-col gap-[3vh] lg:gap-x-10 xl:gap-y-[2vh] sm:col-span-2 lg:col-span-1 text-sm xl:text-base">
         {text}
-        <p className="hidden sm:block font-semibold">
-          IMMAGINA ti invita a <span className="italic">sfogliare</span> il suo portfolio.
-        </p>
         <Link href="#portfolio" className="">
           <RedButton addClass="p-2 px-3 text-base xl:text-xl font-courier mb-6 lg:font-light">
             Portfolio
