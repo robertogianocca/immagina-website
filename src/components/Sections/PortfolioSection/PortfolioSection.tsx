@@ -38,7 +38,7 @@ export default function PortfolioSection({ categoryList, portfolioData }: any) {
   ));
 
   return (
-    <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-8 xl:gap-10">
+    <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-10">
       <AnimatePresence>
         {mappedCategories}
         <motion.div

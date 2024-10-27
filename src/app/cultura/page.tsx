@@ -52,18 +52,16 @@ export default async function Cultura() {
             }
           />
         </section>
-        {/* ---------- PORTFOLIO ---------- */}
-        <section id="portfolio">
-          <h2 className="text-3xl xl:text-4xl font-courier font-bold text-sky-800 mr-3 pb-6">
-            Portfolio
-          </h2>
+        {/* ---------- PORTFOLIO SECTION ---------- */}
+        <section id="portfolio" className="min-h-screen pt-6 xl:pt-10">
+          <h2 className="text-3xl xl:text-4xl font-courier font-bold mb-6">Portfolio</h2>
           <PortfolioSection
             categoryList={categoryList}
             portfolioData={portfolioData.cultura.portfolio}
           />
         </section>
         {/* ---------- PRINCIPI ---------- */}
-        <section id="principi" className="min-h-space">
+        {/* <section id="principi" className="min-h-space">
           <div className="flex flex-col md:main-grid pt-20">
             <div>
               <h2 className="text-3xl xl:text-4xl font-courier font-bold text-sky-800 mr-3 pb-6">
@@ -92,8 +90,8 @@ export default async function Cultura() {
               </video>
             </div>
           </div>
-        </section>
-        <section id="principi" className="h-space">
+        </section> */}
+        {/* <section id="principi" className="h-space">
           <div className="flex flex-col md:main-grid pt-20">
             <div>
               <h2 className="text-3xl xl:text-4xl font-courier font-bold text-sky-800 mr-3 pb-6">
@@ -124,7 +122,7 @@ export default async function Cultura() {
               </video>
             </div>
           </div>
-        </section>
+        </section> */}
       </Wrapper>
     </div>
   );

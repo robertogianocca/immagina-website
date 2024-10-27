@@ -4,6 +4,7 @@ import { Courier_Prime } from "next/font/google";
 import { Inter } from "next/font/google";
 import NavigationBar from "@/components/NavigationBar/NavigationBar";
 import logoRed from "/public/images/logo/logo-immagina.svg";
+import OpacityAnimation from "@/components/Animations/OpacityAnimation";
 
 type RootLayoutProps = {
   children: React.ReactNode;

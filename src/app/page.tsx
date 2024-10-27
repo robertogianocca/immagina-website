@@ -40,7 +40,7 @@ export default function Main() {
             {`Il cuore batte per la cultura. L’anima governa il business.`}
           </p>
           {/* ---------- DESCRIZIONE MOBILE ---------- */}
-          <p className="lg:hidden">
+          <p className="lg:hidden mt-8 mb-4">
             {`IMMAGINA ti dice ciao e si presenta.`}
             <br />
             <br />

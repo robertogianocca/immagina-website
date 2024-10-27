@@ -68,9 +68,9 @@ export default function PortfolioTitleNavigation({
               <TiHome size={25} />
             </Button>
           </Link>
-          <div className="flex flex-row lg:flex-col 2xl:flex-row gap-4 lg:gap-1">
-            <h3 className="text-base font-courier text-sky-800 font-bold">
-              <Link href={`/${path}`} className="hover:text-red-600 mr-2">
+          <div className="flex flex-row lg:flex-col 2xl:flex-row gap-0 lg:gap-1 text-xs xl:text-base font-courier font-bold">
+            <h3>
+              <Link href={`/${path}`} className="hover:text-customRed mr-2">
                 portfolio
               </Link>
             </h3>
@@ -83,7 +83,7 @@ export default function PortfolioTitleNavigation({
               <Triangle addClass={categoryColors} />
             </div>
             {/* ---------- CATEGORY TITLE ---------- */}
-            <h1 className="text-3xl xl:text-4xl font-courier font-bold text-sky-800 mr-3">
+            <h1 className="text-2xl md:text-3xl xl:text-4xl font-courier font-bold mr-3">
               {currentCategory}
             </h1>
             {/* ---------- HAMBURGER SUBMENU ---------- */}
@@ -106,7 +106,7 @@ export default function PortfolioTitleNavigation({
       >
         <div className=" pb-4">
           <p
-            className="text-sm text-sky-800 font-semibold"
+            className="text-sm font-semibold"
             dangerouslySetInnerHTML={{ __html: currentCategoryDescription }}
           />
         </div>

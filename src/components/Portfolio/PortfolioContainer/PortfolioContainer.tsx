@@ -72,7 +72,7 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
       <div key={index} className="flex flex-row">
         <Triangle addClass="md:border-l-[13px] xl:border-l-[19px] xl:border-b-[19px] md:border-b-[13px] border-l-red-600" />
         <Link href={`/${categoriesFromPath.slice(0, 1 + index).join("/")}`}>
-          <h3 className="text-base font-courier text-sky-800 font-bold hover:text-red-600">
+          <h3 className=" hover:text-red-600">
             {categoriesFromPath.slice(0, -1).length - 1 == index ? item + "" : item + " /"}
           </h3>
         </Link>
@@ -131,7 +131,7 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
             bgColor="bg-customWhite lg:shadow-xl lg:shadow-slate-200"
           />
           <Wrapper>
-            <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 pt-6 pb-20">
+            <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-8 pt-6 pb-20 text-customBrown">
               <PortfolioTitleNavigation
                 categoriesFromPath={categoriesFromPath}
                 transformedCategoriesFromPath={transformedCategoriesFromPath}
@@ -147,7 +147,7 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
               {/* ---------- DESCRIPTION DESKTOP  ---------- */}
               <div className="xl:block col-span-2">
                 <p
-                  className="hidden xl:block text-base text-sky-800 font-semibold col-span-2"
+                  className="hidden xl:block text-base font-semibold col-span-2"
                   dangerouslySetInnerHTML={{ __html: currentCategoryDescription }}
                 />
               </div>

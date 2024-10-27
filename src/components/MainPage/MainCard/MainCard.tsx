@@ -27,7 +27,7 @@ export default function MainCard({
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 1.06 }}
         transition={{ duration: 0.5 }}
-        className="w-full relative flex flex-col bg-zinc-50 p-2 lg:p-6 shadow-xl shadow-slate-400 hover:shadow-slate-500 transition-shadow"
+        className="w-full relative flex flex-col bg-zinc-50 p-2 sm:p-4 lg:p-3 xl:p-6 shadow-xl shadow-slate-400 hover:shadow-slate-500 transition-shadow"
       >
         <div className="flex flex-row xl:flex-col gap-x-3 lg:gap-x-0 justify-between lg:justify-normal">
           {/* ---------- TESTI ---------- */}

@@ -57,21 +57,21 @@ export default function NavigationBar({ color, menuColor, bgColor }: NavigationB
               business
             </p>
           </Link>
-          <div onClick={toggleMenu}>
+          {/* <div onClick={toggleMenu}>
             <HamburgerIcon color={color} />
-          </div>
+          </div> */}
         </div>
         <div className="flex flex-row items-center col-span-2">
           {/* ---------- MENU LIST ---------- */}
-          <MenuDesktop menuItems={menuItems} menuColor={menuColor} />
+          {/* <MenuDesktop menuItems={menuItems} menuColor={menuColor} /> */}
         </div>
-        <div
+        {/* <div
           className={`absolute top-[60px] left-0 w-full h-space bg-customWhite opacity-98 px-4 py-10 ${
             isOpen ? "block" : "hidden"
           }`}
         >
           <MenuMobile menuItems={menuItems} menuColor={menuColor} toggleMenu={toggleMenu} />
-        </div>
+        </div> */}
       </nav>
     </OpacityAnimation>
   );
