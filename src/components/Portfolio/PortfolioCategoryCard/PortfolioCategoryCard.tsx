@@ -34,9 +34,7 @@ export default function PortfolioCategoryCard({
   title = title.join(" ");
 
   // Clean title to Link
-  let titleToLink = title.replace("'s", "");
-  titleToLink = titleToLink.replace(" ", "-");
-  titleToLink = titleToLink.toLowerCase();
+  const titleToLink = title.replace("'s", "").replace(" ", "-").toLowerCase();
 
   const hrefLink = Array.isArray(transformedCategoriesFromPath)
     ? `/${path}/${transformedCategoriesFromPath.join("/")}/${titleToLink}`

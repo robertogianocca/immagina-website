@@ -27,7 +27,7 @@ export default function PortfolioSection({ categoryList, portfolioData }: Portfo
   };
 
   const renderCategoryCard = (item: string, index: number) => {
-    const isVideo = item === "Video"; // Check if the item is "Video"
+    const isVideo = item === "video"; // Check if the item is "Video"
     const shortDescription = isVideo
       ? "IMMAGINA offre servizi video a tutto tondo. Produciamo di preferenza documentari per artisti, musicisti, attori, teatri, festival, matrimoni: per gente simpatica only."
       : portfolioData[item]?.pictures?.[0]?.heading;
@@ -49,6 +49,7 @@ export default function PortfolioSection({ categoryList, portfolioData }: Portfo
           title={item}
           shortDescription={shortDescription}
           cover={cover}
+          coverAlt={`${item} Category Cover`}
           transformedCategoriesFromPath={item}
           addClass="border-l-red-600"
         />
@@ -60,7 +61,7 @@ export default function PortfolioSection({ categoryList, portfolioData }: Portfo
     <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-10">
       <AnimatePresence>
         {categoryList.map(renderCategoryCard)}
-        {renderCategoryCard("Video", categoryList.length)}
+        {renderCategoryCard("video", categoryList.length)}
       </AnimatePresence>
     </div>
   );
