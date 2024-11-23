@@ -17,7 +17,7 @@ export default function PortfolioGallery({
   transformedCategoriesFromPath,
   picturesList,
   categoryDescription,
-  shortCategoryDescription,
+  shortCategoryDescription = "no short category description",
 }: any) {
   const [currentIndex, setIndex] = useState(0);
 

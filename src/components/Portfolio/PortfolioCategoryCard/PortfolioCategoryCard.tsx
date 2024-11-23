@@ -7,17 +7,19 @@ import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 
 interface PortfolioCategoryCardProps {
-  title: any;
-  shortDescription: any;
-  cover: string;
+  title: string;
+  shortDescription?: string;
+  cover?: string;
+  coverAlt?: string;
   transformedCategoriesFromPath: string[] | string;
   addClass: string;
 }
 
 export default function PortfolioCategoryCard({
-  title = "empty",
-  shortDescription = "empty",
-  cover = "/empty",
+  title = "No title available",
+  shortDescription = "No short description available",
+  cover = "/images/samples/01.jpg",
+  coverAlt = "Category Cover",
   transformedCategoriesFromPath,
   addClass,
 }: PortfolioCategoryCardProps) {
@@ -59,7 +61,7 @@ export default function PortfolioCategoryCard({
           dangerouslySetInnerHTML={{ __html: shortDescription }}
         />
         <div className="group-hover:saturate-[1.1]">
-          <Image src={cover} width={600} height={600} alt="Category Cover" />
+          <Image src={cover} width={600} height={600} alt={coverAlt} />
         </div>
       </motion.div>
     </Link>

@@ -20,23 +20,6 @@ const config: Config = {
         cover: "1920 / 2150",
         home: "4 / 3",
       },
-      // fontSize: {
-      //   xs: ["13.89px", "19px"],
-      //   sm: [
-      //     "16.67px",
-      //     {
-      //       lineHeight: "22px",
-      //       letterSpacing: "0.0em",
-      //     },
-      //   ],
-
-      //   base: ["20px", "27px"],
-      //   lg: ["24px", "normal"],
-      //   xl: ["28.8px", "normal"],
-      //   "2xl": ["34.56px", "normal"],
-      //   "3xl": ["41.47px", "normal"],
-      //   "4xl": ["49.77px", "normal"],
-      // },
       fontSize: {
         xs: ["0.868rem", "1.1875rem"], // 13.89px -> 0.868rem, 19px -> 1.1875rem
         sm: [

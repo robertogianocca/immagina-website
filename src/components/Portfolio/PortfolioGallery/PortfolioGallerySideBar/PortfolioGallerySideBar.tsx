@@ -3,6 +3,7 @@ import Image from "next/image";
 import Header from "./Header/Header";
 import Thumbnails from "./Thumbnails/Thumbnails";
 import Logo from "@/components/Logo/Logo";
+import logoRed from "/public/images/logo/logo-immagina.svg";
 import Button from "@/components/Buttons/Button";
 import { TiHome } from "react-icons/ti";
 import { FaArrowLeft } from "react-icons/fa";
@@ -123,8 +124,6 @@ export default function PortfolioGallerySideBar({
     return item.join(" ");
   });
 
-  console.log(path.split("/")[0]);
-
   return (
     <>
       {/* ------ HOME, BACK BUTTONS, LOGO ------ */}
@@ -140,7 +139,7 @@ export default function PortfolioGallerySideBar({
           </Button>
         </Link>
         <div className="w-28 h-auto relative left-12">
-          <Logo />
+          <Logo logo={logoRed} />
         </div>
       </div>
 

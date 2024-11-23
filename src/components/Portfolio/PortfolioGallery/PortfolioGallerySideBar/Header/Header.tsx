@@ -19,6 +19,7 @@ export default function Header({
   // --------------------------------- PATHS ---------------------------------
 
   const pathList = path.slice(0, -1).map((item, index) => {
+    console.log(path);
     return (
       <li key={index} className="mr-1">
         <Link

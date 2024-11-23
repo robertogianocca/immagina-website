@@ -20,7 +20,7 @@ export default async function Cultura() {
   );
 
   const cloudinaryResponse = await response.json();
-  revalidatePath("/cultura");
+  // revalidatePath("/cultura");
 
   const portfolioData = getDataStructure(cloudinaryResponse);
 

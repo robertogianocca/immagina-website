@@ -2,7 +2,18 @@
 import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/PortfolioCategoryCard";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function PortfolioSection({ categoryList, portfolioData }: any) {
+interface PortfolioSectionProps {
+  categoryList: string[];
+  portfolioData: {
+    [key: string]: {
+      pictures?: { heading?: string; url?: string }[];
+    };
+  };
+}
+
+export default function PortfolioSection({ categoryList, portfolioData }: PortfolioSectionProps) {
+  console.log("CATEGORYLIST:" + categoryList);
+
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: (i: number) => ({
@@ -15,50 +26,41 @@ export default function PortfolioSection({ categoryList, portfolioData }: any) {
     }),
   };
 
-  let mappedCategories = categoryList.map((item: string, index: number) => (
-    <motion.div
-      key={index}
-      variants={cardVariants}
-      initial="hidden"
-      custom={index}
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-    >
-      <PortfolioCategoryCard
-        key={index}
-        title={item}
-        shortDescription={
-          portfolioData[item]?.pictures?.[0]?.heading || "No short description available"
-        }
-        cover={portfolioData[item]?.pictures?.[0]?.url || "/No cover image available"}
-        transformedCategoriesFromPath={item}
-        addClass="border-l-red-600"
-      />
-    </motion.div>
-  ));
+  const renderCategoryCard = (item: string, index: number) => {
+    const isVideo = item === "Video"; // Check if the item is "Video"
+    const shortDescription = isVideo
+      ? "IMMAGINA offre servizi video a tutto tondo. Produciamo di preferenza documentari per artisti, musicisti, attori, teatri, festival, matrimoni: per gente simpatica only."
+      : portfolioData[item]?.pictures?.[0]?.heading;
+
+    const cover = isVideo
+      ? "https://res.cloudinary.com/immagina/image/upload/v1726135738/IMMAGINA/Video/thumb-carie_tqot2z.jpg"
+      : portfolioData[item]?.pictures?.[0]?.url;
+
+    return (
+      <motion.div
+        key={item}
+        variants={cardVariants}
+        initial="hidden"
+        custom={index}
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <PortfolioCategoryCard
+          title={item}
+          shortDescription={shortDescription}
+          cover={cover}
+          transformedCategoriesFromPath={item}
+          addClass="border-l-red-600"
+        />
+      </motion.div>
+    );
+  };
 
   return (
     <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-10">
       <AnimatePresence>
-        {mappedCategories}
-        <motion.div
-          key="£!ä"
-          variants={cardVariants}
-          initial="hidden"
-          custom={categoryList.length}
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <PortfolioCategoryCard
-            key="£!ä"
-            title="Video"
-            shortDescription={`IMMAGINA offre servizi video a tutto tondo. Produciamo di preferenza documentari per artisti, musicisti, attori, teatri, festival, matrimoni: per gente simpatica only.`}
-            description={``}
-            cover="https://res.cloudinary.com/immagina/image/upload/v1726135738/IMMAGINA/Video/thumb-carie_tqot2z.jpg"
-            transformedCategoriesFromPath="video"
-            addClass="border-l-red-600"
-          />
-        </motion.div>
+        {categoryList.map(renderCategoryCard)}
+        {renderCategoryCard("Video", categoryList.length)}
       </AnimatePresence>
     </div>
   );
