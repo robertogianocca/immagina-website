@@ -10,7 +10,7 @@ import PortfolioCategoryCard from "@/components/Portfolio/PortfolioCategoryCard/
 import PortfolioGallery from "../PortfolioGallery/PortfolioGallery";
 import Triangle from "@/components/Icons/Triangle";
 import logoBlue from "/public/images/logo/logo-immagina-blue.svg";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useParams, usePathname } from "next/navigation";
 
 export default function PortfolioContainer({ portfolioData, categoriesFromPath }: any) {
@@ -91,9 +91,8 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -50 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.8, delay: 1.6 }}
       key={index}
-      // className="lg:row-start-3 xl:row-start-2"
     >
       <PortfolioCategoryCard
         title={item}
@@ -111,10 +110,10 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
     <>
       {subCategoryList[0] === "images" && subCategoryList.length === 1 ? (
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -50 }}
-          transition={{ duration: 0.5 }}
+          exit={{ opacity: 0, y: 0 }}
+          transition={{ duration: 1, delay: 1 }}
         >
           <PortfolioGallery
             currentCategory={currentCategory}

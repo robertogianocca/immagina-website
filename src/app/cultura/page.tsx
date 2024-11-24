@@ -38,27 +38,29 @@ export default async function Cultura() {
         <section id="home" className="h-space sm:h-full md:min-h-space overflow-hidden">
           <IntroSection
             text={
-              <p className="font-semibold text-xs md:text-base">
-                Questa sezione del sito di IMMAGINA è dedicata agli
-                <span className="font-bold text-customBrownRed"> artisti</span> e agli
-                <span className="font-bold text-customBrownRed"> operatori culturali</span>.
-                <br />
-                <br />
-                {`Come il sarto, vestiamo su misura ogni aspetto legato alla sconfinata attività culturale. Per mezzo di foto, video, testi.  Seguiamo la produzione di libri, cataloghi, manifesti, mostre… `}
-                <br />
-                <br />
-                {`La nostra missione: Vestire la cultura, comunicare con successo il profumo dell’arte.`}
-                <br />
-                <br />
+              <>
+                <p className="font-semibold text-xs md:text-base">
+                  Questa sezione del sito di IMMAGINA è dedicata agli
+                  <span className="font-bold text-customBrownRed"> artisti</span> e agli
+                  <span className="font-bold text-customBrownRed"> operatori culturali</span>.
+                  <br />
+                  <br />
+                  {`Come il sarto, vestiamo su misura ogni aspetto legato alla sconfinata attività culturale. Per mezzo di foto, video, testi.  Seguiamo la produzione di libri, cataloghi, manifesti, mostre… `}
+                  <br />
+                  <br />
+                  {`La nostra missione: Vestire la cultura, comunicare con successo il profumo dell’arte.`}
+                  <br />
+                  <br />
+                </p>
                 <p className="hidden sm:block font-semibold">
                   IMMAGINA ti invita a <span className="italic">sfogliare</span> il suo portfolio.
                 </p>
-              </p>
+              </>
             }
           />
         </section>
         {/* ---------- PORTFOLIO SECTION ---------- */}
-        <section id="portfolio" className="min-h-screen pt-6 xl:pt-10">
+        <section id="portfolio" className="min-h-space pt-6 xl:pt-10">
           <h2 className="text-3xl xl:text-4xl font-courier font-bold mb-6">Portfolio</h2>
           <PortfolioSection
             categoryList={categoryList}

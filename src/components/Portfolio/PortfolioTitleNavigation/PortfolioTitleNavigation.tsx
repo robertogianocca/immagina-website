@@ -8,16 +8,16 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 
 export default function PortfolioTitleNavigation({
-  categoriesFromPath,
-  transformedCategoriesFromPath,
-  categoryBefore,
-  pathList,
-  currentCategory,
-  currentCategoryDescription,
-  subCategoryList,
-  categoryColors,
-  subCategoryColors,
-  hamburgerColors,
+  categoriesFromPath = [],
+  transformedCategoriesFromPath = "",
+  categoryBefore = [],
+  pathList = "",
+  currentCategory = "",
+  currentCategoryDescription = "No description available",
+  subCategoryList = ["A"],
+  categoryColors = "",
+  subCategoryColors = "",
+  hamburgerColors = "",
 }) {
   const [isOpen, setIsOpen] = useState(false);
 

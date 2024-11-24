@@ -33,7 +33,7 @@ export default function NavigationBar({ color, menuColor, bgColor }: NavigationB
   const isBusinessActive = pathName.includes("business");
 
   return (
-    <OpacityAnimation addClass="">
+    <OpacityAnimation delay={0.5}>
       <nav
         className={`flex lg:main-grid w-full h-nav fixed left-0 top-0 px-4 lg:px-6 xl:pl-14 xl:pr-24 z-50 ${bgColor}`}
       >
@@ -48,7 +48,7 @@ export default function NavigationBar({ color, menuColor, bgColor }: NavigationB
               cultura
             </p>
           </Link>
-          <Link
+          {/* <Link
             href={`/business/${pathChanged.join("/")}`}
             className={isCulturaActive ? "opacity-25" : "opacity-100"}
           >
@@ -56,7 +56,7 @@ export default function NavigationBar({ color, menuColor, bgColor }: NavigationB
             <p className="text-customBlue opacity-100 cursor-default font-courier font-bold">
               business
             </p>
-          </Link>
+          </Link> */}
           {/* <div onClick={toggleMenu}>
             <HamburgerIcon color={color} />
           </div> */}

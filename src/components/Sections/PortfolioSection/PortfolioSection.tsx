@@ -15,12 +15,12 @@ export default function PortfolioSection({ categoryList, portfolioData }: Portfo
   console.log("CATEGORYLIST:" + categoryList);
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 40 },
     visible: (i: number) => ({
       opacity: 1,
       y: 0,
       transition: {
-        delay: i * 0.2, // Stagger animation delay
+        delay: i * 0.4, // Stagger animation delay
         duration: 0.5,
       },
     }),
@@ -58,7 +58,7 @@ export default function PortfolioSection({ categoryList, portfolioData }: Portfo
   };
 
   return (
-    <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-10">
+    <div className="flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 xl:gap-10">
       <AnimatePresence>
         {categoryList.map(renderCategoryCard)}
         {renderCategoryCard("video", categoryList.length)}

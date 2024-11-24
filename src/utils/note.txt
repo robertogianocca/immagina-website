@@ -2,7 +2,8 @@
 {/* ---------- PRESENTAZIONE ---------- */}
 
 Category and Subcategory card:
-- PRIMA IMMAGINE GALLERY (1920 X 2150)
+- PRIMA IMMAGINE GALLERY (1920 X 2150) + 230 px e bianco 248
+
 - formati immagine anteprima 4:5,
 - export da bridge (800px max, jpeg 10 quality) 
 

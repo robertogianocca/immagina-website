@@ -3,18 +3,17 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function OpacityAnimation({
   children,
-  addClass,
+  delay,
 }: {
   children: React.ReactNode;
-  addClass: string;
+  delay: number;
 }) {
   return (
     <motion.div
-      className={addClass}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 1, delay: 0.3 }}
+      transition={{ duration: 1, delay: delay }}
     >
       {children}
     </motion.div>
