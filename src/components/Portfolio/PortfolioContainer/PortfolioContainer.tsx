@@ -86,7 +86,13 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
   const paramsArray = Array.isArray(params) ? params : params.split("/");
   const categoryBefore = paramsArray.slice(0, -1);
 
-  const mappedSubCategory = subCategoryList.map((item, index) => (
+  const sortedSubCategoryList = subCategoryList.slice().sort((a, b) => {
+    const indexA = portfolioData[a]?.pictures?.[0]?.indexNumber ?? Infinity; // Fallback to Infinity for undefined
+    const indexB = portfolioData[b]?.pictures?.[0]?.indexNumber ?? Infinity;
+    return indexA - indexB;
+  });
+
+  const mappedSubCategory = sortedSubCategoryList.map((item, index) => (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}

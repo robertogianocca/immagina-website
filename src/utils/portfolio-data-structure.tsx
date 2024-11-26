@@ -10,6 +10,7 @@ export const getDataStructure = (cloudinaryResponse: { resources: [] }) => {
       custom: {
         alt: string;
         caption: string;
+        index: string;
       };
     };
     url: string;
@@ -31,12 +32,14 @@ export const getDataStructure = (cloudinaryResponse: { resources: [] }) => {
 
     let description = "";
     let heading = "";
+    let indexNumber = "";
 
     if (item.context) {
       const metadata = item.context.custom;
-      const { alt, caption } = metadata;
+      const { alt, caption, index } = metadata;
       description = alt;
       heading = caption;
+      indexNumber = index;
     }
 
     // Extract the folders hierarchy
@@ -59,6 +62,7 @@ export const getDataStructure = (cloudinaryResponse: { resources: [] }) => {
       if (index === folders.length - 1) {
         currentLevel[folderName].pictures = currentLevel[folderName].pictures || [];
         currentLevel[folderName].pictures.push({
+          indexNumber,
           fileName,
           url,
           heading,
