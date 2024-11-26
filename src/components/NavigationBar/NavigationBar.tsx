@@ -63,7 +63,7 @@ export default function NavigationBar({ color, menuColor, bgColor }: NavigationB
           </div> */}
         </div>
         <div className="flex flex-row items-center col-span-2 justify-end">
-          <p className="text-base font-bold text-customRed ">
+          <p className="text-xs pl-4 xl:pl-0 md:text-base font-bold text-customRed ">
             <a href="mailto:contact@immagina.ch">contact@immagina.ch</a>
           </p>
           {/* ---------- MENU LIST ---------- */}
