@@ -33,13 +33,14 @@ export default function NavigationBar({ color, menuColor, bgColor }: NavigationB
   const isBusinessActive = pathName.includes("business");
 
   return (
-    <OpacityAnimation delay={0.5}>
+    <OpacityAnimation delay={0.3}>
       <nav
         className={`flex lg:main-grid w-full h-nav fixed left-0 top-0 px-4 lg:px-6 xl:pl-14 xl:pr-24 z-50 ${bgColor}`}
       >
         {/* ---------- LOGO CULTURA AZIENDA ---------- */}
         <div className="flex justify-between lg:justify-normal items-center w-full gap-8 pt-2">
           <Link
+            // href={`/cultura/${pathChanged.join("/")}`}
             href={`/cultura/${pathChanged.join("/")}`}
             className={isBusinessActive ? "opacity-25" : "opacity-100"}
           >
@@ -61,7 +62,10 @@ export default function NavigationBar({ color, menuColor, bgColor }: NavigationB
             <HamburgerIcon color={color} />
           </div> */}
         </div>
-        <div className="flex flex-row items-center col-span-2">
+        <div className="flex flex-row items-center col-span-2 justify-end">
+          <p className="text-base font-bold text-customRed ">
+            <a href="mailto:contact@immagina.ch">contact@immagina.ch</a>
+          </p>
           {/* ---------- MENU LIST ---------- */}
           {/* <MenuDesktop menuItems={menuItems} menuColor={menuColor} /> */}
         </div>

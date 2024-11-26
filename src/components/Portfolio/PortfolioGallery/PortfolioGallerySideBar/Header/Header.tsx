@@ -12,6 +12,7 @@ interface GalleryHeaderProps {
 export default function Header({
   title,
   path,
+  pathBack,
   shortDescription,
   longDescription,
   setIsVisible,
@@ -19,12 +20,11 @@ export default function Header({
   // --------------------------------- PATHS ---------------------------------
 
   const pathList = path.slice(0, -1).map((item, index) => {
-    console.log(path);
     return (
       <li key={index} className="mr-1">
         <Link
-          href={`/${path
-            .slice(0, 1 + index)
+          href={`/${pathBack
+            .slice(0, 2 + index)
             .join("/")
             .toLowerCase()}`}
         >

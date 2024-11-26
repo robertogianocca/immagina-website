@@ -19,6 +19,8 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
     // Exception of "Slava's Snowshow"
     item = item.replace("a-s", "a's-s");
     item = item.replace("-", " ");
+    item = item.replace("-", " ");
+    item = item.replace("autostrada ", "autostrada - ");
     return item;
   });
 
@@ -97,7 +99,7 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -50 }}
-      transition={{ duration: 0.8, delay: 1.6 }}
+      transition={{ duration: 0.8, delay: 1 }}
       key={index}
     >
       <PortfolioCategoryCard

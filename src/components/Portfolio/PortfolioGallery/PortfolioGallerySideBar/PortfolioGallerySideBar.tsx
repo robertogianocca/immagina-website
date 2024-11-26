@@ -10,6 +10,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import { MdOutlineFullscreen } from "react-icons/md";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { useRouter } from "next/router";
 
 interface Picture {
   fileName: string;
@@ -124,6 +125,9 @@ export default function PortfolioGallerySideBar({
     return item.join(" ");
   });
 
+  console.log(transformedCategoriesFromPath);
+  console.log("PORCODIO " + path.split("/"));
+
   return (
     <>
       {/* ------ HOME, BACK BUTTONS, LOGO ------ */}
@@ -146,6 +150,7 @@ export default function PortfolioGallerySideBar({
       {/* ------ HEADER: PATH, TITLE AND DESCRIPTION ------ */}
       <Header
         title={title}
+        pathBack={path.split("/")}
         path={transformedCategoriesFromPath}
         shortDescription={shortCategoryDescription}
         longDescription={categoryDescription}

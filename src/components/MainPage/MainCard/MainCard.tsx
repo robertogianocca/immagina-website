@@ -31,12 +31,12 @@ export default function MainCard({
       >
         <div className="flex flex-row xl:flex-col gap-x-3 lg:gap-x-0 justify-between lg:justify-normal">
           {/* ---------- TESTI ---------- */}
-          <div className="flex flex-col w-[900px] xl:w-full">
+          <div className="flex flex-wrap w-[900px] xl:w-full">
             {/* ---------- LOGO, TITOLO ---------- */}
-            <div className="flex flex-col xl:flex-row xl:mb-6 xl:mt-[-10px]">
-              <Image src={logo} width={210} height={210} alt="Logo IMMAGINA" />
+            <div className="flex flex-col xl:flex-row xl:flex-wrap xl:mb-6 xl:mt-[-10px]">
+              <Image src={logo} width={210} height={210} alt="Logo IMMAGINA" className="xl:pl-3" />
               <h3
-                className={`font-courier text-lg sm:text-xl xl:text-2xl xl:pl-3 mt-2 lg:mt-3 mb-6 lg:mb-0 ${titleColor}`}
+                className={`font-courier text-lg sm:text-xl xl:text-2xl mt-2 lg:mt-3 mb-6 lg:mb-0 ${titleColor}`}
               >
                 {title}
               </h3>

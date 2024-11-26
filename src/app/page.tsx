@@ -90,12 +90,12 @@ export default function Main() {
         <div className="opacity-30 pointer-events-none">
           <MainCard
             title="business"
-            description="Dedicato ad aziende, imprenditori e manager."
+            // description="Dedicato ad aziende, imprenditori e manager."
+            description="PAGE UNDER CONSTRUCTION"
             cover="https://res.cloudinary.com/immagina/image/upload/v1729761866/IMMAGINA/Home%20Page/immagina-azienda_fndvpj.jpg"
             logo={logoBlue}
             titleColor="text-customBlue"
           />
-          <p className="ml-6 mt-8 text-lg">UNDER CONSTRUCTION</p>
         </div>
       </div>
     </div>

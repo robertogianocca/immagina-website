@@ -105,7 +105,7 @@ export default function PortfolioTitleNavigation({
       >
         <div className=" pb-4">
           <p
-            className="text-sm font-semibold"
+            className="text-xs font-semibold"
             dangerouslySetInnerHTML={{ __html: currentCategoryDescription }}
           />
         </div>
