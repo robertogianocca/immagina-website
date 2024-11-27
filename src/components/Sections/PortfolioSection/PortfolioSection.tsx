@@ -20,8 +20,8 @@ export default function PortfolioSection({ categoryList, portfolioData }: Portfo
       opacity: 1,
       y: 0,
       transition: {
-        delay: i * 0.4, // Stagger animation delay
-        duration: 0.5,
+        delay: i * 0.3, // Stagger animation delay
+        duration: 0.4,
       },
     }),
   };
@@ -43,7 +43,7 @@ export default function PortfolioSection({ categoryList, portfolioData }: Portfo
         initial="hidden"
         custom={index}
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.04 }}
       >
         <PortfolioCategoryCard
           title={item}

@@ -60,7 +60,7 @@ export default async function Cultura() {
           />
         </section>
         {/* ---------- PORTFOLIO SECTION ---------- */}
-        <section id="portfolio" className="min-h-space pt-6 xl:pt-10">
+        <section id="portfolio" className="min-h-space pb-10 pt-6 xl:pt-10">
           <h2 className="text-3xl xl:text-4xl font-courier font-bold mb-6">Portfolio</h2>
           <PortfolioSection
             categoryList={categoryList}

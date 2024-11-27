@@ -11,6 +11,7 @@ import { IoMdCloseCircle } from "react-icons/io";
 import { useState } from "react";
 import { useParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 export default function PortfolioGallery({
   currentCategory,
@@ -19,6 +20,8 @@ export default function PortfolioGallery({
   categoryDescription,
   shortCategoryDescription = "no short category description",
 }: any) {
+  const usePathName = usePathname();
+  const path = usePathName.split("/").slice(1).slice(0, -1).join("/");
   const [currentIndex, setIndex] = useState(0);
 
   const [isVisible, setIsVisible] = useState(true);
@@ -164,11 +167,11 @@ export default function PortfolioGallery({
           {/* Mobile Menu */}
           <nav className="lg:hidden w-full h-[60px] fixed left-0 top-0 z-50 px-4 lg:pl-14 lg:pr-24 flex lg:main-grid md:shadow-xl bg-stone-200">
             <div className="flex flex-row items-center justify-between w-full">
-              <h1 className="font-courier font-bold text-sm lg:text-4xl text-red-600">
+              <h1 className="font-courier font-bold text-sm lg:text-4xl text-customRed">
                 {currentCategory}
               </h1>
               <div className="flex gap-6">
-                <Link href={`/${categoryBefore.join("/")}`}>
+                <Link href={`/${path}`}>
                   <Button addClass="p-2 text-slate-400">
                     <FaArrowLeft size={20} />
                   </Button>
@@ -183,9 +186,9 @@ export default function PortfolioGallery({
                     <p className="font-bold">Read</p>
                   </Button>
                 </Link>
-                <div onClick={toggleMenu}>
-                  <HamburgerIcon addClass="text-red-600" />
-                </div>
+                {/* <div onClick={toggleMenu}>
+                  <HamburgerIcon color="text-customRed" />
+                </div> */}
                 <div
                   className={`absolute top-[60px] left-0 w-full h-space bg-customWhite opacity-98 px-4 py-10 ${
                     isOpen ? "block" : "hidden"
