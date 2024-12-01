@@ -33,7 +33,7 @@ export default function PortfolioSection({ categoryList, portfolioData }: Portfo
       : portfolioData[item]?.pictures?.[0]?.heading;
 
     const cover = isVideo
-      ? "https://res.cloudinary.com/immagina/image/upload/v1726135738/IMMAGINA/Video/thumb-carie_tqot2z.jpg"
+      ? "https://res.cloudinary.com/immagina/image/upload/v1732543369/IMMAGINA/Video/thumb-carie_dbccnk.jpg"
       : portfolioData[item]?.pictures?.[0]?.url;
 
     return (
