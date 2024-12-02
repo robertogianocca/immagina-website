@@ -49,6 +49,51 @@ export default async function CategoriesPages({ params }: any) {
   renamePropertyRecursive(portfolioData, "autostrada", "autostrada - land art");
   renamePropertyRecursive(portfolioData, "ticino", "poesia ticino");
 
+  const dida = [
+    "Chiesa di Negrentino, Romanico XI sec. Dedicata a Sant’Ambrogio, Prugiasco, Valle di Blenio",
+    "Chiesa di Negrentino, Romanico XI sec. Dedicata a Sant’Ambrogio, Prugiasco, Valle di Blenio",
+    "Chiesaromanica di san Pietro e Paolo, risale al 1171, Biasca",
+    "Chiesa-Oratorio di San Vigilio, Rovio",
+    "Chiesa di Santa Maria del Sasso, edificata nel 1470, Morcote",
+    "Chiesa di Santa Maria del Sasso, edificata nel 1470, Morcote",
+    "Chiesa di Santa Maria del Sasso, edificata nel 1470, Morcote",
+    "Chiesa di Sant’Antonio Abate (ca. 1300), Morcote",
+    "Isole di Brissago",
+    "Isola di Brissago",
+    "Isola di Brissago",
+    "Castello Sasso Corbaro (Unterwaldo), XV secolo, Bellinzona",
+    "Castello Sasso Corbaro (Unterwaldo), XV secolo, Bellinzona",
+    "Castello Montebello (Svitto), XV secolo, Bellinzona",
+    "Rovine di Serravalle nel comune di Malvaglia",
+    "Rovine di Serravalle nel comune di Malvaglia",
+    "Rovine di Serravalle nel comune di Malvaglia",
+    "Monte Generoso: Trenino/cremagliera. Capolago (270 s.l.)- Vetta (1700 s.l.m.)",
+    "Monte Generoso: Trenino/cremagliera. Capolago (270 s.l.)- Vetta (1700 s.l.m.). Nello sfondo Melide e Lago 'Lugano'",
+    "Monte Generoso: Trenino/cremagliera. Capolago (270 s.l.)- Vetta (1700 s.l.m.). Nello sfondo: Città di Lugano",
+    "Monte Generoso: Trenino/cremagliera. Capolago (270 s.l.)- Vetta (1700 s.l.m.)",
+    "Monte Generoso: Trenino/cremagliera. Capolago (270 s.l.)- Vetta (1700 s.l.m.)",
+    "Monte Generoso: Trenino/cremagliera. Capolago (270 s.l.)- Vetta (1700 s.l.m.)",
+  ];
+
+  const gallery =
+    portfolioData.cultura.portfolio.photography.drone["poesia ticino"].images.pictures;
+
+  // Check if the gallery exists and iterate
+  if (gallery && Array.isArray(gallery)) {
+    dida.forEach((item, index) => {
+      if (gallery[index]) {
+        gallery[index].heading = item;
+        gallery[index].description = item;
+      }
+    });
+  } else {
+    console.error("Gallery or images not found");
+  }
+
+  console.log(
+    portfolioData.cultura?.portfolio?.photography?.drone["poesia ticino"].images.pictures[0]
+  );
+
   // ------------------------------------------------------------------------------------------------------------
 
   return (

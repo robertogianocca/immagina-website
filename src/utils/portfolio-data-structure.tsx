@@ -1,8 +1,6 @@
 export const getDataStructure = (cloudinaryResponse: { resources: [] }) => {
   const allCloudinaryData = cloudinaryResponse.resources;
-  const portfolioData = {};
-
-  // Typescript interface
+  const portfolioData: any = {};
 
   interface DataObject {
     public_id: string;
@@ -19,17 +17,30 @@ export const getDataStructure = (cloudinaryResponse: { resources: [] }) => {
     height: number;
   }
 
-  allCloudinaryData.forEach((item: DataObject) => {
-    // Destructur object and create variables from cloudinary data
+  // Helper function to recursively sort portfolioData
+  const sortPortfolioData = (data: any): any => {
+    const sortedData: any = {};
 
+    // Sort keys of the current level of the object
+    const sortedKeys = Object.keys(data).sort();
+
+    sortedKeys.forEach((key) => {
+      if (key === "pictures") {
+        // Sort pictures array by fileName
+        sortedData[key] = data[key].sort((a: any, b: any) => a.fileName.localeCompare(b.fileName));
+      } else {
+        // Recurse into subfolders
+        sortedData[key] = sortPortfolioData(data[key]);
+      }
+    });
+
+    return sortedData;
+  };
+
+  allCloudinaryData.forEach((item: DataObject) => {
     const { public_id, context, url, folder, width, height } = item;
 
-    // Extract the file name from public_id
-
     const fileName = public_id.split("/").pop();
-
-    // Extract metadata if available
-
     let description = "";
     let heading = "";
     let indexNumber = "";
@@ -42,17 +53,8 @@ export const getDataStructure = (cloudinaryResponse: { resources: [] }) => {
       indexNumber = index;
     }
 
-    // Extract the folders hierarchy
-
-    let folders = folder.split("/");
-
-    // Lowercase folders name
-    folders = folders.map((item) => item.toLowerCase());
-
-    // Remove immagina and portfolio
-    folders.splice(0, 1);
-
-    // Push all the data inside "portfolioData"
+    let folders = folder.split("/").map((item) => item.toLowerCase());
+    folders.splice(0, 1); // Remove unnecessary folders
 
     let currentLevel: any = portfolioData;
 
@@ -76,5 +78,6 @@ export const getDataStructure = (cloudinaryResponse: { resources: [] }) => {
     });
   });
 
-  return portfolioData;
+  // Sort the portfolioData object
+  return sortPortfolioData(portfolioData);
 };

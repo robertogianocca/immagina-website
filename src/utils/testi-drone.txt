@@ -11,10 +11,35 @@ description:
 
 
 -----------------------------------------------------------------------------------------------
-DRONE:
+POESIA TICINO:
 
 shortDescription:
 
 
 description:
+
+didascalie:
+1 Chiesa di Negrentino, Romanico XI sec. Dedicata a Sant’Ambrogio, Prugiasco, Valle di Blenio
+2 Chiesa di Negrentino, Romanico XI sec. Dedicata a Sant’Ambrogio, Prugiasco, Valle di Blenio
+3 Chiesaromanica di san Pietro e Paolo, risale al 1171, Biasca
+4 Chiesa-Oratorio di San Vigilio, Rovio
+5 Chiesa di Santa Maria del Sasso, edificata nel 1470, Morcote
+6 Chiesa di Santa Maria del Sasso, edificata nel 1470, Morcote
+7 Chiesa di Santa Maria del Sasso, edificata nel 1470, Morcote
+8 Chiesa di Sant’Antonio Abate (ca. 1300), Morcote.
+9 Isole di Brissago
+10 Isola di Brissago
+11 Isola di Brissago
+12. Castello Sasso Corbaro (Unterwaldo), XV secolo, Bellinzona
+13 Castello Sasso Corbaro (Unterwaldo), XV secolo, Bellinzona
+14 Castello Montebello (Svitto), XV secolo, Bellinzona
+15 Rovine di Serravalle nel comune di Malvaglia
+16 Rovine di Serravalle nel comune di Malvaglia
+17 Rovine di Serravalle nel comune di Malvaglia
+18 Monte Generoso: Trenino/cremagliera. Capolago (270 s.l.)- Vetta (1700 s.l.m.)
+19 Monte Generoso: Trenino/cremagliera. Capolago (270 s.l.)- Vetta (1700 s.l.m.). Nello sfondo Melide e Lago di Lugano
+20 Monte Generoso: Trenino/cremagliera. Capolago (270 s.l.)- Vetta (1700 s.l.m.). Nello sfondo: Città di Lugano.
+21 Monte Generoso: Trenino/cremagliera. Capolago (270 s.l.)- Vetta (1700 s.l.m.)
+22 Monte Generoso: Trenino/cremagliera. Capolago (270 s.l.)- Vetta (1700 s.l.m.)
+23 Monte Generoso: Trenino/cremagliera. Capolago (270 s.l.)- Vetta (1700 s.l.m.)
 

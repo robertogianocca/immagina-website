@@ -125,8 +125,7 @@ export default function PortfolioGallerySideBar({
     return item.join(" ");
   });
 
-  console.log(transformedCategoriesFromPath);
-  console.log("PORCODIO " + path.split("/"));
+  console.log(picturesList[currentIndex].heading);
 
   return (
     <>
