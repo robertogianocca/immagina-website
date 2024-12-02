@@ -66,7 +66,6 @@ export default async function CategoriesPages({ params }: any) {
     "Castello Montebello (Svitto), XV secolo, Bellinzona",
     "Rovine di Serravalle nel comune di Malvaglia",
     "Rovine di Serravalle nel comune di Malvaglia",
-    "Rovine di Serravalle nel comune di Malvaglia",
     "Monte Generoso: Trenino/cremagliera. Capolago (270 s.l.)- Vetta (1700 s.l.m.)",
     "Monte Generoso: Trenino/cremagliera. Capolago (270 s.l.)- Vetta (1700 s.l.m.). Nello sfondo Melide e Lago 'Lugano'",
     "Monte Generoso: Trenino/cremagliera. Capolago (270 s.l.)- Vetta (1700 s.l.m.). Nello sfondo: Città di Lugano",
