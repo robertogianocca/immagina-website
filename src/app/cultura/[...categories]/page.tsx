@@ -17,7 +17,7 @@ export default async function CategoriesPages({ params }: any) {
   );
 
   const cloudinaryResponse = await response.json();
-  revalidatePath("/cultura");
+  // revalidatePath("/cultura");
 
   const portfolioData = getDataStructure(cloudinaryResponse);
   const categoriesFromPath = params.categories;
@@ -88,10 +88,6 @@ export default async function CategoriesPages({ params }: any) {
   } else {
     console.error("Gallery or images not found");
   }
-
-  console.log(
-    portfolioData.cultura?.portfolio?.photography?.drone["poesia ticino"].images.pictures[0]
-  );
 
   // ------------------------------------------------------------------------------------------------------------
 

@@ -114,8 +114,6 @@ export default function PortfolioContainer({ portfolioData, categoriesFromPath }
     </motion.div>
   ));
 
-  console.log(portfolioData);
-
   return (
     <>
       {subCategoryList[0] === "images" && subCategoryList.length === 1 ? (
