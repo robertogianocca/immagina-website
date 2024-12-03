@@ -6,7 +6,7 @@ import PortfolioContainer from "@/components/Portfolio/PortfolioContainer/Portfo
 
 export default async function CategoriesPages({ params }: any) {
   const response = await fetch(
-    `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_ID}/resources/image/?max_results=10&metadata=true&context=true`,
+    `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_ID}/resources/image/?max_results=500&metadata=true&context=true`,
     {
       headers: {
         Authorization: `Basic ${Buffer.from(
@@ -74,20 +74,22 @@ export default async function CategoriesPages({ params }: any) {
     "Monte Generoso: Trenino/cremagliera. Capolago (270 s.l.)- Vetta (1700 s.l.m.)",
   ];
 
-  const gallery =
-    portfolioData.cultura.portfolio.photography.drone["poesia ticino"].images.pictures;
+  // const gallery =
+  //   portfolioData.cultura.portfolio.photography.drone["poesia ticino"].images.pictures;
 
-  // Check if the gallery exists and iterate
-  if (gallery && Array.isArray(gallery)) {
-    dida.forEach((item, index) => {
-      if (gallery[index]) {
-        gallery[index].heading = item;
-        gallery[index].description = item;
-      }
-    });
-  } else {
-    console.error("Gallery or images not found");
-  }
+  // console.log(portfolioData.cultura.portfolio.photography.drone["poesia ticino"].images.pictures);
+
+  // // Check if the gallery exists and iterate
+  // if (gallery && Array.isArray(gallery)) {
+  //   dida.forEach((item, index) => {
+  //     if (gallery[index]) {
+  //       gallery[index].heading = item;
+  //       gallery[index].description = item;
+  //     }
+  //   });
+  // } else {
+  //   console.error("Gallery or images not found");
+  // }
 
   // ------------------------------------------------------------------------------------------------------------
 
