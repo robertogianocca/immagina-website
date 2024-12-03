@@ -6,7 +6,7 @@ import PortfolioContainer from "@/components/Portfolio/PortfolioContainer/Portfo
 
 export default async function CategoriesPages({ params }: any) {
   const response = await fetch(
-    `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_ID}/resources/image/?max_results=500&metadata=true&context=true`,
+    `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_ID}/resources/image/?max_results=10&metadata=true&context=true`,
     {
       headers: {
         Authorization: `Basic ${Buffer.from(
