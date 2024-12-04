@@ -12,8 +12,6 @@ interface PortfolioSectionProps {
 }
 
 export default function PortfolioSection({ categoryList, portfolioData }: PortfolioSectionProps) {
-  console.log("CATEGORYLIST:" + categoryList);
-
   const cardVariants = {
     hidden: { opacity: 0, y: 40 },
     visible: (i: number) => ({

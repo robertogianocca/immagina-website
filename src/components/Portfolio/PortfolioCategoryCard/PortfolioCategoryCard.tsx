@@ -42,8 +42,6 @@ export default function PortfolioCategoryCard({
     .replace(" ", "-")
     .toLowerCase();
 
-  console.log(transformedCategoriesFromPath);
-
   const hrefLink = Array.isArray(transformedCategoriesFromPath)
     ? `/${path}/${transformedCategoriesFromPath.join("/")}/${titleToLink}`
     : `/${path}/${transformedCategoriesFromPath}`;

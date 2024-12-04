@@ -6,6 +6,7 @@ import NavigationBar from "@/components/NavigationBar/NavigationBar";
 import Wrapper from "@/components/Wrapper/Wrapper";
 import IntroSection from "@/components/Sections/IntroSection/IntroSection";
 import PortfolioSection from "@/components/Sections/PortfolioSection/PortfolioSection";
+import TeamSection from "@/components/Sections/TeamSection/TeamSection";
 
 export default async function Cultura() {
   const response = await fetch(
@@ -63,6 +64,23 @@ export default async function Cultura() {
         <section id="portfolio" className="min-h-space pb-10 pt-6 xl:pt-10">
           <h2 className="text-3xl xl:text-4xl font-courier font-bold mb-6">Portfolio</h2>
           <PortfolioSection
+            categoryList={categoryList}
+            portfolioData={portfolioData.cultura.portfolio}
+          />
+        </section>
+        {/* ---------- TEAM SECTION ---------- */}
+        <section id="portfolio" className="min-h-space pb-10 pt-6 xl:pt-10">
+          <div className="grid grid-cols-3  gap-4 xl:gap-8 pb-20">
+            <h2 className="text-3xl xl:text-4xl font-courier font-bold mb-6 col-span-1">Team</h2>
+            <div className="xl:block col-span-2">
+              <p className="hidden xl:block text-base font-semibold col-span-2 ">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                unknown printer took a galley of type and scrambled it to make a type specimen book.
+              </p>
+            </div>
+          </div>
+          <TeamSection
             categoryList={categoryList}
             portfolioData={portfolioData.cultura.portfolio}
           />
