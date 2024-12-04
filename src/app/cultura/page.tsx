@@ -74,9 +74,9 @@ export default async function Cultura() {
             <h2 className="text-3xl xl:text-4xl font-courier font-bold mb-6 col-span-1">Team</h2>
             <div className="xl:block col-span-2">
               <p className="hidden xl:block text-base font-semibold col-span-2 ">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                unknown printer took a galley of type and scrambled it to make a type specimen book.
+                {
+                  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took."
+                }
               </p>
             </div>
           </div>
