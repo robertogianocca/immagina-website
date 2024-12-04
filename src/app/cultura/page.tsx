@@ -80,10 +80,7 @@ export default async function Cultura() {
               </p>
             </div>
           </div>
-          <TeamSection
-            categoryList={categoryList}
-            portfolioData={portfolioData.cultura.portfolio}
-          />
+          <TeamSection />
         </section>
         {/* ---------- PRINCIPI ---------- */}
         {/* <section id="principi" className="min-h-space">
