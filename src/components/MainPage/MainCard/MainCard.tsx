@@ -3,7 +3,6 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-
 import { motion } from "framer-motion";
 
 interface MainCardProps {
@@ -15,10 +14,10 @@ interface MainCardProps {
 }
 
 export default function MainCard({
-  title = "empty",
-  description = "empty",
-  cover = "/empty",
-  logo = "empty",
+  title = "",
+  description = "",
+  cover = "/",
+  logo = "",
   titleColor = "",
 }: MainCardProps) {
   return (
