@@ -153,7 +153,7 @@ export default function PortfolioGallery({
               <Image
                 priority={true}
                 src={picturesList[currentIndex].url}
-                alt={picturesList[currentIndex].description}
+                alt={picturesList[currentIndex].description || ""}
                 width={picturesList[currentIndex].width}
                 height={picturesList[currentIndex].height}
                 className="object-contain max-w-full max-h-full"
