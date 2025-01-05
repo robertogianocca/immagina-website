@@ -80,7 +80,7 @@ export default function Main() {
       <div className="flex flex-col gap-4 xl:grid xl:col-span-2 xl:grid-cols-2 xl:gap-12">
         {/* MainCard for "cultura" */}
         <MainCard
-          title="cultura-"
+          title="cultura--"
           description="Dedicato ad artisti e operatori culturali."
           cover="https://res.cloudinary.com/immagina/image/upload/v1728637625/IMMAGINA/Home%20Page/immagina-cultura_uqdajd.jpg"
           logo={logoRed}
