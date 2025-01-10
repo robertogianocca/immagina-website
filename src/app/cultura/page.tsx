@@ -86,7 +86,7 @@ export default async function Cultura() {
           />
         </section>
         {/* ---------- TEAM SECTION ---------- */}
-        <section id="portfolio" className="min-h-space pb-10 pt-6 xl:pt-10">
+        <section id="team" className="min-h-space pb-10 pt-6 xl:pt-10">
           <div className="grid grid-cols-3  gap-4 xl:gap-8 xl:pb-20">
             <h2 className="text-3xl xl:text-4xl font-courier font-bold mb-6 col-span-1">Team</h2>
             <div className="xl:block col-span-2">

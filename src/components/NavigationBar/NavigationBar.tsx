@@ -17,7 +17,7 @@ type NavigationBarProps = {
   bgColor: string;
 };
 
-const menuItems = ["Portfolio", "Principi", "Prodotti", "Chi siamo", "Contatto"];
+const menuItems = ["Portfolio", "Team"];
 
 export default function NavigationBar({ color, menuColor, bgColor }: NavigationBarProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,12 +62,14 @@ export default function NavigationBar({ color, menuColor, bgColor }: NavigationB
             <HamburgerIcon color={color} />
           </div> */}
         </div>
-        <div className="flex flex-row items-center col-span-2 justify-end">
+        <div className="flex flex-row items-center col-span-2 justify-between">
+          <div>
+            <MenuDesktop menuItems={menuItems} menuColor={menuColor} />
+          </div>
           <p className="text-xs pl-4 xl:pl-0 md:text-base font-bold text-customRed ">
             <a href="mailto:contact@immagina.ch">contact@immagina.ch</a>
           </p>
           {/* ---------- MENU LIST ---------- */}
-          {/* <MenuDesktop menuItems={menuItems} menuColor={menuColor} /> */}
         </div>
         {/* <div
           className={`absolute top-[60px] left-0 w-full h-space bg-customWhite opacity-98 px-4 py-10 ${

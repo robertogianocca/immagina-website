@@ -8,8 +8,8 @@ type MenuDesktopProps = {
 export default function MenuDesktop({ menuItems, menuColor }: MenuDesktopProps) {
   const mappedMenu = menuItems.map((item: string, index: number) => {
     return (
-      <li key={index} className="whitespace-nowrap">
-        <Link href={`/#${item.toLowerCase()}`} className={menuColor}>
+      <li key={index} className="whitespace-nowrap mr-20">
+        <Link href={`/cultura/#${item.toLowerCase()}`} className={menuColor}>
           {item}
         </Link>
       </li>
