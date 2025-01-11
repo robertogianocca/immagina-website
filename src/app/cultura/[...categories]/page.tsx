@@ -11,24 +11,41 @@ import {
 import { addCaption } from "@/utils/add-caption";
 
 export default async function CategoriesPages({ params }: any) {
-  const response = await fetch(
-    `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_ID}/resources/image/?max_results=500&metadata=true&context=true`,
-    {
-      headers: {
-        Authorization: `Basic ${Buffer.from(
-          `${process.env.CLOUDINARY_API_KEY}:${process.env.CLOUDINARY_API_SECRET}`
-        ).toString("base64")}`,
-      },
-    }
-  );
+  let portfolioData = null;
+  try {
+    const response = await fetch(
+      `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_ID}/resources/image/?max_results=500&metadata=true&context=true&prefix=IMMAGINA/Cultura/&type=upload`,
+      {
+        headers: {
+          Authorization: `Basic ${Buffer.from(
+            `${process.env.CLOUDINARY_API_KEY}:${process.env.CLOUDINARY_API_SECRET}`
+          ).toString("base64")}`,
+        },
+      }
+    );
 
-  const cloudinaryResponse = await response.json();
-  // revalidatePath("/cultura");
+    const cloudinaryResponse = await response.json();
+    portfolioData = getDataStructure(cloudinaryResponse);
+  } catch (error) {
+    console.error("Error fetching portfolio data:", error);
+  }
 
-  const portfolioData = getDataStructure(cloudinaryResponse);
+  if (!portfolioData) {
+    return (
+      <div className="bg-customGrey h-screen">
+        <div className="text-customBrown bg-customGrey w-[50%] flex m-auto justify-center pt-[20%]">
+          <p className="font-semibold text-xs md:text-lg">
+            Errore nel caricamento dei dati. Riprova più tardi.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   const categoriesFromPath = params.categories;
+  console.log(params.categories);
 
-  // ------------------------------------------------------------------------------------------------------------
+  // --------------------------------------------------------------------------------------------------
 
   function renamePropertyRecursive(obj, oldKey, newKey) {
     if (typeof obj !== "object" || obj === null) return false; // Base case for non-object
