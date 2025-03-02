@@ -40,7 +40,7 @@ export default async function Cultura() {
     );
   }
 
-  revalidatePath("/cultura");
+  // revalidatePath("/cultura");
 
   const categoryList = Object.keys(portfolioData.cultura.portfolio);
 
