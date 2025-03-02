@@ -41,6 +41,7 @@ export default async function CategoriesPages({ params }: any) {
       </div>
     );
   }
+  revalidatePath("/cultura");
 
   const categoriesFromPath = params.categories;
   console.log(params.categories);
