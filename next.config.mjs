@@ -21,6 +21,19 @@ const nextConfig = {
     // !! WARN !!
     ignoreBuildErrors: true,
   },
+  async rewrites() {
+    return [
+      {
+        source: "/romanico",
+        destination: "/cultura/photography/drone/romanico",
+      },
+      {
+        source: "/autostrada",
+        destination: "/cultura/photography/drone/autostrada-land-art",
+      },
+      // Add more as needed...
+    ];
+  },
 };
 
 export default nextConfig;
